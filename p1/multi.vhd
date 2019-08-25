@@ -1,0 +1,22 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL; 
+ENTITY multi IS
+PORT(
+	sel : IN STD_LOGIC_VECTOR (2 DOWNTO 0);
+	X   : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+	y   : OUT STD_LOGIC_VECTOR (3 DOWNTO 0)
+);
+END multi;
+ARCHITECTURE prueba OF multi IS
+BEGIN
+	WITH sel SELECT
+		y<= 
+			x(0) & x(3 DOWNTO 1) WHEN "000",
+			x(2 DOWNTO 0) & x(3) WHEN "001",
+			'0' & x(3 DOWNTO 1)  WHEN "010",
+			x(2 DOWNTO 0) & '0' WHEN "011",
+			
+			'1' & x(3 DOWNTO 1)  WHEN "100",
+			x(2 DOWNTO 0) & '1' WHEN "101",
+			X"0" WHEN OTHERS;
+END prueba;

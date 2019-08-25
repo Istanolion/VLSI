@@ -1,0 +1,39 @@
+|counter
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+led[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+led[4] <= count[4].DB_MAX_OUTPUT_PORT_TYPE
+led[5] <= count[5].DB_MAX_OUTPUT_PORT_TYPE
+led[6] <= count[6].DB_MAX_OUTPUT_PORT_TYPE
+led[7] <= count[7].DB_MAX_OUTPUT_PORT_TYPE
+led[8] <= count[8].DB_MAX_OUTPUT_PORT_TYPE
+led[9] <= count[9].DB_MAX_OUTPUT_PORT_TYPE
+led[10] <= count[10].DB_MAX_OUTPUT_PORT_TYPE
+led[11] <= count[11].DB_MAX_OUTPUT_PORT_TYPE
+led[12] <= count[12].DB_MAX_OUTPUT_PORT_TYPE
+led[13] <= count[13].DB_MAX_OUTPUT_PORT_TYPE
+led[14] <= count[14].DB_MAX_OUTPUT_PORT_TYPE
+led[15] <= count[15].DB_MAX_OUTPUT_PORT_TYPE
+led[16] <= count[16].DB_MAX_OUTPUT_PORT_TYPE
+led[17] <= count[17].DB_MAX_OUTPUT_PORT_TYPE
+
+

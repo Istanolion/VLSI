@@ -1,0 +1,27 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+ENTITY reloj IS
+PORT (
+	clk : IN STD_LOGIC; 
+);
+ARCHITECTURE prueba OF reloj IS
+SIGNAL seg 		: STD_LOGIC_VECTOR (3 DOWNTO 0);
+SIGNAL decseg 	: STD_LOGIC_VECTOR (3 DOWNTO 0);
+SIGNAL min 		: STD_LOGIC_VECTOR (3 DOWNTO 0);
+SIGNAL decmin 	: STD_LOGIC_VECTOR (3 DOWNTO 0);
+SIGNAL hr 		: STD_LOGIC_VECTOR (3 DOWNTO 0);
+SIGNAL dechr 	: STD_LOGIC_VECTOR (3 DOWNTO 0);
+BEGIN
+	PROCESS(clk)
+		IF (clk'EVENT AND clk='1') THEN
+			seg <= seg + 1;
+		END IF;
+		IF (seg=X"A") THEN
+			seg=X'0';
+			decseg<=X'1';
+		END IF;
+		IF (decseg=X"6") THEN
+		END IF;
+		
+	END PROCESS;
+END prueba;
