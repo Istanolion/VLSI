@@ -1,6 +1,6 @@
 Analysis & Synthesis report for P2
-Thu Aug 22 14:28:02 2019
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Mon Aug 26 21:11:27 2019
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
 ---------------------
@@ -13,10 +13,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -42,15 +44,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Aug 22 14:28:02 2019       ;
-; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Mon Aug 26 21:11:27 2019       ;
+; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; P2                                          ;
-; Top-level Entity Name              ; MUXreloj                                    ;
+; Top-level Entity Name              ; divFreq                                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1                                           ;
-;     Total combinational functions  ; 1                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
+; Total logic elements               ; 1,665                                       ;
+;     Total combinational functions  ; 1,665                                       ;
+;     Dedicated logic registers      ; 32                                          ;
+; Total registers                    ; 32                                          ;
 ; Total pins                         ; 4                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -67,7 +69,7 @@ refer to the applicable agreement for further details.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C6GES   ;                    ;
-; Top-level entity name                                            ; MUXreloj           ; P2                 ;
+; Top-level entity name                                            ; divFreq            ; P2                 ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -153,65 +155,95 @@ refer to the applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                        ;
-+----------------------------------+-----------------+-----------------+------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------+---------+
-; MUXreloj.vhd                     ; yes             ; User VHDL File  ; C:/dev/VLSI/p2/MUXreloj.vhd  ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; divFreq.vhd                      ; yes             ; User VHDL File               ; Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd                         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; z:/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; z:/intelfpga_lite/18.0/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; z:/intelfpga_lite/18.0/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal180.inc                   ; yes             ; Megafunction                 ; z:/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc      ;         ;
+; db/lpm_divide_25o.tdf            ; yes             ; Auto-Generated Megafunction  ; Z:/Istanolion/Documents/GitHub/VLSI/p2/db/lpm_divide_25o.tdf               ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; Z:/Istanolion/Documents/GitHub/VLSI/p2/db/abs_divider_4dg.tdf              ;         ;
+; db/alt_u_div_ske.tdf             ; yes             ; Auto-Generated Megafunction  ; Z:/Istanolion/Documents/GitHub/VLSI/p2/db/alt_u_div_ske.tdf                ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; Z:/Istanolion/Documents/GitHub/VLSI/p2/db/add_sub_t3c.tdf                  ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; Z:/Istanolion/Documents/GitHub/VLSI/p2/db/add_sub_u3c.tdf                  ;         ;
+; db/lpm_abs_8b9.tdf               ; yes             ; Auto-Generated Megafunction  ; Z:/Istanolion/Documents/GitHub/VLSI/p2/db/lpm_abs_8b9.tdf                  ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimated Total logic elements              ; 1        ;
-;                                             ;          ;
-; Total combinational functions               ; 1        ;
-; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 0        ;
-;     -- 3 input functions                    ; 1        ;
-;     -- <=2 input functions                  ; 0        ;
-;                                             ;          ;
-; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 1        ;
-;     -- arithmetic mode                      ; 0        ;
-;                                             ;          ;
-; Total registers                             ; 0        ;
-;     -- Dedicated logic registers            ; 0        ;
-;     -- I/O registers                        ; 0        ;
-;                                             ;          ;
-; I/O pins                                    ; 4        ;
-;                                             ;          ;
-; Embedded Multiplier 9-bit elements          ; 0        ;
-;                                             ;          ;
-; Maximum fan-out node                        ; salida~0 ;
-; Maximum fan-out                             ; 1        ;
-; Total fan-out                               ; 8        ;
-; Average fan-out                             ; 0.89     ;
-+---------------------------------------------+----------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,665     ;
+;                                             ;           ;
+; Total combinational functions               ; 1665      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 554       ;
+;     -- 3 input functions                    ; 514       ;
+;     -- <=2 input functions                  ; 597       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1092      ;
+;     -- arithmetic mode                      ; 573       ;
+;                                             ;           ;
+; Total registers                             ; 32        ;
+;     -- Dedicated logic registers            ; 32        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 4         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; count[31] ;
+; Maximum fan-out                             ; 142       ;
+; Total fan-out                               ; 5005      ;
+; Average fan-out                             ; 2.94      ;
++---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |MUXreloj                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 4    ; 0            ; 0          ; |MUXreloj           ; MUXreloj    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                 ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                   ; Entity Name     ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |divFreq                              ; 1665 (133)          ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 4    ; 0            ; 0          ; |divFreq                                                                                              ; divFreq         ; work         ;
+;    |lpm_divide:Mod0|                  ; 1532 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |divFreq|lpm_divide:Mod0                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_25o:auto_generated| ; 1532 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |divFreq|lpm_divide:Mod0|lpm_divide_25o:auto_generated                                                ; lpm_divide_25o  ; work         ;
+;          |abs_divider_4dg:divider|    ; 1532 (63)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |divFreq|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;             |alt_u_div_ske:divider|   ; 1419 (1419)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |divFreq|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|alt_u_div_ske:divider  ; alt_u_div_ske   ; work         ;
+;             |lpm_abs_8b9:my_abs_num|  ; 50 (50)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |divFreq|lpm_divide:Mod0|lpm_divide_25o:auto_generated|abs_divider_4dg:divider|lpm_abs_8b9:my_abs_num ; lpm_abs_8b9     ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; state1                                             ; Equal0              ; yes                    ;
+; state2                                             ; process_0           ; yes                    ;
+; Number of user-specified and inferred latches = 2  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -219,14 +251,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 32    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 32    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 32             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_25o ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -235,12 +290,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 4                           ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         3 data inputs ; 1                           ;
+; cycloneiii_ff         ; 32                          ;
+;     CLR               ; 32                          ;
+; cycloneiii_lcell_comb ; 1666                        ;
+;     arith             ; 573                         ;
+;         2 data inputs ; 64                          ;
+;         3 data inputs ; 509                         ;
+;     normal            ; 1093                        ;
+;         0 data inputs ; 24                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 507                         ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 554                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 1.00                        ;
+; Max LUT depth         ; 109.30                      ;
+; Average LUT depth     ; 101.12                      ;
 +-----------------------+-----------------------------+
 
 
@@ -249,7 +313,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -258,33 +322,69 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Aug 22 14:27:42 2019
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Processing started: Mon Aug 26 21:11:12 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off P2 -c P2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
-    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/dev/VLSI/p2/DE10_LITE_Golden_Top.v Line: 29
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: Z:/Istanolion/Documents/GitHub/VLSI/p2/DE10_LITE_Golden_Top.v Line: 29
 Info (12021): Found 2 design units, including 1 entities, in source file divfreq.vhd
-    Info (12022): Found design unit 1: divFreq-prueba File: C:/dev/VLSI/p2/divFreq.vhd Line: 11
-    Info (12023): Found entity 1: divFreq File: C:/dev/VLSI/p2/divFreq.vhd Line: 3
+    Info (12022): Found design unit 1: divFreq-prueba File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 12
+    Info (12023): Found entity 1: divFreq File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file muxreloj.vhd
-    Info (12022): Found design unit 1: MUXreloj-prueba File: C:/dev/VLSI/p2/MUXreloj.vhd Line: 12
-    Info (12023): Found entity 1: MUXreloj File: C:/dev/VLSI/p2/MUXreloj.vhd Line: 3
-Info (12127): Elaborating entity "MUXreloj" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at MUXreloj.vhd(17): signal "clk1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/dev/VLSI/p2/MUXreloj.vhd Line: 17
-Warning (10492): VHDL Process Statement warning at MUXreloj.vhd(19): signal "clk2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/dev/VLSI/p2/MUXreloj.vhd Line: 19
+    Info (12022): Found design unit 1: MUXreloj-prueba File: Z:/Istanolion/Documents/GitHub/VLSI/p2/MUXreloj.vhd Line: 12
+    Info (12023): Found entity 1: MUXreloj File: Z:/Istanolion/Documents/GitHub/VLSI/p2/MUXreloj.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file reloj.vhd
+    Info (12022): Found design unit 1: reloj-prueba File: Z:/Istanolion/Documents/GitHub/VLSI/p2/reloj.vhd Line: 19
+    Info (12023): Found entity 1: reloj File: Z:/Istanolion/Documents/GitHub/VLSI/p2/reloj.vhd Line: 3
+Info (12127): Elaborating entity "divFreq" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at divFreq.vhd(16): used explicit default value for signal "state3" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 16
+Warning (10492): VHDL Process Statement warning at divFreq.vhd(23): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at divFreq.vhd(24): signal "state1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 24
+Warning (10492): VHDL Process Statement warning at divFreq.vhd(26): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at divFreq.vhd(27): signal "state2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at divFreq.vhd(29): signal "count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at divFreq.vhd(18): inferring latch(es) for signal or variable "state1", which holds its previous value in one or more paths through the process File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at divFreq.vhd(18): inferring latch(es) for signal or variable "state2", which holds its previous value in one or more paths through the process File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 18
+Info (10041): Inferred latch for "state2" at divFreq.vhd(18) File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 18
+Info (10041): Inferred latch for "state1" at divFreq.vhd(18) File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 18
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 26
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 26
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 26
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_25o.tdf
+    Info (12023): Found entity 1: lpm_divide_25o File: Z:/Istanolion/Documents/GitHub/VLSI/p2/db/lpm_divide_25o.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg File: Z:/Istanolion/Documents/GitHub/VLSI/p2/db/abs_divider_4dg.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ske.tdf
+    Info (12023): Found entity 1: alt_u_div_ske File: Z:/Istanolion/Documents/GitHub/VLSI/p2/db/alt_u_div_ske.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: Z:/Istanolion/Documents/GitHub/VLSI/p2/db/add_sub_t3c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: Z:/Istanolion/Documents/GitHub/VLSI/p2/db/add_sub_u3c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_8b9.tdf
+    Info (12023): Found entity 1: lpm_abs_8b9 File: Z:/Istanolion/Documents/GitHub/VLSI/p2/db/lpm_abs_8b9.tdf Line: 24
+Info (13014): Ignored 31 buffer(s)
+    Info (13016): Ignored 31 CARRY_SUM buffer(s)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "clk3" is stuck at GND File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 8
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 1 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4807 megabytes
-    Info: Processing ended: Thu Aug 22 14:28:02 2019
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:46
+Info (21057): Implemented 1669 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 1665 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4826 megabytes
+    Info: Processing ended: Mon Aug 26 21:11:27 2019
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:27
 
 

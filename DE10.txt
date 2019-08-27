@@ -1,0 +1,4 @@
+7 segmetos anodo comun (low para prenderlo)
+RELOJ 50MHZ PINES P11 O N14
+PUSH BUTTONS PINES B8 Y A7
+SWITCHES C10, C11, D12, C12, A12, B12, A13, A14, B14, F15

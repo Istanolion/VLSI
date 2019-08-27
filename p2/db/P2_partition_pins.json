@@ -4,7 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "salida",
+					"name" : "clk1",
 					"strict" : false
 				},
 				{
@@ -12,11 +12,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk1",
-					"strict" : false
-				},
-				{
-					"name" : "vel",
+					"name" : "clk",
 					"strict" : false
 				}
 			]
