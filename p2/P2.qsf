@@ -38,10 +38,10 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C6GES
-set_global_assignment -name TOP_LEVEL_ENTITY divFreq
+set_global_assignment -name TOP_LEVEL_ENTITY total
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:45:13 JUNE 17,2016"
-set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
@@ -231,15 +231,17 @@ set_location_assignment PIN_AB3 -to GPIO[32]
 set_location_assignment PIN_Y3 -to GPIO[33]
 set_location_assignment PIN_AB2 -to GPIO[34]
 set_location_assignment PIN_AA2 -to GPIO[35]
-set_global_assignment -name VERILOG_FILE DE10_LITE_Golden_Top.v
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name BOARD "MAX 10 DE10 - Lite"
+set_global_assignment -name VHDL_FILE deco7seg.vhd
+set_global_assignment -name VERILOG_FILE DE10_LITE_Golden_Top.v
 set_global_assignment -name VHDL_FILE divFreq.vhd
 set_global_assignment -name VHDL_FILE MUXreloj.vhd
 set_global_assignment -name VHDL_FILE reloj.vhd
+set_global_assignment -name VHDL_FILE total.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
