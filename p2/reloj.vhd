@@ -8,11 +8,8 @@ PORT (
 	sel : IN STD_LOGIC;
 	--salidas para el decodificador a 7 segmentos
 	s : OUT INTEGER;
-	ds : OUT INTEGER;
 	m : OUT INTEGER;
-	dm : OUT INTEGER;
-	h : OUT INTEGER;
-	dh : OUT INTEGER
+	h : OUT INTEGER
 );
 END reloj;
 
@@ -21,12 +18,9 @@ SIGNAL selection : INTEGER RANGE 0 TO 6; --NOS AYUDARA A VER CUAL NUMERO ESTAMOS
 SIGNAL counter : INTEGER RANGE 0 TO 3:=0; --EL CONTADOR PARA VER SI SET ESTUVO POR DOS SEGUNDOS
 SIGNAL estado_normal : STD_LOGIC :='1';--DETERMINA SI FUNCIONA NORMALMENTE O PASARA A SET
 --SEÑALES PARA DETERMINAR EL NUMERO DE CADA DISPLAY
-SIGNAL seg,sseg 		: INTEGER RANGE 0 TO 9:=0;
-SIGNAL decseg,sdecseg 	: INTEGER RANGE 0 TO 9:=0;
-SIGNAL min,smin 		: INTEGER RANGE 0 TO 9:=0;
-SIGNAL decmin,sdecmin 	: INTEGER RANGE 0 TO 9:=0;
-SIGNAL hr,shr 		: INTEGER RANGE 0 TO 9:=0;
-SIGNAL dechr,sdechr 	: INTEGER RANGE 0 TO 9:=0;
+SIGNAL seg,sseg 		: INTEGER RANGE 0 TO 59:=0;
+SIGNAL min,smin 		: INTEGER RANGE 0 TO 59:=0;
+SIGNAL hr,shr 		: INTEGER RANGE 0 TO 23:=0;
 BEGIN
 	PROCESS(clk,temporizador)
 	BEGIN
@@ -43,37 +37,21 @@ BEGIN
 	END IF;
 	--FUNCIONAMIENTO NORMAL DEL RELOJ (24H)
 		IF (clk'EVENT AND clk='1' AND estado_normal='1') THEN
-			IF(seg < 9 ) THEN
+			IF(seg < 59 ) THEN
 				seg <= seg+1;
 			ELSE
 				seg<=0;
-				IF (decseg < 5) THEN
-					decseg <= decseg+1;
+				IF min < 59 THEN
+					min <= min+1;
 				ELSE
-					decseg <= 0;
-					IF min < 9 THEN
-						min <= min+1;
-					ELSE
-						min <= 0;
-						IF decmin < 5 THEN
-							decmin <= decmin+1;
-						ELSE
-							decmin <= 0;
-							IF hr < 9 THEN
-								hr <= hr+1;
-							ELSE 
-								hr <= 0;
-								IF dechr < 2 THEN 
-									dechr <= dechr+1;
-								ELSE
-									dechr <= 0;
-								END IF;
-							END IF;
-						END IF;
+					min <= 0;
+					IF hr < 23 THEN
+						hr <= hr+1;
+					ELSE 
+						hr <= 0;
 					END IF;
 				END IF;
 			END IF;
-				
 		END IF;
 	END PROCESS;
 	--Cuando se puede cambiar la hora, selection nos dira que digito cambiar (y debe de parpadear)
@@ -136,12 +114,9 @@ BEGIN
 	END PROCESS;
 	--se asignan los valores de salida de nuestro reloj 
 	*/
-	s<=seg + sseg;
-	ds<=decseg + sdecseg;
-	m<=min  + smin;
-	dm<=decmin  + sdecmin;
-	h<=hr  + shr;
-	dh<=dechr + sdechr;
+	s<=seg ;
+	m<=min  ;
+	h<=hr ;
 	
 	
 END prueba;

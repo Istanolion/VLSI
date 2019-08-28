@@ -1,5 +1,5 @@
 Timing Analyzer report for P2
-Tue Aug 27 20:34:23 2019
+Tue Aug 27 20:59:16 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -93,14 +93,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.12        ;
+; Average used               ; 1.11        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   4.3%      ;
-;     Processor 3            ;   4.2%      ;
-;     Processor 4            ;   3.8%      ;
+;     Processor 2            ;   3.8%      ;
+;     Processor 3            ;   3.7%      ;
+;     Processor 4            ;   3.4%      ;
 +----------------------------+-------------+
 
 
@@ -120,9 +120,9 @@ refer to the applicable agreement for further details.
 +------------+-----------------+----------------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name           ; Note                                                          ;
 +------------+-----------------+----------------------+---------------------------------------------------------------+
-; 305.25 MHz ; 250.0 MHz       ; clk50Hz              ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 317.46 MHz ; 317.46 MHz      ; divFreq:div|count[0] ;                                                               ;
-; 317.46 MHz ; 250.0 MHz       ; velocidad            ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 279.64 MHz ; 250.0 MHz       ; clk50Hz              ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 295.16 MHz ; 295.16 MHz      ; divFreq:div|count[0] ;                                                               ;
+; 295.16 MHz ; 250.0 MHz       ; velocidad            ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+----------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -132,9 +132,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------+--------+---------------+
 ; Clock                ; Slack  ; End Point TNS ;
 +----------------------+--------+---------------+
-; clk50Hz              ; -4.063 ; -251.120      ;
-; velocidad            ; -2.971 ; -48.986       ;
-; divFreq:div|count[0] ; -2.779 ; -45.567       ;
+; clk50Hz              ; -5.498 ; -266.397      ;
+; divFreq:div|count[0] ; -3.995 ; -65.825       ;
+; velocidad            ; -2.388 ; -37.299       ;
 +----------------------+--------+---------------+
 
 
@@ -143,9 +143,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------+-------+---------------+
 ; Clock                ; Slack ; End Point TNS ;
 +----------------------+-------+---------------+
-; divFreq:div|count[0] ; 0.332 ; 0.000         ;
-; velocidad            ; 0.332 ; 0.000         ;
+; divFreq:div|count[0] ; 0.316 ; 0.000         ;
 ; clk50Hz              ; 0.371 ; 0.000         ;
+; velocidad            ; 1.303 ; 0.000         ;
 +----------------------+-------+---------------+
 
 
@@ -154,7 +154,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------+--------+---------------------+
 ; Clock   ; Slack  ; End Point TNS       ;
 +---------+--------+---------------------+
-; clk50Hz ; -5.123 ; -230.634            ;
+; clk50Hz ; -4.685 ; -206.413            ;
 +---------+--------+---------------------+
 
 
@@ -163,7 +163,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------+-------+---------------------+
 ; Clock   ; Slack ; End Point TNS       ;
 +---------+-------+---------------------+
-; clk50Hz ; 1.146 ; 0.000               ;
+; clk50Hz ; 0.876 ; 0.000               ;
 +---------+-------+---------------------+
 
 
@@ -172,9 +172,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------+--------+-------------------+
 ; Clock                ; Slack  ; End Point TNS     ;
 +----------------------+--------+-------------------+
-; clk50Hz              ; -3.000 ; -131.310          ;
-; velocidad            ; -3.000 ; -28.979           ;
-; divFreq:div|count[0] ; -1.222 ; -28.106           ;
+; clk50Hz              ; -3.000 ; -121.534          ;
+; velocidad            ; -3.000 ; -26.475           ;
+; divFreq:div|count[0] ; -1.222 ; -24.440           ;
 +----------------------+--------+-------------------+
 
 
@@ -189,9 +189,9 @@ No synchronizer chains to report.
 +------------+-----------------+----------------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name           ; Note                                                          ;
 +------------+-----------------+----------------------+---------------------------------------------------------------+
-; 338.75 MHz ; 250.0 MHz       ; clk50Hz              ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 344.59 MHz ; 344.59 MHz      ; divFreq:div|count[0] ;                                                               ;
-; 344.59 MHz ; 250.0 MHz       ; velocidad            ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 310.85 MHz ; 250.0 MHz       ; clk50Hz              ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 325.41 MHz ; 325.41 MHz      ; divFreq:div|count[0] ;                                                               ;
+; 325.41 MHz ; 250.0 MHz       ; velocidad            ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+----------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -201,9 +201,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------+--------+---------------+
 ; Clock                ; Slack  ; End Point TNS ;
 +----------------------+--------+---------------+
-; clk50Hz              ; -3.671 ; -217.486      ;
-; divFreq:div|count[0] ; -2.612 ; -42.686       ;
-; velocidad            ; -2.611 ; -42.381       ;
+; clk50Hz              ; -5.010 ; -232.782      ;
+; divFreq:div|count[0] ; -3.677 ; -60.614       ;
+; velocidad            ; -2.073 ; -32.317       ;
 +----------------------+--------+---------------+
 
 
@@ -212,9 +212,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------+-------+---------------+
 ; Clock                ; Slack ; End Point TNS ;
 +----------------------+-------+---------------+
-; divFreq:div|count[0] ; 0.300 ; 0.000         ;
-; velocidad            ; 0.300 ; 0.000         ;
+; divFreq:div|count[0] ; 0.287 ; 0.000         ;
 ; clk50Hz              ; 0.338 ; 0.000         ;
+; velocidad            ; 1.143 ; 0.000         ;
 +----------------------+-------+---------------+
 
 
@@ -223,7 +223,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------+--------+--------------------+
 ; Clock   ; Slack  ; End Point TNS      ;
 +---------+--------+--------------------+
-; clk50Hz ; -4.529 ; -202.863           ;
+; clk50Hz ; -4.260 ; -183.747           ;
 +---------+--------+--------------------+
 
 
@@ -232,7 +232,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------+-------+--------------------+
 ; Clock   ; Slack ; End Point TNS      ;
 +---------+-------+--------------------+
-; clk50Hz ; 0.912 ; 0.000              ;
+; clk50Hz ; 0.672 ; 0.000              ;
 +---------+-------+--------------------+
 
 
@@ -241,9 +241,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +----------------------+--------+------------------+
 ; Clock                ; Slack  ; End Point TNS    ;
 +----------------------+--------+------------------+
-; clk50Hz              ; -3.000 ; -131.310         ;
-; velocidad            ; -3.000 ; -27.440          ;
-; divFreq:div|count[0] ; -1.222 ; -28.106          ;
+; clk50Hz              ; -3.000 ; -121.534         ;
+; velocidad            ; -3.000 ; -23.798          ;
+; divFreq:div|count[0] ; -1.222 ; -24.440          ;
 +----------------------+--------+------------------+
 
 
@@ -258,9 +258,9 @@ No synchronizer chains to report.
 +----------------------+--------+---------------+
 ; Clock                ; Slack  ; End Point TNS ;
 +----------------------+--------+---------------+
-; clk50Hz              ; -1.681 ; -96.993       ;
-; velocidad            ; -1.212 ; -19.551       ;
-; divFreq:div|count[0] ; -1.008 ; -15.235       ;
+; clk50Hz              ; -2.181 ; -96.924       ;
+; divFreq:div|count[0] ; -1.735 ; -27.669       ;
+; velocidad            ; -0.878 ; -13.034       ;
 +----------------------+--------+---------------+
 
 
@@ -269,9 +269,9 @@ No synchronizer chains to report.
 +----------------------+-------+---------------+
 ; Clock                ; Slack ; End Point TNS ;
 +----------------------+-------+---------------+
-; divFreq:div|count[0] ; 0.152 ; 0.000         ;
-; velocidad            ; 0.152 ; 0.000         ;
+; divFreq:div|count[0] ; 0.145 ; 0.000         ;
 ; clk50Hz              ; 0.170 ; 0.000         ;
+; velocidad            ; 0.808 ; 0.000         ;
 +----------------------+-------+---------------+
 
 
@@ -280,7 +280,7 @@ No synchronizer chains to report.
 +---------+--------+--------------------+
 ; Clock   ; Slack  ; End Point TNS      ;
 +---------+--------+--------------------+
-; clk50Hz ; -2.080 ; -81.257            ;
+; clk50Hz ; -1.833 ; -69.275            ;
 +---------+--------+--------------------+
 
 
@@ -289,7 +289,7 @@ No synchronizer chains to report.
 +---------+-------+--------------------+
 ; Clock   ; Slack ; End Point TNS      ;
 +---------+-------+--------------------+
-; clk50Hz ; 0.664 ; 0.000              ;
+; clk50Hz ; 0.548 ; 0.000              ;
 +---------+-------+--------------------+
 
 
@@ -298,9 +298,9 @@ No synchronizer chains to report.
 +----------------------+--------+------------------+
 ; Clock                ; Slack  ; End Point TNS    ;
 +----------------------+--------+------------------+
-; clk50Hz              ; -3.000 ; -134.768         ;
-; velocidad            ; -3.000 ; -35.952          ;
-; divFreq:div|count[0] ; -1.000 ; -23.000          ;
+; clk50Hz              ; -3.000 ; -121.929         ;
+; velocidad            ; -3.000 ; -32.817          ;
+; divFreq:div|count[0] ; -1.000 ; -20.000          ;
 +----------------------+--------+------------------+
 
 
@@ -315,14 +315,14 @@ No synchronizer chains to report.
 +-----------------------+----------+-------+----------+---------+---------------------+
 ; Clock                 ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +-----------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack      ; -4.063   ; 0.152 ; -5.123   ; 0.664   ; -3.000              ;
-;  clk50Hz              ; -4.063   ; 0.170 ; -5.123   ; 0.664   ; -3.000              ;
-;  divFreq:div|count[0] ; -2.779   ; 0.152 ; N/A      ; N/A     ; -1.222              ;
-;  velocidad            ; -2.971   ; 0.152 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS       ; -345.673 ; 0.0   ; -230.634 ; 0.0     ; -193.72             ;
-;  clk50Hz              ; -251.120 ; 0.000 ; -230.634 ; 0.000   ; -134.768            ;
-;  divFreq:div|count[0] ; -45.567  ; 0.000 ; N/A      ; N/A     ; -28.106             ;
-;  velocidad            ; -48.986  ; 0.000 ; N/A      ; N/A     ; -35.952             ;
+; Worst-case Slack      ; -5.498   ; 0.145 ; -4.685   ; 0.548   ; -3.000              ;
+;  clk50Hz              ; -5.498   ; 0.170 ; -4.685   ; 0.548   ; -3.000              ;
+;  divFreq:div|count[0] ; -3.995   ; 0.145 ; N/A      ; N/A     ; -1.222              ;
+;  velocidad            ; -2.388   ; 0.808 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS       ; -369.521 ; 0.0   ; -206.413 ; 0.0     ; -174.746            ;
+;  clk50Hz              ; -266.397 ; 0.000 ; -206.413 ; 0.000   ; -121.929            ;
+;  divFreq:div|count[0] ; -65.825  ; 0.000 ; N/A      ; N/A     ; -24.440             ;
+;  velocidad            ; -37.299  ; 0.000 ; N/A      ; N/A     ; -32.817             ;
 +-----------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -579,12 +579,12 @@ No synchronizer chains to report.
 ; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +----------------------+----------------------+----------+----------+----------+----------+
 ; clk50Hz              ; clk50Hz              ; 1024     ; 0        ; 0        ; 0        ;
-; divFreq:div|count[0] ; clk50Hz              ; 32       ; 159      ; 0        ; 0        ;
-; velocidad            ; clk50Hz              ; 127      ; 0        ; 0        ; 0        ;
-; divFreq:div|count[0] ; divFreq:div|count[0] ; 0        ; 0        ; 0        ; 258      ;
-; velocidad            ; divFreq:div|count[0] ; 0        ; 0        ; 232      ; 0        ;
-; divFreq:div|count[0] ; velocidad            ; 0        ; 252      ; 0        ; 0        ;
-; velocidad            ; velocidad            ; 232      ; 0        ; 0        ; 0        ;
+; divFreq:div|count[0] ; clk50Hz              ; 32       ; 446      ; 0        ; 0        ;
+; velocidad            ; clk50Hz              ; 414      ; 0        ; 0        ; 0        ;
+; divFreq:div|count[0] ; divFreq:div|count[0] ; 0        ; 0        ; 0        ; 273      ;
+; velocidad            ; divFreq:div|count[0] ; 0        ; 0        ; 250      ; 0        ;
+; divFreq:div|count[0] ; velocidad            ; 0        ; 267      ; 0        ; 0        ;
+; velocidad            ; velocidad            ; 250      ; 0        ; 0        ; 0        ;
 +----------------------+----------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -595,12 +595,12 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +----------------------+----------------------+----------+----------+----------+----------+
 ; clk50Hz              ; clk50Hz              ; 1024     ; 0        ; 0        ; 0        ;
-; divFreq:div|count[0] ; clk50Hz              ; 32       ; 159      ; 0        ; 0        ;
-; velocidad            ; clk50Hz              ; 127      ; 0        ; 0        ; 0        ;
-; divFreq:div|count[0] ; divFreq:div|count[0] ; 0        ; 0        ; 0        ; 258      ;
-; velocidad            ; divFreq:div|count[0] ; 0        ; 0        ; 232      ; 0        ;
-; divFreq:div|count[0] ; velocidad            ; 0        ; 252      ; 0        ; 0        ;
-; velocidad            ; velocidad            ; 232      ; 0        ; 0        ; 0        ;
+; divFreq:div|count[0] ; clk50Hz              ; 32       ; 446      ; 0        ; 0        ;
+; velocidad            ; clk50Hz              ; 414      ; 0        ; 0        ; 0        ;
+; divFreq:div|count[0] ; divFreq:div|count[0] ; 0        ; 0        ; 0        ; 273      ;
+; velocidad            ; divFreq:div|count[0] ; 0        ; 0        ; 250      ; 0        ;
+; divFreq:div|count[0] ; velocidad            ; 0        ; 267      ; 0        ; 0        ;
+; velocidad            ; velocidad            ; 250      ; 0        ; 0        ; 0        ;
 +----------------------+----------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -648,8 +648,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 1     ; 1    ;
 ; Unconstrained Input Port Paths  ; 2     ; 2    ;
-; Unconstrained Output Ports      ; 41    ; 41   ;
-; Unconstrained Output Port Paths ; 41    ; 41   ;
+; Unconstrained Output Ports      ; 33    ; 33   ;
+; Unconstrained Output Port Paths ; 33    ; 33   ;
 +---------------------------------+-------+------+
 
 
@@ -686,12 +686,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; HEX0[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX1[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX1[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX1[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -700,12 +697,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; HEX2[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX3[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX3[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX3[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -714,11 +708,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; HEX4[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX5[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX5[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
 
@@ -744,12 +736,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; HEX0[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX0[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX1[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX1[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX1[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX1[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -758,12 +747,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; HEX2[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX2[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX3[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX3[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX3[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX3[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -772,11 +758,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; HEX4[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX4[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX5[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; HEX5[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; HEX5[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
 
@@ -786,7 +770,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Aug 27 20:34:20 2019
+    Info: Processing started: Tue Aug 27 20:59:13 2019
 Info: Command: quartus_sta P2 -c P2
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -796,122 +780,122 @@ Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'P2.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name clk50Hz clk50Hz
     Info (332105): create_clock -period 1.000 -name velocidad velocidad
     Info (332105): create_clock -period 1.000 -name divFreq:div|count[0] divFreq:div|count[0]
+    Info (332105): create_clock -period 1.000 -name clk50Hz clk50Hz
 Warning (332125): Found combinational loop of 2 nodes File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 18
     Warning (332126): Node "div|state1~0|combout"
-    Warning (332126): Node "div|state1~0|datad"
+    Warning (332126): Node "div|state1~0|datac"
 Warning (332125): Found combinational loop of 2 nodes File: Z:/Istanolion/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 18
     Warning (332126): Node "div|state2~0|combout"
     Warning (332126): Node "div|state2~0|datac"
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: div|state1~0  from: datac  to: combout
-    Info (332098): Cell: mux|salida  from: datab  to: combout
+    Info (332098): Cell: div|state1~0  from: datad  to: combout
+    Info (332098): Cell: mux|salida  from: datad  to: combout
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -4.063
+Info (332146): Worst-case setup slack is -5.498
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.063            -251.120 clk50Hz 
-    Info (332119):    -2.971             -48.986 velocidad 
-    Info (332119):    -2.779             -45.567 divFreq:div|count[0] 
-Info (332146): Worst-case hold slack is 0.332
+    Info (332119):    -5.498            -266.397 clk50Hz 
+    Info (332119):    -3.995             -65.825 divFreq:div|count[0] 
+    Info (332119):    -2.388             -37.299 velocidad 
+Info (332146): Worst-case hold slack is 0.316
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.332               0.000 divFreq:div|count[0] 
-    Info (332119):     0.332               0.000 velocidad 
+    Info (332119):     0.316               0.000 divFreq:div|count[0] 
     Info (332119):     0.371               0.000 clk50Hz 
-Info (332146): Worst-case recovery slack is -5.123
+    Info (332119):     1.303               0.000 velocidad 
+Info (332146): Worst-case recovery slack is -4.685
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.123            -230.634 clk50Hz 
-Info (332146): Worst-case removal slack is 1.146
+    Info (332119):    -4.685            -206.413 clk50Hz 
+Info (332146): Worst-case removal slack is 0.876
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.146               0.000 clk50Hz 
+    Info (332119):     0.876               0.000 clk50Hz 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -131.310 clk50Hz 
-    Info (332119):    -3.000             -28.979 velocidad 
-    Info (332119):    -1.222             -28.106 divFreq:div|count[0] 
+    Info (332119):    -3.000            -121.534 clk50Hz 
+    Info (332119):    -3.000             -26.475 velocidad 
+    Info (332119):    -1.222             -24.440 divFreq:div|count[0] 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: div|state1~0  from: datac  to: combout
-    Info (332098): Cell: mux|salida  from: datab  to: combout
+    Info (332098): Cell: div|state1~0  from: datad  to: combout
+    Info (332098): Cell: mux|salida  from: datad  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.671
+Info (332146): Worst-case setup slack is -5.010
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.671            -217.486 clk50Hz 
-    Info (332119):    -2.612             -42.686 divFreq:div|count[0] 
-    Info (332119):    -2.611             -42.381 velocidad 
-Info (332146): Worst-case hold slack is 0.300
+    Info (332119):    -5.010            -232.782 clk50Hz 
+    Info (332119):    -3.677             -60.614 divFreq:div|count[0] 
+    Info (332119):    -2.073             -32.317 velocidad 
+Info (332146): Worst-case hold slack is 0.287
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.300               0.000 divFreq:div|count[0] 
-    Info (332119):     0.300               0.000 velocidad 
+    Info (332119):     0.287               0.000 divFreq:div|count[0] 
     Info (332119):     0.338               0.000 clk50Hz 
-Info (332146): Worst-case recovery slack is -4.529
+    Info (332119):     1.143               0.000 velocidad 
+Info (332146): Worst-case recovery slack is -4.260
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.529            -202.863 clk50Hz 
-Info (332146): Worst-case removal slack is 0.912
+    Info (332119):    -4.260            -183.747 clk50Hz 
+Info (332146): Worst-case removal slack is 0.672
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.912               0.000 clk50Hz 
+    Info (332119):     0.672               0.000 clk50Hz 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -131.310 clk50Hz 
-    Info (332119):    -3.000             -27.440 velocidad 
-    Info (332119):    -1.222             -28.106 divFreq:div|count[0] 
+    Info (332119):    -3.000            -121.534 clk50Hz 
+    Info (332119):    -3.000             -23.798 velocidad 
+    Info (332119):    -1.222             -24.440 divFreq:div|count[0] 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: div|state1~0  from: datac  to: combout
-    Info (332098): Cell: mux|salida  from: datab  to: combout
+    Info (332098): Cell: div|state1~0  from: datad  to: combout
+    Info (332098): Cell: mux|salida  from: datad  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.681
+Info (332146): Worst-case setup slack is -2.181
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.681             -96.993 clk50Hz 
-    Info (332119):    -1.212             -19.551 velocidad 
-    Info (332119):    -1.008             -15.235 divFreq:div|count[0] 
-Info (332146): Worst-case hold slack is 0.152
+    Info (332119):    -2.181             -96.924 clk50Hz 
+    Info (332119):    -1.735             -27.669 divFreq:div|count[0] 
+    Info (332119):    -0.878             -13.034 velocidad 
+Info (332146): Worst-case hold slack is 0.145
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.152               0.000 divFreq:div|count[0] 
-    Info (332119):     0.152               0.000 velocidad 
+    Info (332119):     0.145               0.000 divFreq:div|count[0] 
     Info (332119):     0.170               0.000 clk50Hz 
-Info (332146): Worst-case recovery slack is -2.080
+    Info (332119):     0.808               0.000 velocidad 
+Info (332146): Worst-case recovery slack is -1.833
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.080             -81.257 clk50Hz 
-Info (332146): Worst-case removal slack is 0.664
+    Info (332119):    -1.833             -69.275 clk50Hz 
+Info (332146): Worst-case removal slack is 0.548
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.664               0.000 clk50Hz 
+    Info (332119):     0.548               0.000 clk50Hz 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -134.768 clk50Hz 
-    Info (332119):    -3.000             -35.952 velocidad 
-    Info (332119):    -1.000             -23.000 divFreq:div|count[0] 
+    Info (332119):    -3.000            -121.929 clk50Hz 
+    Info (332119):    -3.000             -32.817 velocidad 
+    Info (332119):    -1.000             -20.000 divFreq:div|count[0] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Tue Aug 27 20:34:23 2019
+    Info: Peak virtual memory: 4812 megabytes
+    Info: Processing ended: Tue Aug 27 20:59:16 2019
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
