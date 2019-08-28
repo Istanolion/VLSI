@@ -10,7 +10,7 @@ PORT (
 END divFreq;
 
 ARCHITECTURE prueba OF divFreq IS
-SIGNAL count : INTEGER :=0;		--CONTADOR PARA LAS FRECUENCIAS
+SIGNAL count,count2 : INTEGER :=0;		--CONTADOR PARA LAS FRECUENCIAS
 SIGNAL state1 : STD_LOGIC:='0';	--ESTADO DEL RELOJ 1
 SIGNAL state2 : STD_LOGIC:='0';	--ESTADO DEL RELOJ 2
 SIGNAL state3 : STD_LOGIC:='0';	--ESTADO DEL RELOJ 3
@@ -19,15 +19,15 @@ BEGIN
 	BEGIN
 		IF(clk'EVENT AND clk='1') THEN
 			count<=count+1;
+			count2<=count2+1;
 		END IF;
-		IF (count=50000) THEN
+		IF (count=25000000) THEN
 			state1<=NOT state1;
-		END IF;
-		IF ( (count mod 1250= 0) AND count/=0) THEN
-			state2<=NOT state2;
-		END IF;
-		IF (count=50000) THEN 
 			count<=0;
+		END IF;
+		IF ( (count2 =6250000)) THEN
+			state2<=NOT state2;
+			count2<=0;
 		END IF;
 	END PROCESS;
 	--asignacion de los estados a las salidas

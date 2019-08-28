@@ -47,7 +47,7 @@ BEGIN
 				seg <= seg+1;
 			ELSE
 				seg<=0;
-				IF (decseg < 6) THEN
+				IF (decseg < 5) THEN
 					decseg <= decseg+1;
 				ELSE
 					decseg <= 0;
@@ -55,7 +55,7 @@ BEGIN
 						min <= min+1;
 					ELSE
 						min <= 0;
-						IF decmin < 6 THEN
+						IF decmin < 5 THEN
 							decmin <= decmin+1;
 						ELSE
 							decmin <= 0;
@@ -79,7 +79,7 @@ BEGIN
 	--Cuando se puede cambiar la hora, selection nos dira que digito cambiar (y debe de parpadear)
 		--	el risign edge de set nos dira cuando aumentar el valor del digito seleccionado manteniendo su maxima numeracion.
 		
-	PRocESS(sel,set)
+	/*PRocESS(sel,set)
 	BEGIN
 		IF (estado_normal='0') THEN
 			
@@ -135,7 +135,7 @@ BEGIN
 		END IF;
 	END PROCESS;
 	--se asignan los valores de salida de nuestro reloj 
-	
+	*/
 	s<=seg + sseg;
 	ds<=decseg + sdecseg;
 	m<=min  + smin;

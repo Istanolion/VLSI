@@ -6,7 +6,7 @@ PORT(
 	selection: IN STD_LOGIC;
 	setting: IN STD_LOGIC;
 	velocidad : IN STD_LOGIC;
-	HEX0 : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+	HEX0: OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 	HEX1 : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);	
 	HEX2 : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
 	HEX3 : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -36,6 +36,7 @@ END COMPONENT;
 COMPONENT deco7Seg IS 
 PORT(
 	numero : IN INTEGER RANGE 0 TO 9;
+	clk :IN STD_LOGIC;
 	HEX : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) 
 );
 END COMPONENT;
@@ -64,4 +65,12 @@ BEGIN
 	mux : MUXreloj PORT MAP (clk1=>clk1h, clk2=>clk4h, vel=>velocidad, salida=>clkReloj);
 	watch : reloj PORT MAP (clk=>clkReloj,temporizador=>clk1h,set=>setting,sel=>selection,
 				s=>seg,ds=>decseg,m=>min,dm=>decmin,h=>hr,dh=>dechr); 
+	--Instancias de los decodficadores 7 segmentos
+	HS : deco7seg PORT MAP (numero=>seg,clk=>clk50hz,HEX=>HEX0);
+	HDS : deco7seg PORT MAP (numero=>decseg,clk=>clk50hz,HEX=>HEX1);
+	HM : deco7seg PORT MAP (numero=>min,clk=>clk50hz,HEX=>HEX2);
+	HDM : deco7seg PORT MAP (numero=>decmin,clk=>clk50hz,HEX=>HEX3);
+	HH : deco7seg PORT MAP (numero=>hr,clk=>clk50hz,HEX=>HEX4);
+	HDH : deco7seg PORT MAP (numero=>dechr,clk=>clk50hz,HEX=>HEX5);
+	
 END prueba;
