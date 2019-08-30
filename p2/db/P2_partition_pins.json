@@ -152,10 +152,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "HEX5[1]",
-					"strict" : false
-				},
-				{
 					"name" : "HEX5[2]",
 					"strict" : false
 				},

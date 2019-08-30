@@ -49,41 +49,55 @@ BEGIN
 		END IF;
 	END IF;
 	--FUNCIONAMIENTO NORMAL DEL RELOJ (24H)
-		IF (clk'EVENT AND clk='1' AND estado_normal='1') THEN
-			IF(seg < 9 ) THEN
-				seg <= tsu+1;
+	IF (clk'EVENT AND clk='1' AND estado_normal='1') THEN
+		IF seg< 9 THEN
+			seg<=seg+1;
+		ELSE 
+			seg<=0;
+		END IF;
+		IF seg+ssegu=9 THEN
+			IF segd<5 THEN
+				segd<=segd+1;
 			ELSE
-				seg<=0;
-				IF segd<5 THEN
-					segd<=tsd+1;
-				ELSE
-					segd<=0;
-					IF min < 9 THEN
-						min <= tmu+1;
-					ELSE
-						min <= 0;
-						IF mind <5 THEN
-							mind<=tmd+1;
-						ELSE
-							mind<=0;
-							IF hr < 9 AND hrd<2 THEN
-								hr <= thu+1;
-							ELSE 
-								IF hrd<2 THEN
-									hrd<=thd+1;
-									hr <= 0;
-								ELSif hr<3 THEN
-									hr<=thd+1;
-								ELSE
-									hrd<=0;
-									hr<=0;
-								END IF;
-							END IF;
-						END IF;
-					END IF;
-				END IF;
+				segd<=0;
 			END IF;
 		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 THEN
+			IF min<9 THEN
+				min<=min+1;
+			ELSE 
+				min<=0;
+			END IF;
+		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 THEN
+			IF mind<5 THEN
+				mind<=mind+1;
+			ELSE
+				mind<=0;
+			END IF;
+		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND (hrd+shrd=0 OR hrd+shrd=1)THEN
+			IF hr<9  THEN
+				hr<=hr+1;
+			ELSe
+				hr<=0;
+			END IF;
+		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hr+shru=9 THEN
+			IF hrd< 2 THEN
+				hrd<=hrd+1;
+			END IF;
+		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 THEN
+			IF hr<3 THEN
+				hr<=hr+1;
+			END IF;
+		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 AND hr+shru=3 THEN
+				hr<=0;
+				hrd<=0;
+		END IF;
+	END IF;
 	END PROCESS;
 	--Cuando se puede cambiar la hora, selection nos dira que digito cambiar (y debe de parpadear)
 		--	el risign edge de set nos dira cuando aumentar el valor del digito seleccionado manteniendo su maxima numeracion.
@@ -170,7 +184,7 @@ BEGIN
 		hr+shru-10 WHEN OTHERS;
 	WITH hrd+shrd SELECT thd <=
 		hrd+shrd WHEN 0 TO 2,
-		hrd+shrd-10 WHEN OTHERS;
+		hrd+shrd-3 WHEN OTHERS;
 	
 		su<=tsu;
 		mu<=tmu;
