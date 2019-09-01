@@ -1,5 +1,5 @@
 Flow report for P2
-Thu Aug 29 20:46:04 2019
+Sun Sep 01 15:33:34 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Aug 29 20:46:04 2019       ;
+; Flow Status                        ; Successful - Sun Sep 01 15:33:34 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; P2                                          ;
 ; Top-level Entity Name              ; total                                       ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C6GES                            ;
 ; Timing Models                      ; Preliminary                                 ;
-; Total logic elements               ; 288 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 271 / 49,760 ( < 1 % )                      ;
+; Total logic elements               ; 291 / 49,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 270 / 49,760 ( < 1 % )                      ;
 ;     Dedicated logic registers      ; 154 / 49,760 ( < 1 % )                      ;
 ; Total registers                    ; 154                                         ;
 ; Total pins                         ; 53 / 360 ( 15 % )                           ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/29/2019 20:45:10 ;
+; Start date & time ; 09/01/2019 15:32:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; P2                  ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 18129493736102.156712951003856         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 18129493736102.156736996110172         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; total       ; Top        ;
@@ -97,10 +97,10 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:26     ; 1.0                     ; 4810 MB             ; 00:00:55                           ;
-; Fitter               ; 00:00:20     ; 1.0                     ; 5397 MB             ; 00:00:27                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4701 MB             ; 00:00:05                           ;
-; Total                ; 00:00:52     ; --                      ; --                  ; 00:01:27                           ;
+; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 4810 MB             ; 00:00:44                           ;
+; Fitter               ; 00:00:21     ; 1.0                     ; 5398 MB             ; 00:00:25                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4701 MB             ; 00:00:05                           ;
+; Total                ; 00:00:49     ; --                      ; --                  ; 00:01:14                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

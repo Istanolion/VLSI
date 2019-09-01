@@ -24,9 +24,9 @@ SIGNAL estado_normal : STD_LOGIC :='1';--DETERMINA SI FUNCIONA NORMALMENTE O PAS
 --SEÑALES PARA DETERMINAR EL NUMERO DE CADA DISPLAY
 SIGNAL seg,segd		: INTEGER RANGE 0 TO 9:=0;
 SIGNAL min,mind,hr		: INTEGER RANGE 0 TO 9:=0;
-SIGNAL hrd 		: INTEGER RANGE 0 TO 3:=0;
+SIGNAL hrd,shrd 		: INTEGER RANGE 0 TO 3:=0;
 SIGNAL tsu,tmu,thu,tsd,tmd,thd: INTEGER RANGE 0 TO 9:=0;
-SIGNAL ssegu,ssegd,sminu,smind,shru,shrd: INTEGER RANGE 0 TO 9:=0;
+SIGNAL ssegu,ssegd,sminu,smind,shru: INTEGER RANGE 0 TO 9:=0;
 BEGIN
 	/*ssegu<=0;
 			ssegd<=0;
@@ -76,7 +76,7 @@ BEGIN
 				mind<=0;
 			END IF;
 		END IF;
-		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND (hrd+shrd=0 OR hrd+shrd=1)THEN
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd/=2 THEN
 			IF hr<9  THEN
 				hr<=hr+1;
 			ELSe
@@ -86,16 +86,24 @@ BEGIN
 		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hr+shru=9 THEN
 			IF hrd< 2 THEN
 				hrd<=hrd+1;
-			END IF;
-		END IF;
-		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 THEN
-			IF hr<3 THEN
-				hr<=hr+1;
-			END IF;
-		END IF;
-		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 AND hr+shru=3 THEN
-				hr<=0;
+			ELSE
 				hrd<=0;
+			END IF;
+		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 AND (hr+shru<3 OR hr+shru-10<3) THEN
+				hr<=hr+1;
+		END IF;
+		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 AND (hr+shru=3 OR hr+shru-10=3 ) THEN
+			IF hr>3 THEN
+				hr<=hr-3;
+			ELSE 
+				hr<=10-shru;
+			END IF;
+			IF hrd< 2 THEN
+				hrd<=hrd+1;
+			ELSE
+				hrd<=0;
+			END IF;
 		END IF;
 	END IF;
 	END PROCESS;
