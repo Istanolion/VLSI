@@ -1,5 +1,5 @@
 Analysis & Synthesis report for P2
-Sun Sep 01 15:33:05 2019
+Sun Sep 01 18:54:23 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -25,10 +25,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  17. Port Connectivity Checks: "deco7Seg:HMu"
  18. Port Connectivity Checks: "deco7Seg:HSu"
  19. Port Connectivity Checks: "reloj:watch"
- 20. Port Connectivity Checks: "divFreq:div"
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -54,15 +53,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Sep 01 15:33:05 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sun Sep 01 18:54:23 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; P2                                          ;
 ; Top-level Entity Name              ; total                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 270                                         ;
-;     Total combinational functions  ; 269                                         ;
-;     Dedicated logic registers      ; 154                                         ;
-; Total registers                    ; 154                                         ;
+; Total logic elements               ; 353                                         ;
+;     Total combinational functions  ; 351                                         ;
+;     Dedicated logic registers      ; 194                                         ;
+; Total registers                    ; 194                                         ;
 ; Total pins                         ; 53                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -195,20 +194,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 270           ;
+; Estimated Total logic elements              ; 353           ;
 ;                                             ;               ;
-; Total combinational functions               ; 269           ;
+; Total combinational functions               ; 351           ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 119           ;
-;     -- 3 input functions                    ; 61            ;
-;     -- <=2 input functions                  ; 89            ;
+;     -- 4 input functions                    ; 142           ;
+;     -- 3 input functions                    ; 71            ;
+;     -- <=2 input functions                  ; 138           ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 186           ;
-;     -- arithmetic mode                      ; 83            ;
+;     -- normal mode                          ; 237           ;
+;     -- arithmetic mode                      ; 114           ;
 ;                                             ;               ;
-; Total registers                             ; 154           ;
-;     -- Dedicated logic registers            ; 154           ;
+; Total registers                             ; 194           ;
+;     -- Dedicated logic registers            ; 194           ;
 ;     -- I/O registers                        ; 0             ;
 ;                                             ;               ;
 ; I/O pins                                    ; 53            ;
@@ -216,9 +215,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; clk50Hz~input ;
-; Maximum fan-out                             ; 108           ;
-; Total fan-out                               ; 1339          ;
-; Average fan-out                             ; 2.53          ;
+; Maximum fan-out                             ; 106           ;
+; Total fan-out                               ; 1665          ;
+; Average fan-out                             ; 2.56          ;
 +---------------------------------------------+---------------+
 
 
@@ -227,16 +226,16 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |total                     ; 269 (0)             ; 154 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 53   ; 0            ; 0          ; |total              ; total       ; work         ;
+; |total                     ; 351 (6)             ; 194 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 53   ; 0            ; 0          ; |total              ; total       ; work         ;
 ;    |MUXreloj:mux|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|MUXreloj:mux ; MUXreloj    ; work         ;
-;    |deco7Seg:HHd|          ; 5 (5)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HHd ; deco7Seg    ; work         ;
-;    |deco7Seg:HHu|          ; 9 (9)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HHu ; deco7Seg    ; work         ;
-;    |deco7Seg:HMd|          ; 7 (7)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HMd ; deco7Seg    ; work         ;
-;    |deco7Seg:HMu|          ; 17 (17)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HMu ; deco7Seg    ; work         ;
-;    |deco7Seg:HSd|          ; 7 (7)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HSd ; deco7Seg    ; work         ;
-;    |deco7Seg:HSu|          ; 17 (17)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HSu ; deco7Seg    ; work         ;
-;    |divFreq:div|           ; 85 (85)             ; 66 (66)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|divFreq:div  ; divFreq     ; work         ;
-;    |reloj:watch|           ; 121 (121)           ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|reloj:watch  ; reloj       ; work         ;
+;    |deco7Seg:HHd|          ; 11 (11)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HHd ; deco7Seg    ; work         ;
+;    |deco7Seg:HHu|          ; 20 (20)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HHu ; deco7Seg    ; work         ;
+;    |deco7Seg:HMd|          ; 16 (16)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HMd ; deco7Seg    ; work         ;
+;    |deco7Seg:HMu|          ; 19 (19)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HMu ; deco7Seg    ; work         ;
+;    |deco7Seg:HSd|          ; 16 (16)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HSd ; deco7Seg    ; work         ;
+;    |deco7Seg:HSu|          ; 20 (20)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|deco7Seg:HSu ; deco7Seg    ; work         ;
+;    |divFreq:div|           ; 127 (127)           ; 99 (99)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|divFreq:div  ; divFreq     ; work         ;
+;    |reloj:watch|           ; 115 (115)           ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |total|reloj:watch  ; reloj       ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -252,12 +251,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; deco7Seg:HHu|HEX[7]                    ; Stuck at VCC due to stuck port data_in ;
 ; deco7Seg:HMu|HEX[7]                    ; Stuck at VCC due to stuck port data_in ;
 ; deco7Seg:HSu|HEX[7]                    ; Stuck at VCC due to stuck port data_in ;
-; deco7Seg:HHd|HEX[1]                    ; Stuck at GND due to stuck port data_in ;
 ; reloj:watch|segd[3]                    ; Stuck at GND due to stuck port data_in ;
 ; reloj:watch|ssegd[3]                   ; Stuck at GND due to stuck port data_in ;
 ; reloj:watch|mind[3]                    ; Stuck at GND due to stuck port data_in ;
 ; reloj:watch|smind[3]                   ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 11 ;                                        ;
+; Total Number of Removed Registers = 10 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -276,8 +274,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 154   ;
-; Number of registers using Synchronous Clear  ; 68    ;
+; Total registers                              ; 194   ;
+; Number of registers using Synchronous Clear  ; 100   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -292,7 +290,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
 ; reloj:watch|estado_normal              ; 21      ;
-; Total number of inverted registers = 1 ;         ;
+; deco7Seg:HSu|state                     ; 8       ;
+; deco7Seg:HSd|state                     ; 8       ;
+; deco7Seg:HMu|state                     ; 8       ;
+; deco7Seg:HMd|state                     ; 8       ;
+; deco7Seg:HHu|state                     ; 8       ;
+; deco7Seg:HHd|state                     ; 7       ;
+; Total number of inverted registers = 7 ;         ;
 +----------------------------------------+---------+
 
 
@@ -301,12 +305,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|ssegu[3] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|ssegd[2] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|sminu[3] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|smind[0] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |total|reloj:watch|hrd[0]   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |total|reloj:watch|shrd[0]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|ssegu[0] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|ssegd[1] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|sminu[1] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |total|reloj:watch|smind[1] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |total|reloj:watch|hrd[1]   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |total|reloj:watch|shrd[1]  ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |total|reloj:watch|hr[1]    ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |total|reloj:watch|shru[3]  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
@@ -380,39 +384,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "divFreq:div"                                                                        ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; clk3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 53                          ;
-; cycloneiii_ff         ; 154                         ;
+; cycloneiii_ff         ; 194                         ;
 ;     ENA               ; 40                          ;
 ;     ENA SCLR          ; 3                           ;
-;     SCLR              ; 65                          ;
-;     plain             ; 46                          ;
-; cycloneiii_lcell_comb ; 272                         ;
-;     arith             ; 83                          ;
-;         2 data inputs ; 63                          ;
+;     SCLR              ; 97                          ;
+;     plain             ; 54                          ;
+; cycloneiii_lcell_comb ; 353                         ;
+;     arith             ; 114                         ;
+;         2 data inputs ; 94                          ;
 ;         3 data inputs ; 20                          ;
-;     normal            ; 189                         ;
-;         0 data inputs ; 7                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 19                          ;
-;         3 data inputs ; 41                          ;
-;         4 data inputs ; 119                         ;
+;     normal            ; 239                         ;
+;         0 data inputs ; 6                           ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 30                          ;
+;         3 data inputs ; 51                          ;
+;         4 data inputs ; 142                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.40                        ;
-; Average LUT depth     ; 3.67                        ;
+; Max LUT depth         ; 7.60                        ;
+; Average LUT depth     ; 3.60                        ;
 +-----------------------+-----------------------------+
 
 
@@ -421,7 +416,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -431,7 +426,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Sep 01 15:32:41 2019
+    Info: Processing started: Sun Sep 01 18:54:00 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off P2 -c P2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -445,39 +440,55 @@ Info (12021): Found 2 design units, including 1 entities, in source file muxrelo
     Info (12022): Found design unit 1: MUXreloj-prueba File: C:/Users/akuma/Documents/GitHub/VLSI/p2/MUXreloj.vhd Line: 13
     Info (12023): Found entity 1: MUXreloj File: C:/Users/akuma/Documents/GitHub/VLSI/p2/MUXreloj.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file reloj.vhd
-    Info (12022): Found design unit 1: reloj-prueba File: C:/Users/akuma/Documents/GitHub/VLSI/p2/reloj.vhd Line: 20
+    Info (12022): Found design unit 1: reloj-prueba File: C:/Users/akuma/Documents/GitHub/VLSI/p2/reloj.vhd Line: 22
     Info (12023): Found entity 1: reloj File: C:/Users/akuma/Documents/GitHub/VLSI/p2/reloj.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file total.vhd
     Info (12022): Found design unit 1: total-prueba File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 19
     Info (12023): Found entity 1: total File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 3
 Info (12127): Elaborating entity "total" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at total.vhd(64): object "clkp" assigned a value but never read File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 64
-Info (12128): Elaborating entity "divFreq" for hierarchy "divFreq:div" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 67
-Warning (10540): VHDL Signal Declaration warning at divFreq.vhd(16): used explicit default value for signal "state3" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/p2/divFreq.vhd Line: 16
-Info (12128): Elaborating entity "MUXreloj" for hierarchy "MUXreloj:mux" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 68
-Info (12128): Elaborating entity "reloj" for hierarchy "reloj:watch" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
-Warning (10492): VHDL Process Statement warning at reloj.vhd(52): signal "estado_normal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/p2/reloj.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at reloj.vhd(115): signal "estado_normal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/p2/reloj.vhd Line: 115
-Info (12128): Elaborating entity "deco7Seg" for hierarchy "deco7Seg:HSu" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 72
+Info (10041): Inferred latch for "clk7s6" at total.vhd(88) File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 88
+Info (10041): Inferred latch for "clk7s5" at total.vhd(86) File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 86
+Info (10041): Inferred latch for "clk7s4" at total.vhd(84) File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 84
+Info (10041): Inferred latch for "clk7s3" at total.vhd(82) File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 82
+Info (10041): Inferred latch for "clk7s2" at total.vhd(80) File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 80
+Info (10041): Inferred latch for "clk7s1" at total.vhd(78) File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 78
+Info (12128): Elaborating entity "divFreq" for hierarchy "divFreq:div" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 73
+Info (12128): Elaborating entity "MUXreloj" for hierarchy "MUXreloj:mux" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 74
+Info (12128): Elaborating entity "reloj" for hierarchy "reloj:watch" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at reloj.vhd(48): signal "estado_normal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/p2/reloj.vhd Line: 48
+Warning (10492): VHDL Process Statement warning at reloj.vhd(111): signal "estado_normal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/p2/reloj.vhd Line: 111
+Info (12128): Elaborating entity "deco7Seg" for hierarchy "deco7Seg:HSu" File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 93
+Warning (14026): LATCH primitive "clk7s1" is permanently enabled File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+Warning (14026): LATCH primitive "clk7s2" is permanently enabled File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+Warning (14026): LATCH primitive "clk7s3" is permanently enabled File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+Warning (14026): LATCH primitive "clk7s4" is permanently enabled File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+Warning (14026): LATCH primitive "clk7s5" is permanently enabled File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+Warning (14026): LATCH primitive "clk7s6" is permanently enabled File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer clk7s1~0 File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+    Warning (19017): Found clock multiplexer clk7s2~0 File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+    Warning (19017): Found clock multiplexer clk7s3~0 File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+    Warning (19017): Found clock multiplexer clk7s4~0 File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+    Warning (19017): Found clock multiplexer clk7s5~0 File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
+    Warning (19017): Found clock multiplexer clk7s6~0 File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 69
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[7]" is stuck at VCC File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 10
     Warning (13410): Pin "HEX1[7]" is stuck at VCC File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 11
     Warning (13410): Pin "HEX2[7]" is stuck at VCC File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 12
     Warning (13410): Pin "HEX3[7]" is stuck at VCC File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 13
     Warning (13410): Pin "HEX4[7]" is stuck at VCC File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 14
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 15
     Warning (13410): Pin "HEX5[7]" is stuck at VCC File: C:/Users/akuma/Documents/GitHub/VLSI/p2/total.vhd Line: 15
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 324 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 407 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 49 output pins
-    Info (21061): Implemented 271 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Sun Sep 01 15:33:05 2019
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:44
+    Info (21061): Implemented 354 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 4812 megabytes
+    Info: Processing ended: Sun Sep 01 18:54:23 2019
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:40
 
 

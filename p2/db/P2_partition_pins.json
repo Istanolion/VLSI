@@ -152,6 +152,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "HEX5[1]",
+					"strict" : false
+				},
+				{
 					"name" : "HEX5[2]",
 					"strict" : false
 				},
@@ -172,11 +176,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk50Hz",
+					"name" : "setting",
 					"strict" : false
 				},
 				{
-					"name" : "setting",
+					"name" : "clk50Hz",
 					"strict" : false
 				},
 				{

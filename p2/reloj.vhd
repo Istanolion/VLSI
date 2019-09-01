@@ -7,6 +7,8 @@ PORT (
 	temporizador: IN STD_LOGIC; --para medir cuanto tiempo han sido presionado los botones (1hz)
 	set : IN STD_LOGIC;
 	sel : IN STD_LOGIC;
+	estado: OUT STD_LOGIC;
+	sel7s : OUT INTEGER RANGE 0 TO 6;
 	--salidas para el decodificador a 7 segmentos
 	su : OUT INTEGER;
 	mu : OUT INTEGER;
@@ -28,12 +30,6 @@ SIGNAL hrd,shrd 		: INTEGER RANGE 0 TO 3:=0;
 SIGNAL tsu,tmu,thu,tsd,tmd,thd: INTEGER RANGE 0 TO 9:=0;
 SIGNAL ssegu,ssegd,sminu,smind,shru: INTEGER RANGE 0 TO 9:=0;
 BEGIN
-	/*ssegu<=0;
-			ssegd<=0;
-			sminu<=0;
-			smind<=0;
-			shru<=0;
-			shrd<=0;*/
 	PROCESS(clk,temporizador)
 	BEGIN
 	
@@ -194,12 +190,13 @@ BEGIN
 		hrd+shrd WHEN 0 TO 2,
 		hrd+shrd-3 WHEN OTHERS;
 	
+	sel7s<=selection;
 		su<=tsu;
 		mu<=tmu;
 		hu<=thu;
 		sd<=tsd;
 		md<=tmd;
 		hd<=thd;
-		
+		estado<=estado_normal;
 	LEDR0<=estado_normal;
 END prueba;

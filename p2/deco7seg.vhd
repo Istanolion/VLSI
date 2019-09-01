@@ -9,11 +9,12 @@ HEX : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) --salidas a pines
 END deco7seg;
 ARCHITECTURE prueba OF deco7seg IS 
 signal unidades,decenas : INTEGER:=0;
+SIGNAL state: STD_LOGIC:='1';
 BEGIN
 	PROCESS(clk)--PROCESO DE REFRESCAMIENTO
 	BEGIN
 		IF(clk'EVENT AND clk='1') THEN --SI EL FLANCO ES POSITIVO SE ASIGNA EL VALOR.
-
+			IF state='1' THEN
 			CASE numero IS 
 				wHEN 0 => HEX<="11000000";
 				WHEN 1 => HEX<="11111001";
@@ -26,7 +27,11 @@ BEGIN
 				WHEN 8 => HEX<="10000000";
 				WHEN 9 => HEX<="10010000";
 				WHEN OTHERS  => HEX<="11111111";
-			END CASE;	
+			END CASE;
+			ELSE
+				HEX<="11111111";
+			END IF;
+			state<=NOT state;
 		END IF;
 	END PROCESS;
 
