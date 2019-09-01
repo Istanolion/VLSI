@@ -3,135 +3,147 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk50Hz'
-Slack : -4.063
-TNS   : -251.120
+Slack : -3.441
+TNS   : -252.818
 
-Type  : Slow 1200mV 85C Model Setup 'velocidad'
-Slack : -2.971
-TNS   : -48.986
+Type  : Slow 1200mV 85C Model Setup 'divFreq:div|state1'
+Slack : -1.906
+TNS   : -27.802
 
-Type  : Slow 1200mV 85C Model Setup 'divFreq:div|count[0]'
-Slack : -2.779
-TNS   : -45.567
+Type  : Slow 1200mV 85C Model Setup 'setting'
+Slack : -1.328
+TNS   : -23.012
 
-Type  : Slow 1200mV 85C Model Hold 'divFreq:div|count[0]'
-Slack : 0.332
-TNS   : 0.000
+Type  : Slow 1200mV 85C Model Setup 'selection'
+Slack : -0.204
+TNS   : -0.612
 
-Type  : Slow 1200mV 85C Model Hold 'velocidad'
-Slack : 0.332
+Type  : Slow 1200mV 85C Model Hold 'divFreq:div|state1'
+Slack : 0.315
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk50Hz'
-Slack : 0.371
+Slack : 0.359
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Recovery 'clk50Hz'
-Slack : -5.123
-TNS   : -230.634
+Type  : Slow 1200mV 85C Model Hold 'selection'
+Slack : 0.359
+TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Removal 'clk50Hz'
-Slack : 1.146
+Type  : Slow 1200mV 85C Model Hold 'setting'
+Slack : 0.359
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk50Hz'
 Slack : -3.000
-TNS   : -131.310
+TNS   : -133.754
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'velocidad'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'setting'
 Slack : -3.000
-TNS   : -28.979
+TNS   : -26.218
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divFreq:div|count[0]'
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'selection'
+Slack : -3.000
+TNS   : -6.666
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divFreq:div|state1'
 Slack : -1.222
-TNS   : -28.106
+TNS   : -23.218
 
 Type  : Slow 1200mV 0C Model Setup 'clk50Hz'
-Slack : -3.671
-TNS   : -217.486
+Slack : -3.085
+TNS   : -225.741
 
-Type  : Slow 1200mV 0C Model Setup 'divFreq:div|count[0]'
-Slack : -2.612
-TNS   : -42.686
+Type  : Slow 1200mV 0C Model Setup 'divFreq:div|state1'
+Slack : -1.731
+TNS   : -23.972
 
-Type  : Slow 1200mV 0C Model Setup 'velocidad'
-Slack : -2.611
-TNS   : -42.381
+Type  : Slow 1200mV 0C Model Setup 'setting'
+Slack : -1.141
+TNS   : -19.837
 
-Type  : Slow 1200mV 0C Model Hold 'divFreq:div|count[0]'
-Slack : 0.300
+Type  : Slow 1200mV 0C Model Setup 'selection'
+Slack : -0.106
+TNS   : -0.318
+
+Type  : Slow 1200mV 0C Model Hold 'divFreq:div|state1'
+Slack : 0.286
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'velocidad'
-Slack : 0.300
+Type  : Slow 1200mV 0C Model Hold 'selection'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'setting'
+Slack : 0.324
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk50Hz'
-Slack : 0.338
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'clk50Hz'
-Slack : -4.529
-TNS   : -202.863
-
-Type  : Slow 1200mV 0C Model Removal 'clk50Hz'
-Slack : 0.912
+Slack : 0.325
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk50Hz'
 Slack : -3.000
-TNS   : -131.310
+TNS   : -133.754
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'velocidad'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'setting'
 Slack : -3.000
-TNS   : -27.440
+TNS   : -26.218
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divFreq:div|count[0]'
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'selection'
+Slack : -3.000
+TNS   : -6.666
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divFreq:div|state1'
 Slack : -1.222
-TNS   : -28.106
+TNS   : -23.218
 
 Type  : Fast 1200mV 0C Model Setup 'clk50Hz'
-Slack : -1.681
-TNS   : -96.993
+Slack : -1.360
+TNS   : -85.156
 
-Type  : Fast 1200mV 0C Model Setup 'velocidad'
-Slack : -1.212
-TNS   : -19.551
+Type  : Fast 1200mV 0C Model Setup 'divFreq:div|state1'
+Slack : -0.966
+TNS   : -5.247
 
-Type  : Fast 1200mV 0C Model Setup 'divFreq:div|count[0]'
-Slack : -1.008
-TNS   : -15.235
+Type  : Fast 1200mV 0C Model Setup 'setting'
+Slack : -0.122
+TNS   : -1.308
 
-Type  : Fast 1200mV 0C Model Hold 'divFreq:div|count[0]'
-Slack : 0.152
+Type  : Fast 1200mV 0C Model Setup 'selection'
+Slack : 0.407
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'velocidad'
-Slack : 0.152
+Type  : Fast 1200mV 0C Model Hold 'divFreq:div|state1'
+Slack : 0.144
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'selection'
+Slack : 0.165
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'setting'
+Slack : 0.165
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk50Hz'
-Slack : 0.170
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'clk50Hz'
-Slack : -2.080
-TNS   : -81.257
-
-Type  : Fast 1200mV 0C Model Removal 'clk50Hz'
-Slack : 0.664
+Slack : 0.166
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk50Hz'
 Slack : -3.000
-TNS   : -134.768
+TNS   : -128.253
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'velocidad'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'setting'
 Slack : -3.000
-TNS   : -35.952
+TNS   : -28.407
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divFreq:div|count[0]'
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'selection'
+Slack : -3.000
+TNS   : -6.951
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divFreq:div|state1'
 Slack : -1.000
-TNS   : -23.000
+TNS   : -19.000
 
 ------------------------------------------------------------

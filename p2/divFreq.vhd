@@ -18,16 +18,19 @@ BEGIN
 	PROCESS (clk)
 	BEGIN
 		IF(clk'EVENT AND clk='1') THEN
+			
+		IF (count<25000000) THEN
 			count<=count+1;
-			count2<=count2+1;
-		END IF;
-		IF (count=25000000) THEN
+		ELSE
 			state1<=NOT state1;
 			count<=0;
 		END IF;
-		IF ( (count2 =6250000)) THEN
+		IF ( (count2 <125000)) THEN
+			count2<=count2+1;
+		ELSE
 			state2<=NOT state2;
 			count2<=0;
+		END IF;
 		END IF;
 	END PROCESS;
 	--asignacion de los estados a las salidas

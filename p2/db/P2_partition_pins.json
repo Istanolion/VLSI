@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "LEDR0",
+					"strict" : false
+				},
+				{
 					"name" : "HEX0[0]",
 					"strict" : false
 				},
@@ -172,11 +176,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "setting",
+					"strict" : false
+				},
+				{
 					"name" : "velocidad",
 					"strict" : false
 				},
 				{
-					"name" : "setting",
+					"name" : "selection",
 					"strict" : false
 				}
 			]

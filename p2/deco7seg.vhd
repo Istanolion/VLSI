@@ -2,18 +2,20 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 ENTITY deco7Seg IS 
 PORT(
-numero : IN INTEGER RANGE 0 TO 9; --numero a decodificar
+numero : IN INTEGER ; --numero a decodificar
 clk : IN STD_LOGIC;	--RELOJ PARA REFRESCAMIENTO
 HEX : OUT STD_LOGIC_VECTOR (7 DOWNTO 0) --salidas a pines
 );
 END deco7seg;
 ARCHITECTURE prueba OF deco7seg IS 
+signal unidades,decenas : INTEGER:=0;
 BEGIN
 	PROCESS(clk)--PROCESO DE REFRESCAMIENTO
 	BEGIN
 		IF(clk'EVENT AND clk='1') THEN --SI EL FLANCO ES POSITIVO SE ASIGNA EL VALOR.
-			CASE numero IS
-				WHEN 0 => HEX<="11000000";
+
+			CASE numero IS 
+				wHEN 0 => HEX<="11000000";
 				WHEN 1 => HEX<="11111001";
 				WHEN 2 => HEX<="10100100";
 				WHEN 3 => HEX<="10110000";
@@ -24,7 +26,7 @@ BEGIN
 				WHEN 8 => HEX<="10000000";
 				WHEN 9 => HEX<="10010000";
 				WHEN OTHERS  => HEX<="11111111";
-			END CASE;
+			END CASE;	
 		END IF;
 	END PROCESS;
 
