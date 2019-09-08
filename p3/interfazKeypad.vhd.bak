@@ -1,0 +1,21 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+ENTITY interfazKeypad IS 
+PORT(
+numero : OUT INTEGER ; --numero presionado
+clk : IN STD_LOGIC;	--RELOJ PARA REFRESCAMIENTO
+--COLUMNAS Y RENGLONES COL SERAN LAS QUE HACEN EL BARRIDO DEL KEYPAD
+col : OUT STD_LOGIC_VECTOR (2 DOWNTO 0);
+ren : IN STD_LOGIC_VECTOR (3 DOWNTO 0)
+);
+END interfazKeypad;
+--El barrido ira mandando la señal high de columna en columna y reconocera que 
+--renglon es el que esta cerrando el circuito, con estos dos valores
+--se determinara que numero se esta presionando
+--el barrido se hace con el reloj de 50MHz para que no sea molesto al usuario
+ARCHITECTURE prueba OF interfazKeypad IS 
+BEGIN
+	PROCESS(clk)
+	BEGIN
+	END PROCESS;
+END prueba;

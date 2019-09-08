@@ -87,14 +87,14 @@ BEGIN
 			END IF;
 		END IF;
 		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 AND (hr+shru<3 OR hr+shru-10<3) THEN
-				hr<=hr+1;
+				if hr<9 then
+					hr<=hr+1;
+				else
+					hr<=0;
+				end if;
 		END IF;
 		IF segd+ssegd=5 AND seg+ssegu=9 AND min+sminu=9 AND mind+smind=5 AND hrd+shrd=2 AND (hr+shru=3 OR hr+shru-10=3 ) THEN
-			IF hr>3 THEN
-				hr<=hr-3;
-			ELSE 
-				hr<=10-shru;
-			END IF;
+			hr<=10-shru;
 			IF hrd< 2 THEN
 				hrd<=hrd+1;
 			ELSE
@@ -145,23 +145,35 @@ BEGIN
 								smind <= 0;
 							END IF;
 						WHEN 4=>
-							IF shru < 9 AND shrd<2 THEN
+							IF shru < 9 AND shrd+hrd/=2 THEN
 								shru <= shru+1;
 							ELSE 
-								IF shrd<2 THEN
+								IF shru>=9 THEN
 									shru <= 0;
-								ELSIF shru<3 THEN
+								ELSIF (shru+hr<3 OR (shru+hr-10<3 AND shru+hr-10>=0)) AND  shrd+hrd=2 THEN
 									shru <=shru+1;
 								ELSE
-									shru<=0;
+									shru<=10-hr;
 								END IF;
 							END IF;
 						WHEN 5=>
+						if hrd+shrd/=2 THEN
 							IF shrd < 2 THEN
 								shrd <= shrd+1;
 							ELSE 
 								shrd <= 0;
 							END IF;
+						ELSE
+	--						shru<=10-hr;
+							IF shrd < 2 THEN
+								shrd <= shrd+1;
+							ELSE 
+								shrd <= 0;
+							END IF;
+						end if;
+						if shrd+hrd=2 then
+							shru<=10-hr;
+						end if;
 						WHEN OTHERS=>
 						
 					END CASE;

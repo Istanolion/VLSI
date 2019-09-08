@@ -31,7 +31,7 @@ BEGIN
 				state2<=NOT state2;
 				count2<=0;
 			END IF;
-			IF (count3<12500000) THEN
+			IF (count3<1250000) THEN
 				count3<=count3+1;
 			ELSE
 				state3<=NOT state3;

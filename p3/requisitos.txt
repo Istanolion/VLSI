@@ -1,0 +1,11 @@
+codigo inicial 01011 //done
+led abierto prendido //done
+7seg apagados de inicios   //done
+recorrimiento de derecha a izquierda conforme presionamos los botones //done
+Reset apaga los 7seg  //done
+cambio de contraseña
+	1 set //done
+	2 7seg muestra el numero de los switches//done
+	3 set (se guarda la nueva contraseña)//done
+
+hacer el case para la seleccion del  numero de la matrix

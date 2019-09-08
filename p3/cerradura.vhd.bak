@@ -1,0 +1,19 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+ENTITY cerradura IS 
+PORT (
+	--BOTONES PARA LLENAR NUESTRO NUMERO
+	boton: IN STD_LOGIC_vECTOR (1 DOWNTO 0);
+	--BOTONES SET/RESET
+	butSet : IN STD_LOGIC;
+	butReset : IN STD_LOGIC;
+	--switches para la nueva contraseña
+	sw : IN STD_LOGIC_VECTOR (4 DOWNTO 0);
+	--las salidas hacia los 7seg donde 0 es el 7seg de la derecha
+	salidaNum0 : OUT INTEGER;
+	salidaNum1 : OUT INTEGER;
+	salidaNum2 : OUT INTEGER;
+	salidaNum3 : OUT INTEGER;
+	salidaNum4 : OUT INTEGER 
+);
+END cerradura;
