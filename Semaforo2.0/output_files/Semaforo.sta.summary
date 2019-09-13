@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -3.784
+TNS   : -97.368
+
+Type  : Slow 1200mV 85C Model Setup 'Divisor:Watch|Estado'
+Slack : -3.181
+TNS   : -45.912
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.343
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Divisor:Watch|Estado'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -78.764
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Divisor:Watch|Estado'
+Slack : -1.222
+TNS   : -24.440
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -3.331
+TNS   : -83.612
+
+Type  : Slow 1200mV 0C Model Setup 'Divisor:Watch|Estado'
+Slack : -2.793
+TNS   : -39.979
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Divisor:Watch|Estado'
+Slack : 0.369
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -78.764
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Divisor:Watch|Estado'
+Slack : -1.222
+TNS   : -24.440
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -1.334
+TNS   : -20.778
+
+Type  : Fast 1200mV 0C Model Setup 'Divisor:Watch|Estado'
+Slack : -0.990
+TNS   : -12.731
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.156
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Divisor:Watch|Estado'
+Slack : 0.179
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -67.108
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Divisor:Watch|Estado'
+Slack : -1.000
+TNS   : -20.000
+
+------------------------------------------------------------

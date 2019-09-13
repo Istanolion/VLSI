@@ -1,0 +1,386 @@
+Analysis & Synthesis report for Semaforo
+Thu Sep 12 14:25:59 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Semaforo|Q_bus
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Sep 12 14:25:59 2019       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; Semaforo                                    ;
+; Top-level Entity Name              ; Semaforo                                    ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 106                                         ;
+;     Total combinational functions  ; 89                                          ;
+;     Dedicated logic registers      ; 82                                          ;
+; Total registers                    ; 82                                          ;
+; Total pins                         ; 35                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Top-level entity name                                            ; Semaforo           ; Semaforo           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+; Divisor.vhd                      ; yes             ; User VHDL File  ; C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Divisor.vhd  ;         ;
+; Semaforo.vhd                     ; yes             ; User VHDL File  ; C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd ;         ;
+; SevenSeg.vhd                     ; yes             ; User VHDL File  ; C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/SevenSeg.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 106       ;
+;                                             ;           ;
+; Total combinational functions               ; 89        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 19        ;
+;     -- 3 input functions                    ; 6         ;
+;     -- <=2 input functions                  ; 64        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 49        ;
+;     -- arithmetic mode                      ; 40        ;
+;                                             ;           ;
+; Total registers                             ; 82        ;
+;     -- Dedicated logic registers            ; 82        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 35        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 62        ;
+; Total fan-out                               ; 492       ;
+; Average fan-out                             ; 2.04      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name     ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------+-------------+--------------+
+; |Semaforo                  ; 89 (33)             ; 82 (20)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 35   ; 0            ; 0          ; |Semaforo               ; Semaforo    ; work         ;
+;    |Divisor:Watch|         ; 45 (45)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Semaforo|Divisor:Watch ; Divisor     ; work         ;
+;    |SevenSeg:S0|           ; 3 (3)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Semaforo|SevenSeg:S0   ; SevenSeg    ; work         ;
+;    |SevenSeg:S1|           ; 3 (3)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Semaforo|SevenSeg:S1   ; SevenSeg    ; work         ;
+;    |SevenSeg:S2|           ; 4 (4)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Semaforo|SevenSeg:S2   ; SevenSeg    ; work         ;
+;    |SevenSeg:S3|           ; 1 (1)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Semaforo|SevenSeg:S3   ; SevenSeg    ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Semaforo|Q_bus                                                                                                                                                                                                    ;
++------------------------+-------------+-------------+------------------------+---------------------+------------------------+---------------------+---------------------+------------------+---------------------+------------------+
+; Name                   ; Q_bus.AR_CA ; Q_bus.AR_CV ; Q_bus.CR_AAmarilloRojo ; Q_bus.CR_AVerdeRojo ; Q_bus.CR_ARojoAmarillo ; Q_bus.CR_ARojoVerde ; Q_bus.AmarilloRojoA ; Q_bus.VerdeRojoA ; Q_bus.RojoAmarilloA ; Q_bus.RojoVerdeA ;
++------------------------+-------------+-------------+------------------------+---------------------+------------------------+---------------------+---------------------+------------------+---------------------+------------------+
+; Q_bus.RojoVerdeA       ; 0           ; 0           ; 0                      ; 0                   ; 0                      ; 0                   ; 0                   ; 0                ; 0                   ; 0                ;
+; Q_bus.RojoAmarilloA    ; 0           ; 0           ; 0                      ; 0                   ; 0                      ; 0                   ; 0                   ; 0                ; 1                   ; 1                ;
+; Q_bus.VerdeRojoA       ; 0           ; 0           ; 0                      ; 0                   ; 0                      ; 0                   ; 0                   ; 1                ; 0                   ; 1                ;
+; Q_bus.AmarilloRojoA    ; 0           ; 0           ; 0                      ; 0                   ; 0                      ; 0                   ; 1                   ; 0                ; 0                   ; 1                ;
+; Q_bus.CR_ARojoVerde    ; 0           ; 0           ; 0                      ; 0                   ; 0                      ; 1                   ; 0                   ; 0                ; 0                   ; 1                ;
+; Q_bus.CR_ARojoAmarillo ; 0           ; 0           ; 0                      ; 0                   ; 1                      ; 0                   ; 0                   ; 0                ; 0                   ; 1                ;
+; Q_bus.CR_AVerdeRojo    ; 0           ; 0           ; 0                      ; 1                   ; 0                      ; 0                   ; 0                   ; 0                ; 0                   ; 1                ;
+; Q_bus.CR_AAmarilloRojo ; 0           ; 0           ; 1                      ; 0                   ; 0                      ; 0                   ; 0                   ; 0                ; 0                   ; 1                ;
+; Q_bus.AR_CV            ; 0           ; 1           ; 0                      ; 0                   ; 0                      ; 0                   ; 0                   ; 0                ; 0                   ; 1                ;
+; Q_bus.AR_CA            ; 1           ; 0           ; 0                      ; 0                   ; 0                      ; 0                   ; 0                   ; 0                ; 0                   ; 1                ;
++------------------------+-------------+-------------+------------------------+---------------------+------------------------+---------------------+---------------------+------------------+---------------------+------------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; SevenSeg:S3|HEX[7]                    ; Stuck at VCC due to stuck port data_in ;
+; SevenSeg:S2|HEX[7]                    ; Stuck at VCC due to stuck port data_in ;
+; SevenSeg:S1|HEX[7]                    ; Stuck at VCC due to stuck port data_in ;
+; SevenSeg:S0|HEX[7]                    ; Stuck at VCC due to stuck port data_in ;
+; SevenSeg:S2|state                     ; Merged with SevenSeg:S3|state          ;
+; SevenSeg:S0|state                     ; Merged with SevenSeg:S3|state          ;
+; SevenSeg:S1|state                     ; Merged with SevenSeg:S3|state          ;
+; Total Number of Removed Registers = 7 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 82    ;
+; Number of registers using Synchronous Clear  ; 32    ;
+; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 10    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; SevenSeg:S3|state                      ; 17      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Semaforo|Q_bus            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Semaforo|Q_bus            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 35                          ;
+; cycloneiii_ff         ; 82                          ;
+;     ENA               ; 10                          ;
+;     SCLR              ; 32                          ;
+;     SLD               ; 6                           ;
+;     plain             ; 34                          ;
+; cycloneiii_lcell_comb ; 90                          ;
+;     arith             ; 40                          ;
+;         2 data inputs ; 40                          ;
+;     normal            ; 50                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 19                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 3.03                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Sep 12 14:25:41 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Semaforo -c Semaforo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file divisor.vhd
+    Info (12022): Found design unit 1: Divisor-Behaivor File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Divisor.vhd Line: 11
+    Info (12023): Found entity 1: Divisor File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Divisor.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file semaforo.vhd
+    Info (12022): Found design unit 1: Semaforo-prueba File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 16
+    Info (12023): Found entity 1: Semaforo File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sevenseg.vhd
+    Info (12022): Found design unit 1: SevenSeg-prueba File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/SevenSeg.vhd Line: 11
+    Info (12023): Found entity 1: SevenSeg File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/SevenSeg.vhd Line: 4
+Info (12127): Elaborating entity "Semaforo" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(108): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 108
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(126): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 126
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(146): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 146
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(166): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(179): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 179
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(190): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 190
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(203): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 203
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(214): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 214
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(226): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 226
+Warning (10492): VHDL Process Statement warning at Semaforo.vhd(238): signal "test" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 238
+Warning (10631): VHDL Process Statement warning at Semaforo.vhd(75): inferring latch(es) for signal or variable "Btn", which holds its previous value in one or more paths through the process File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 75
+Info (10041): Inferred latch for "Btn" at Semaforo.vhd(75) File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 75
+Info (12128): Elaborating entity "Divisor" for hierarchy "Divisor:Watch" File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 52
+Info (12128): Elaborating entity "SevenSeg" for hierarchy "SevenSeg:S0" File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 249
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Hex0[7]" is stuck at VCC File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 8
+    Warning (13410): Pin "Hex1[7]" is stuck at VCC File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 9
+    Warning (13410): Pin "Hex2[7]" is stuck at VCC File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 10
+    Warning (13410): Pin "Hex3[7]" is stuck at VCC File: C:/Users/imore/OneDrive/Desktop/Escuela/2020-1/VLSI/Semaforo2.0/Semaforo.vhd Line: 11
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 121 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 4805 megabytes
+    Info: Processing ended: Thu Sep 12 14:25:59 2019
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:36
+
+

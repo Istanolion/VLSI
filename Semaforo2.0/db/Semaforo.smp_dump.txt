@@ -1,0 +1,13 @@
+
+State Machine - |Semaforo|Q_bus
+Name Q_bus.AR_CA Q_bus.AR_CV Q_bus.CR_AAmarilloRojo Q_bus.CR_AVerdeRojo Q_bus.CR_ARojoAmarillo Q_bus.CR_ARojoVerde Q_bus.AmarilloRojoA Q_bus.VerdeRojoA Q_bus.RojoAmarilloA Q_bus.RojoVerdeA 
+Q_bus.RojoVerdeA 0 0 0 0 0 0 0 0 0 0 
+Q_bus.RojoAmarilloA 0 0 0 0 0 0 0 0 1 1 
+Q_bus.VerdeRojoA 0 0 0 0 0 0 0 1 0 1 
+Q_bus.AmarilloRojoA 0 0 0 0 0 0 1 0 0 1 
+Q_bus.CR_ARojoVerde 0 0 0 0 0 1 0 0 0 1 
+Q_bus.CR_ARojoAmarillo 0 0 0 0 1 0 0 0 0 1 
+Q_bus.CR_AVerdeRojo 0 0 0 1 0 0 0 0 0 1 
+Q_bus.CR_AAmarilloRojo 0 0 1 0 0 0 0 0 0 1 
+Q_bus.AR_CV 0 1 0 0 0 0 0 0 0 1 
+Q_bus.AR_CA 1 0 0 0 0 0 0 0 0 1 

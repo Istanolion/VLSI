@@ -1,0 +1,137 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY Semaforo IS 
+PORT ( Btn_coche : in STD_LOGIC;
+		 CLK  : in STD_LOGIC;
+		 Hex0 : out STD_LOGIC_VECTOR (7 downto 0);
+		 Hex1 : out STD_LOGIC_VECTOR (7 downto 0);
+		 Hex2 : out STD_LOGIC_VECTOR (7 downto 0);
+		 Hex3 : out STD_LOGIC_VECTOR (7 downto 0)
+);
+END Semaforo;
+
+
+ARCHITECTURE prueba OF Semaforo IS
+
+COMPONENT Divisor 
+PORT (
+	clk_50MHz : IN  STD_LOGIC;	 --RELOJ TARJETA 50MHZ
+	clk_1Hz   : OUT STD_LOGIC  --RELOJ A 1HZ
+);
+END COMPONENT;
+
+COMPONENT SevenSeg 
+PORT( Clk    : IN  STD_LOGIC;	 							--RELOJ PARA REFRESCAMIENTO
+		Estado : IN  STD_LOGIC_VECTOR (1 downto 0); 	--Indica si esta en Verde, Amarillo o Rojo
+		HEX    : OUT STD_LOGIC_VECTOR (7 DOWNTO 0)	--Siete Segmentos
+);	
+END COMPONENT;
+
+COMPONENT Tiempo 
+PORT ( Btn   : in STD_LOGIC;	
+		 Clk_r : in STD_LOGIC;
+		 Clk_l : in STD_LOGIC;
+		 E_Hex0 : out STD_LOGIC_VECTOR (1 downto 0);
+		 E_Hex1 : out STD_LOGIC_VECTOR (1 downto 0); 
+		 E_Hex2 : out STD_LOGIC_VECTOR (1 downto 0);
+		 E_Hex3 : out STD_LOGIC_VECTOR (1 downto 0));
+END COMPONENT;
+
+Signal Reloj : STD_LOGIC;
+SIGNAL counter : Integer range 0 to 7 := 0;
+SIGNAL E_Hex0 , E_Hex1 : STD_LOGIC_VECTOR (1 downto 0) := "00";
+SIGNAL E_Hex2 , E_Hex3 : STD_LOGIC_VECTOR (1 downto 0) := "10";
+
+TYPE Mis_Estados is (Inicial, 
+							VR0, VR1, VR2, 
+							AR0, AR1, 
+							RV0, RV1, RV2, RV3, RV4,
+							RA0, RA1);
+SIGNAL D_bus, Q_bus : Mis_Estados := Inicial;
+
+BEGIN
+		
+	Watch : Divisor PORT MAP(clk_50MHz => CLK, clk_1Hz => Reloj);
+
+---- Registro de estado	
+	PROCESS(Reloj)
+	BEGIN
+		IF Reloj'EVENT AND Reloj='1' THEN
+			Q_bus <= D_bus;
+		END IF;
+	END PROCESS;
+	
+--- Logica de los estados.
+
+	PROCESS(Q_bus, Btn_coche, Reloj)
+
+--	SIGNAL counter : Integer := 0;
+
+	BEGIN
+		
+		CASE Q_bus IS
+			WHEN Inicial => 
+				IF Btn_coche = '0' THEN
+					D_bus <= VR0;
+				ELSE
+					D_bus <= Inicial;
+				END IF;
+				
+			WHEN VR0 => D_bus <= VR1;
+							E_Hex0 <= "00"; E_Hex1 <= "00";
+							E_Hex2 <= "10"; E_Hex3 <= "10";
+			WHEN VR1 => D_bus <= VR2;
+							E_Hex0 <= "00"; E_Hex1 <= "00";
+							E_Hex2 <= "10"; E_Hex3 <= "10";
+			WHEN VR2 => D_bus <= AR0;
+							E_Hex0 <= "00"; E_Hex1 <= "00";
+							E_Hex2 <= "10"; E_Hex3 <= "10";
+			WHEN AR0 => D_bus <= AR1;
+							E_Hex0 <= "01"; E_Hex1 <= "01";
+							E_Hex2 <= "10"; E_Hex3 <= "10";
+			WHEN AR1 => D_bus <= RV2;
+							E_Hex0 <= "01"; E_Hex1 <= "01";
+							E_Hex2 <= "10"; E_Hex3 <= "10";
+			WHEN RV0 => D_bus <= RV1;
+							E_Hex0 <= "10"; E_Hex1 <= "10";
+							E_Hex2 <= "00"; E_Hex3 <= "00";
+			WHEN RV1 => D_bus <= RV2;
+							E_Hex0 <= "10"; E_Hex1 <= "10";
+							E_Hex2 <= "00"; E_Hex3 <= "00";
+			WHEN RV2 => D_bus <= RV3;
+							E_Hex0 <= "10"; E_Hex1 <= "10";
+							E_Hex2 <= "00"; E_Hex3 <= "00";
+			WHEN RV3 => D_bus <= RV4;
+							E_Hex0 <= "10"; E_Hex1 <= "10";
+							E_Hex2 <= "00"; E_Hex3 <= "00";
+			WHEN RV4 => D_bus <= RA0;
+							E_Hex0 <= "10"; E_Hex1 <= "10";
+							E_Hex2 <= "00"; E_Hex3 <= "00";
+			WHEN RA0 => D_bus <= RA1;
+							E_Hex0 <= "10"; E_Hex1 <= "10";
+							E_Hex2 <= "01"; E_Hex3 <= "01";
+			WHEN RA1 => D_bus <= Inicial;
+							E_Hex0 <= "10"; E_Hex1 <= "10";
+							E_Hex2 <= "01"; E_Hex3 <= "01";
+		END CASE;
+	END PROCESS;
+
+	
+	S0 : SevenSeg PORT MAP(Clk => CLK, Estado => E_Hex0 ,HEX => hex0);
+	S1 : SevenSeg PORT MAP(Clk => CLK, Estado => E_Hex1 ,HEX => hex1);
+	S2 : SevenSeg PORT MAP(Clk => CLK, Estado => E_Hex2 ,HEX => hex2);
+	S3 : SevenSeg PORT MAP(Clk => CLK, Estado => E_Hex3 ,HEX => hex3);
+
+END prueba;
+
+
+
+
+
+
+
+
+
+
+
