@@ -1,12 +1,12 @@
-Fitter Status : Successful - Wed Oct 02 13:38:22 2019
+Fitter Status : Successful - Wed Oct 02 14:30:42 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Anima
 Top-level Entity Name : CONTROLADOR_VGA
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 425 / 49,760 ( < 1 % )
-    Total combinational functions : 410 / 49,760 ( < 1 % )
+Total logic elements : 418 / 49,760 ( < 1 % )
+    Total combinational functions : 411 / 49,760 ( < 1 % )
     Dedicated logic registers : 116 / 49,760 ( < 1 % )
 Total registers : 116
 Total pins : 21 / 360 ( 6 % )

@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Oct 02 13:38:10 2019
+Analysis & Synthesis Status : Successful - Wed Oct 02 14:30:28 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Anima
 Top-level Entity Name : CONTROLADOR_VGA
 Family : MAX 10
-Total logic elements : 430
-    Total combinational functions : 409
+Total logic elements : 431
+    Total combinational functions : 410
     Dedicated logic registers : 116
 Total registers : 116
 Total pins : 21

@@ -118,14 +118,17 @@ begin
 				if habilitado = '1' then
 					Case sel is
 						when "0000" => -- Pantalla roja
-							if ROM(pos_x-300,pos_y-300)='1'then
+						IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
+							if ROM(pos_y-300,pos_x-300)='1'then
 								colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
 							elsif ROM(pos_x-300,pos_y-300)='0'then
 								colorRGB:= "0000"&"0000"&"0000"; --color Negro
 							else
 								colorRGB:= "0000"&"0000"&"0000"; --color Negro
 							end if; 
-					
+						else
+								colorRGB:= "0000"&"0000"&"0000"; --color Negro
+						End if;
 						when "0001" => -- Pantalla azul cielo
 							colorRGB := "0101"&"1101"&"1111"; -- Azul cielo
 						

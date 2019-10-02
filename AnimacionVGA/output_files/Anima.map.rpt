@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Anima
-Wed Oct 02 13:38:10 2019
+Wed Oct 02 14:30:28 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -48,13 +48,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 02 13:38:10 2019       ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 02 14:30:28 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Anima                                       ;
 ; Top-level Entity Name              ; CONTROLADOR_VGA                             ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 430                                         ;
-;     Total combinational functions  ; 409                                         ;
+; Total logic elements               ; 431                                         ;
+;     Total combinational functions  ; 410                                         ;
 ;     Dedicated logic registers      ; 116                                         ;
 ; Total registers                    ; 116                                         ;
 ; Total pins                         ; 21                                          ;
@@ -194,16 +194,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 430   ;
+; Estimated Total logic elements              ; 431   ;
 ;                                             ;       ;
-; Total combinational functions               ; 409   ;
+; Total combinational functions               ; 410   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 111   ;
+;     -- 4 input functions                    ; 113   ;
 ;     -- 3 input functions                    ; 114   ;
-;     -- <=2 input functions                  ; 184   ;
+;     -- <=2 input functions                  ; 183   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 181   ;
+;     -- normal mode                          ; 182   ;
 ;     -- arithmetic mode                      ; 228   ;
 ;                                             ;       ;
 ; Total registers                             ; 116   ;
@@ -216,7 +216,7 @@ refer to the applicable agreement for further details.
 ;                                             ;       ;
 ; Maximum fan-out node                        ; div2  ;
 ; Maximum fan-out                             ; 55    ;
-; Total fan-out                               ; 1528  ;
+; Total fan-out                               ; 1534  ;
 ; Average fan-out                             ; 2.68  ;
 +---------------------------------------------+-------+
 
@@ -226,7 +226,7 @@ refer to the applicable agreement for further details.
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                     ; Entity Name     ; Library Name ;
 +---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------+-----------------+--------------+
-; |CONTROLADOR_VGA                ; 409 (377)           ; 116 (74)                  ; 0           ; 0          ; 4            ; 0       ; 2         ; 21   ; 0            ; 0          ; |CONTROLADOR_VGA                                        ; CONTROLADOR_VGA ; work         ;
+; |CONTROLADOR_VGA                ; 410 (378)           ; 116 (74)                  ; 0           ; 0          ; 4            ; 0       ; 2         ; 21   ; 0            ; 0          ; |CONTROLADOR_VGA                                        ; CONTROLADOR_VGA ; work         ;
 ;    |SINC_VGA:sincronizador|     ; 32 (32)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|SINC_VGA:sincronizador                 ; SINC_VGA        ; work         ;
 ;    |lpm_mult:Mult0|             ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|lpm_mult:Mult0                         ; lpm_mult        ; work         ;
 ;       |mult_fgs:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|lpm_mult:Mult0|mult_fgs:auto_generated ; mult_fgs        ; work         ;
@@ -399,21 +399,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 69                          ;
 ;     SCLR SLD          ; 6                           ;
 ;     plain             ; 31                          ;
-; cycloneiii_lcell_comb ; 409                         ;
+; cycloneiii_lcell_comb ; 410                         ;
 ;     arith             ; 228                         ;
 ;         2 data inputs ; 139                         ;
 ;         3 data inputs ; 89                          ;
-;     normal            ; 181                         ;
+;     normal            ; 182                         ;
 ;         0 data inputs ; 7                           ;
 ;         1 data inputs ; 9                           ;
-;         2 data inputs ; 29                          ;
+;         2 data inputs ; 28                          ;
 ;         3 data inputs ; 25                          ;
-;         4 data inputs ; 111                         ;
+;         4 data inputs ; 113                         ;
 ; cycloneiii_mac_mult   ; 2                           ;
 ; cycloneiii_mac_out    ; 2                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.80                       ;
-; Average LUT depth     ; 6.13                        ;
+; Max LUT depth         ; 12.80                       ;
+; Average LUT depth     ; 6.40                        ;
 +-----------------------+-----------------------------+
 
 
@@ -432,7 +432,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Oct 02 13:37:57 2019
+    Info: Processing started: Wed Oct 02 14:30:12 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Anima -c Anima
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -449,10 +449,10 @@ Info (12127): Elaborating entity "CONTROLADOR_VGA" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at CONTROLADOR_VGA.vhd(53): object "bar_on" assigned a value but never read File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 53
 Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 63
 Info (278001): Inferred 2 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 174
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 174
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 174
-Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 174
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 177
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 177
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 177
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 177
     Info (12134): Parameter "LPM_WIDTHA" = "11"
     Info (12134): Parameter "LPM_WIDTHB" = "11"
     Info (12134): Parameter "LPM_WIDTHP" = "22"
@@ -464,8 +464,8 @@ Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following para
     Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_fgs.tdf
     Info (12023): Found entity 1: mult_fgs File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/db/mult_fgs.tdf Line: 28
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult1" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 174
-Info (12133): Instantiated megafunction "lpm_mult:Mult1" with the following parameter: File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 174
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult1" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 177
+Info (12133): Instantiated megafunction "lpm_mult:Mult1" with the following parameter: File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 177
     Info (12134): Parameter "LPM_WIDTHA" = "10"
     Info (12134): Parameter "LPM_WIDTHB" = "10"
     Info (12134): Parameter "LPM_WIDTHP" = "20"
@@ -483,15 +483,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "reset" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 7
     Warning (15610): No output dependent on input pin "jump" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 7
-Info (21057): Implemented 459 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 460 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 434 logic cells
+    Info (21061): Implemented 435 logic cells
     Info (21062): Implemented 4 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4808 megabytes
-    Info: Processing ended: Wed Oct 02 13:38:10 2019
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4803 megabytes
+    Info: Processing ended: Wed Oct 02 14:30:28 2019
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:26
 
 
