@@ -4,7 +4,8 @@ USE ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
 entity CONTROLADOR_VGA is
-port(	clk, reset, jump : in std_logic;
+port(	clk, sum, res : in std_logic;
+		xychanger : in std_logic;
 		sel : in STD_LOGIC_VECTOR(3 downto 0);
 		hsync, vsync : out std_logic;
 		VGA_R, VGA_G, VGA_B: out std_logic_vector(3 downto 0));
@@ -16,16 +17,12 @@ signal div2 : std_logic := '0';
 signal pos_x : integer range 0 to 640 := 640;
 signal pos_y : integer range 0 to 480 := 480;
 signal habilitado : std_logic;
-
-signal clk_40Hz : std_logic := '0'; 
-signal clk_20Hz : std_logic := '0';
+signal mov_x : integer range 0 to 640 := 300;
+signal mov_y : integer range 0 to 480 := 300;
 signal clk_2Hz	 : std_logic := '0';
-
-signal div20 : integer range 0 to 2500000 := 0;
+signal clk_4Hz	 : std_logic := '0';
 signal div2h : integer range 0 to 25000000 := 0;
-signal div40 : integer range 0 to 1250000 := 0;
-signal tempo : integer range 0 to 540 := 0;
-signal grado : integer range 0 to 35 := 0;
+signal div4h : integer range 0 to 12500000 := 0;
 
 type rom_type is array (0 to 15,0 to 15) of std_logic;
 
@@ -63,13 +60,6 @@ constant ROM2 : rom_type:=(
 ('0','0','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
 ('0','0','0','1','1','1','0','0','0','0','0','0','0','0','0','0'),
 ('0','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0'));
-constant bar_x_L: integer:=600;
-constant bar_x_R: integer:=603;
-
-constant bar_y_size: integer:=72;
-constant bar_y_t: integer:= pos_y/2-bar_y_size/2;
-constant bar_y_b: integer := bar_y_t+bar_y_size-1;
-signal bar_on: std_logic;
 
 component SINC_VGA
 port (clk : in std_logic;
@@ -80,87 +70,70 @@ end component;
 
 begin
 	sincronizador: SINC_VGA port map (div2, hsync, vsync, habilitado, pos_x, pos_y);
-		bar_on<=
-							'1' when (bar_x_L<=pos_x) and (pos_x<=bar_x_R) and (bar_y_t<=pos_y) and (pos_y<=bar_y_b) else 
-							'0';
-	process(bar_on)
-	begin
-		
-	end process;
 	process(clk)
 	begin
 		if rising_edge(clk) then
 			div2 <= not div2;
-			if (div40 < 1250000) then
-				div40 <= div40 + 1;
-			else 
-				div40 <= 0;
-				clk_40Hz <= NOT clk_40Hz;
-			end if;
-			if (div20 < 2500000) then
-				div20 <= div20 + 1;
-			else
-				div20 <= 0;
-				clk_20Hz <= NOT clk_20Hz;
-			end if;
 			if (div2h<25000000) then
 				div2h<=div2h+1;
 			else
 				div2h<=0;
 				clk_2Hz<=not clk_2Hz;
 			end if;
-		end if;
-	end process;
-	
-	process(clk_40Hz)
-	begin
-		If clk_40Hz'event AND clk_40Hz = '1' then
-			if (tempo < 541) then
-				tempo <= tempo + 1;
+			if (div4h<6250000) then
+				div4h<=div4h+1;
 			else
-				tempo <= 0;
+				div4h<=0;
+				clk_4Hz<=not clk_4Hz;
 			end if;
 		end if;
 	end process;
-	
-	process(clk_20Hz)
+	process(clk_4Hz)
 	begin
-		If clk_20Hz'event AND clk_20Hz = '1' then
-			if (grado < 4) then
-				grado <= grado + 1;
-			else
-				grado <= 0;
+	if(clk_4hz='1') then
+		If xychanger='1' then
+			if sum='0' then
+				mov_y<=mov_y+1;
+			elsif res='0' then
+				mov_y<=mov_y-1;
+			end if;
+		else 
+			if sum='0' then
+				mov_x<=mov_x+1;
+			elsif res='0' then
+				mov_x<=mov_x-1;
 			end if;
 		end if;
+	end if;
 	end process;
-	
 	senialVGA: process(div2)
 
 	variable colorRGB : std_logic_vector(11	downto 0) := (others => '0');
 	
 	begin
 			if rising_edge(div2) then
+				
 				if habilitado = '1' then
 					Case sel is
 						when "0000" =>
 						--Pacman solitario
-						IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
-							if ROM(pos_y-300,pos_x-300)='1'then
-								colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
-							elsif ROM(pos_x-300,pos_y-300)='0'then
-								colorRGB:= "0000"&"0000"&"0000"; --color Negro
+							IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
+								if ROM(pos_y-300,pos_x-300)='1'then
+									colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
+								elsif ROM(pos_y-300,pos_x-300)='0'then
+									colorRGB:= "0000"&"0000"&"0000"; --color Negro
+								else
+									colorRGB:= "0000"&"0000"&"0000"; --color Negro
+								end if; 
 							else
 								colorRGB:= "0000"&"0000"&"0000"; --color Negro
-							end if; 
-						else
-								colorRGB:= "0000"&"0000"&"0000"; --color Negro
-						End if;
+							End if;
 						when "0001" => -- Pantalla pacman Animado
 							if(clk_2Hz='0') then
 								IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
 									if ROM(pos_y-300,pos_x-300)='1'then
 										colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
-									elsif ROM(pos_x-300,pos_y-300)='0'then
+									elsif ROM(pos_y-300,pos_x-300)='0'then
 										colorRGB:= "0000"&"0000"&"0000"; --color Negro
 									else
 										colorRGB:= "0000"&"0000"&"0000"; --color Negro
@@ -172,7 +145,7 @@ begin
 								IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
 									if ROM2(pos_y-300,pos_x-300)='1'then
 										colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
-									elsif ROM(pos_x-300,pos_y-300)='0'then
+									elsif ROM(pos_y-300,pos_x-300)='0'then
 										colorRGB:= "0000"&"0000"&"0000"; --color Negro
 									else
 										colorRGB:= "0000"&"0000"&"0000"; --color Negro
@@ -181,97 +154,21 @@ begin
 									colorRGB:= "0000"&"0000"&"0000"; --color Negro
 								End if;
 							End if;
-						when "0011" => -- Pantalla rosa
-							colorRGB := "1111"&"0000"&"1000"; -- Rosa
-					
-						when "0010" => -- Pantalla negra
-							colorRGB := "0000"&"0000"&"0000"; -- Negro
-					
-						when "0110" => -- cuadro rojo en el centro
-							if (pos_x > 280 AND pos_x < 360 AND pos_y > 200 AND pos_y < 280  ) then
-								colorRGB := "1111"&"0000"&"0000";
-							else
-								colorRGB := "0000"&"0000"&"0000"; 
-							end if;
-					
-						when "0111" => -- linea horizontal de 5 pixeles de ancho
-							if (pos_x > 120 AND pos_x < 400 AND pos_y > 200 AND pos_y < 206  ) then
-								colorRGB := "0000"&"0101"&"0001";
-							else
-								colorRGB := "1110"&"1110"&"1110"; 
-							end if;
-					
-						when "0101" => -- linea a 45 grados de 5 pixeles de ancho
-							if (pos_y <= (480-pos_x) AND pos_y >= (480-(pos_x+5))) then
-								colorRGB := "1111"&"0000"&"0000";
-							else
-								colorRGB := "1110"&"1110"&"1110"; 
-							end if;
-		
-						when "0100" => -- Circulo en el centro 
---							mitad x => 640/2 = 320
---							mitad y => 480/2 = 240
-						
-							if((pos_x-320)*(pos_x-320) + (pos_y-240)*(pos_y-240) <= 10000) then
-								colorRGB := "1111"&"1100"&"0000";
-							else
-								colorRGB := "1110"&"1110"&"1110"; 
-							end if;
-						
-						when "1100" => -- Circunferencia de 5 pixeles de radio
---							pos_x > 268 AND pos_x < 372 AND pos_y > 187 AND pos_y < 293 
---							mitad x => 640/2 = 320
---							mitad y => 480/2 = 240
-
-							if(((pos_x-320)*(pos_x-320) + (pos_y-240)*(pos_y-240) <= 10000)
-							AND((pos_x-320)*(pos_x-320) + (pos_y-240)*(pos_y-240) >= 9025 )) then
-								colorRGB := "1111"&"1100"&"0000";
-							else
-								colorRGB := "1110"&"1110"&"1110"; 
-							end if;
-						
-						when "1101" => -- Cuadro en movimiento de izquierda a derecha
-							if((pos_x > (0 + tempo) AND pos_x < (100+tempo))AND(pos_y > 190 AND pos_y < 290)) then
-								colorRGB := "1111"&"0000"&"0000";
-							else
-								colorRGB := "1111"&"1111"&"1111";
-							end if;
-						
-						when "1111" => -- Recta que gira en el centro
---							mitad x => 640/2 = 320
---							mitad y => 480/2 = 240
-						case grado is
-							when 0 =>
-								if (pos_y > 236 AND pos_y < 244) then
-									colorRGB := "1111"&"0000"&"0000";
+						when "0010" => -- bitmap movible
+							IF pos_x>=mov_x And pos_x<(mov_x+16) And pos_y>=mov_y and pos_y<(mov_y+16) then
+								if ROM(pos_y-mov_y,pos_x-mov_x)='1'then
+									colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
+								elsif ROM(pos_y-mov_y,pos_x-mov_x)='0'then
+									colorRGB:= "0000"&"0000"&"0000"; --color Negro
 								else
-									colorRGB := "1111"&"1111"&"1111";
-								end if;
-								
-							when 1 =>
-								if ((pos_y <= (480-pos_x)+80) AND (pos_y >= (480-(pos_x+5)+80))) then
-									colorRGB := "1111"&"0000"&"0000";
-								else
-									colorRGB := "1110"&"1110"&"1110"; 
-								end if;
-								
-							when 2 =>
-								if (pos_x > 316 AND pos_x < 324) then
-									colorRGB := "1111"&"0000"&"0000";
-								else
-									colorRGB := "1111"&"1111"&"1111";
-								end if;
-								
-							when others =>
-								if ((pos_y <= pos_x - 80) AND (pos_y >= (pos_x - 85))) then
-									colorRGB := "1111"&"0000"&"0000";
-								else
-									colorRGB := "1110"&"1110"&"1110"; 
-								end if;
-						end case;
+									colorRGB:= "0000"&"0000"&"0000"; --color Negro
+								end if; 
+							else
+								colorRGB:= "0000"&"0000"&"0000"; --color Negro
+							End if;
 							
-					when others =>
-						colorRGB := "0000"&"0000"&"1111"; -- Pantallazo azul
+						when others =>
+							colorRGB := "0000"&"0000"&"1111"; -- Pantallazo azul
 					END CASE;
 					
 					VGA_R <= colorRGB(11 downto 8);
