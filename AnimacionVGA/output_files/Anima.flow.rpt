@@ -1,5 +1,5 @@
 Flow report for Anima
-Wed Oct 02 14:30:48 2019
+Wed Oct 02 14:45:16 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Oct 02 14:30:48 2019       ;
+; Flow Status                        ; Successful - Wed Oct 02 14:45:16 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Anima                                       ;
 ; Top-level Entity Name              ; CONTROLADOR_VGA                             ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C6GES                            ;
 ; Timing Models                      ; Preliminary                                 ;
-; Total logic elements               ; 418 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 411 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 116 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 116                                         ;
+; Total logic elements               ; 466 / 49,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 458 / 49,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 142 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 142                                         ;
 ; Total pins                         ; 21 / 360 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/02/2019 14:30:13 ;
+; Start date & time ; 10/02/2019 14:44:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Anima               ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name     ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 247207020255681.157004461201572        ; --            ; --              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 247207020255681.157004548410276        ; --            ; --              ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --              ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --              ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; CONTROLADOR_VGA ; Top        ;
@@ -95,10 +95,10 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4803 MB             ; 00:00:26                           ;
-; Fitter               ; 00:00:12     ; 1.1                     ; 5566 MB             ; 00:00:15                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4691 MB             ; 00:00:03                           ;
-; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:44                           ;
+; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 4804 MB             ; 00:00:25                           ;
+; Fitter               ; 00:00:12     ; 1.1                     ; 5565 MB             ; 00:00:16                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4690 MB             ; 00:00:03                           ;
+; Total                ; 00:00:30     ; --                      ; --                  ; 00:00:44                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

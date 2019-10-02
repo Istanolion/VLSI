@@ -19,8 +19,10 @@ signal habilitado : std_logic;
 
 signal clk_40Hz : std_logic := '0'; 
 signal clk_20Hz : std_logic := '0';
+signal clk_2Hz	 : std_logic := '0';
 
 signal div20 : integer range 0 to 2500000 := 0;
+signal div2h : integer range 0 to 25000000 := 0;
 signal div40 : integer range 0 to 1250000 := 0;
 signal tempo : integer range 0 to 540 := 0;
 signal grado : integer range 0 to 35 := 0;
@@ -44,6 +46,23 @@ constant ROM : rom_type:=(
 ('0','0','1','1','1','1','1','1','1','1','1','1','1','1','0','0'),
 ('0','0','0','1','1','1','1','1','1','1','1','1','1','0','0','0'),
 ('0','0','0','0','0','1','1','1','1','1','1','0','0','0','0','0'));
+constant ROM2 : rom_type:=(
+('0','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0'),
+('0','0','0','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','0','1','0','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('1','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('1','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('1','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('1','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('1','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('1','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','1','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','0','1','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','0','0','1','1','1','0','0','0','0','0','0','0','0','0','0'),
+('0','0','0','0','0','1','0','0','0','0','0','0','0','0','0','0'));
 constant bar_x_L: integer:=600;
 constant bar_x_R: integer:=603;
 
@@ -84,6 +103,12 @@ begin
 				div20 <= 0;
 				clk_20Hz <= NOT clk_20Hz;
 			end if;
+			if (div2h<25000000) then
+				div2h<=div2h+1;
+			else
+				div2h<=0;
+				clk_2Hz<=not clk_2Hz;
+			end if;
 		end if;
 	end process;
 	
@@ -117,7 +142,8 @@ begin
 			if rising_edge(div2) then
 				if habilitado = '1' then
 					Case sel is
-						when "0000" => -- Pantalla roja
+						when "0000" =>
+						--Pacman solitario
 						IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
 							if ROM(pos_y-300,pos_x-300)='1'then
 								colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
@@ -129,9 +155,32 @@ begin
 						else
 								colorRGB:= "0000"&"0000"&"0000"; --color Negro
 						End if;
-						when "0001" => -- Pantalla azul cielo
-							colorRGB := "0101"&"1101"&"1111"; -- Azul cielo
-						
+						when "0001" => -- Pantalla pacman Animado
+							if(clk_2Hz='0') then
+								IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
+									if ROM(pos_y-300,pos_x-300)='1'then
+										colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
+									elsif ROM(pos_x-300,pos_y-300)='0'then
+										colorRGB:= "0000"&"0000"&"0000"; --color Negro
+									else
+										colorRGB:= "0000"&"0000"&"0000"; --color Negro
+									end if; 
+								else
+									colorRGB:= "0000"&"0000"&"0000"; --color Negro
+								End if;
+							else
+								IF pos_x>=300 And pos_x<316 And pos_y>=300 and pos_y<316 then
+									if ROM2(pos_y-300,pos_x-300)='1'then
+										colorRGB:= "1111"&"1111"&"0000"; --color Amarillo
+									elsif ROM(pos_x-300,pos_y-300)='0'then
+										colorRGB:= "0000"&"0000"&"0000"; --color Negro
+									else
+										colorRGB:= "0000"&"0000"&"0000"; --color Negro
+									end if; 
+								else
+									colorRGB:= "0000"&"0000"&"0000"; --color Negro
+								End if;
+							End if;
 						when "0011" => -- Pantalla rosa
 							colorRGB := "1111"&"0000"&"1000"; -- Rosa
 					
