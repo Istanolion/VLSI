@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProyectoFinal
-Fri Oct 25 11:04:19 2019
+Sun Oct 27 14:45:21 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -44,16 +44,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Oct 25 11:04:19 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 27 14:45:21 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ProyectoFinal                               ;
 ; Top-level Entity Name              ; CONTROLADOR_VGA                             ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 69                                          ;
-;     Total combinational functions  ; 42                                          ;
+; Total logic elements               ; 94                                          ;
+;     Total combinational functions  ; 68                                          ;
 ;     Dedicated logic registers      ; 52                                          ;
 ; Total registers                    ; 52                                          ;
-; Total pins                         ; 21                                          ;
+; Total pins                         ; 22                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -155,25 +155,26 @@ refer to the applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; SINC_VGA.vhd                     ; yes             ; User VHDL File  ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd        ;         ;
-; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File  ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; SINC_VGA.vhd                     ; yes             ; User VHDL File  ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd        ;         ;
+; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File  ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -181,30 +182,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 69    ;
+; Estimated Total logic elements              ; 94    ;
 ;                                             ;       ;
-; Total combinational functions               ; 42    ;
+; Total combinational functions               ; 68    ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 15    ;
-;     -- 3 input functions                    ; 3     ;
-;     -- <=2 input functions                  ; 24    ;
+;     -- 4 input functions                    ; 30    ;
+;     -- 3 input functions                    ; 13    ;
+;     -- <=2 input functions                  ; 25    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 24    ;
+;     -- normal mode                          ; 50    ;
 ;     -- arithmetic mode                      ; 18    ;
 ;                                             ;       ;
 ; Total registers                             ; 52    ;
 ;     -- Dedicated logic registers            ; 52    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 21    ;
+; I/O pins                                    ; 22    ;
 ;                                             ;       ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ;                                             ;       ;
 ; Maximum fan-out node                        ; div2  ;
 ; Maximum fan-out                             ; 52    ;
-; Total fan-out                               ; 283   ;
-; Average fan-out                             ; 2.08  ;
+; Total fan-out                               ; 376   ;
+; Average fan-out                             ; 2.29  ;
 +---------------------------------------------+-------+
 
 
@@ -213,7 +214,7 @@ refer to the applicable agreement for further details.
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                     ; Entity Name     ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
-; |CONTROLADOR_VGA            ; 42 (10)             ; 52 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |CONTROLADOR_VGA                        ; CONTROLADOR_VGA ; work         ;
+; |CONTROLADOR_VGA            ; 68 (36)             ; 52 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 22   ; 0            ; 0          ; |CONTROLADOR_VGA                        ; CONTROLADOR_VGA ; work         ;
 ;    |SINC_VGA:sincronizador| ; 32 (32)             ; 39 (39)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|SINC_VGA:sincronizador ; SINC_VGA        ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -258,22 +259,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 21                          ;
+; boundary_port         ; 22                          ;
 ; cycloneiii_ff         ; 52                          ;
 ;     ENA SCLR          ; 10                          ;
 ;     SCLR              ; 10                          ;
 ;     plain             ; 32                          ;
-; cycloneiii_lcell_comb ; 42                          ;
+; cycloneiii_lcell_comb ; 68                          ;
 ;     arith             ; 18                          ;
 ;         2 data inputs ; 18                          ;
-;     normal            ; 24                          ;
+;     normal            ; 50                          ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 3                           ;
-;         4 data inputs ; 15                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 30                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.78                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.79                        ;
 +-----------------------+-----------------------------+
 
 
@@ -292,44 +293,41 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Oct 25 11:04:00 2019
+    Info: Processing started: Sun Oct 27 14:45:10 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFinal -c ProyectoFinal
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file sinc_vga.vhd
-    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 12
-    Info (12023): Found entity 1: SINC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 5
+    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 12
+    Info (12023): Found entity 1: SINC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file div_frec.vhd
-    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 9
-    Info (12023): Found entity 1: DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 4
+    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 9
+    Info (12023): Found entity 1: DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_vga.vhd
-    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 14
-    Info (12023): Found entity 1: CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 6
+    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 14
+    Info (12023): Found entity 1: CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
-    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DE10_LITE_Golden_Top.v Line: 29
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DE10_LITE_Golden_Top.v Line: 29
 Info (12127): Elaborating entity "CONTROLADOR_VGA" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(22): used explicit default value for signal "COLORBLANCO" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 22
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(23): used explicit default value for signal "COLORNEGRO" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
-Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 33
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(22): used explicit default value for signal "COLORBLANCO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 22
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(23): used explicit default value for signal "COLORNEGRO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(24): used explicit default value for signal "COLORGRIS" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 24
+Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 37
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 6 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 9
-Info (21057): Implemented 91 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 7 input pins
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
+    Warning (15610): No output dependent on input pin "KEY[1]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
+Info (21057): Implemented 118 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 70 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4809 megabytes
-    Info: Processing ended: Fri Oct 25 11:04:19 2019
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:41
+    Info (21061): Implemented 96 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4791 megabytes
+    Info: Processing ended: Sun Oct 27 14:45:21 2019
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
 
 
