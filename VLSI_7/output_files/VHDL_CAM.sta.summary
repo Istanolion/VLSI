@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk50'
+Slack : -2.936
+TNS   : -507.951
+
+Type  : Slow 1200mV 85C Model Setup 'OV7670_PCLK'
+Slack : -2.524
+TNS   : -239.497
+
+Type  : Slow 1200mV 85C Model Hold 'OV7670_PCLK'
+Slack : 0.202
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk50'
+Slack : 0.343
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk50'
+Slack : -3.000
+TNS   : -400.727
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'OV7670_PCLK'
+Slack : -3.000
+TNS   : -293.082
+
+Type  : Slow 1200mV 0C Model Setup 'clk50'
+Slack : -2.612
+TNS   : -445.022
+
+Type  : Slow 1200mV 0C Model Setup 'OV7670_PCLK'
+Slack : -2.208
+TNS   : -210.155
+
+Type  : Slow 1200mV 0C Model Hold 'OV7670_PCLK'
+Slack : 0.209
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk50'
+Slack : 0.307
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk50'
+Slack : -3.000
+TNS   : -395.031
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'OV7670_PCLK'
+Slack : -3.000
+TNS   : -284.491
+
+Type  : Fast 1200mV 0C Model Setup 'clk50'
+Slack : -0.723
+TNS   : -92.729
+
+Type  : Fast 1200mV 0C Model Setup 'OV7670_PCLK'
+Slack : -0.630
+TNS   : -45.382
+
+Type  : Fast 1200mV 0C Model Hold 'OV7670_PCLK'
+Slack : 0.064
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk50'
+Slack : 0.149
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk50'
+Slack : -3.000
+TNS   : -282.757
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'OV7670_PCLK'
+Slack : -3.000
+TNS   : -179.063
+
+------------------------------------------------------------

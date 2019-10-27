@@ -80,7 +80,7 @@ begin
 				div2h<=0;
 				clk_2Hz<=not clk_2Hz;
 			end if;
-			if (div4h<6250000) then
+			if (div4h<625000) then
 				div4h<=div4h+1;
 			else
 				div4h<=0;
@@ -93,15 +93,31 @@ begin
 	if(clk_4hz='1') then
 		If xychanger='1' then
 			if sum='0' then
-				mov_y<=mov_y+1;
+				if mov_y<480 then
+					mov_y<=mov_y+1;
+				else 
+					mov_y<=0;
+				end if;
 			elsif res='0' then
-				mov_y<=mov_y-1;
+				if mov_y>0 then
+					mov_y<=mov_y-1;
+				else
+					mov_y<=480;
+				end if;
 			end if;
 		else 
 			if sum='0' then
-				mov_x<=mov_x+1;
+				if mov_x<640 then
+					mov_x<=mov_x+1;
+				else 
+					mov_x<=0;
+				end if;
 			elsif res='0' then
-				mov_x<=mov_x-1;
+				if mov_x>0 then
+					mov_x<=mov_x-1;
+				else
+					mov_x<=640;
+				end if;
 			end if;
 		end if;
 	end if;

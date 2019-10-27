@@ -1,0 +1,18 @@
+Fitter Status : Failed - Thu Oct 24 14:13:45 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : VHDL_CAM
+Top-level Entity Name : VHDL_CAM
+Family : MAX 10
+Device : 10M50DAF484C6GES
+Timing Models : Preliminary
+Total logic elements : 410 / 49,760 ( < 1 % )
+    Total combinational functions : 383 / 49,760 ( < 1 % )
+    Dedicated logic registers : 214 / 49,760 ( < 1 % )
+Total registers : 214
+Total pins : 36 / 360 ( 10 % )
+Total virtual pins : 0
+Total memory bits : 262,144 / 1,677,312 ( 16 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

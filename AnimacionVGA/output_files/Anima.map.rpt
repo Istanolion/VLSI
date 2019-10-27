@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Anima
-Wed Oct 02 16:11:08 2019
+Thu Oct 03 10:36:15 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -15,10 +15,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Inverted Register Statistics
- 10. Port Connectivity Checks: "SINC_VGA:sincronizador"
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "SINC_VGA:sincronizador"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -44,13 +45,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 02 16:11:08 2019       ;
+; Analysis & Synthesis Status        ; Successful - Thu Oct 03 10:36:15 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Anima                                       ;
 ; Top-level Entity Name              ; CONTROLADOR_VGA                             ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 270                                         ;
-;     Total combinational functions  ; 241                                         ;
+; Total logic elements               ; 327                                         ;
+;     Total combinational functions  ; 298                                         ;
 ;     Dedicated logic registers      ; 125                                         ;
 ; Total registers                    ; 125                                         ;
 ; Total pins                         ; 22                                          ;
@@ -155,26 +156,25 @@ refer to the applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                         ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
-; SINC_VGA.vhd                     ; yes             ; User VHDL File  ; Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/SINC_VGA.vhd        ;         ;
-; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File  ; Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; SINC_VGA.vhd                     ; yes             ; User VHDL File  ; C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/SINC_VGA.vhd        ;         ;
+; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File  ; C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -182,17 +182,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 270   ;
+; Estimated Total logic elements              ; 327   ;
 ;                                             ;       ;
-; Total combinational functions               ; 241   ;
+; Total combinational functions               ; 298   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 70    ;
-;     -- 3 input functions                    ; 69    ;
-;     -- <=2 input functions                  ; 102   ;
+;     -- 4 input functions                    ; 98    ;
+;     -- 3 input functions                    ; 63    ;
+;     -- <=2 input functions                  ; 137   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 110   ;
-;     -- arithmetic mode                      ; 131   ;
+;     -- normal mode                          ; 150   ;
+;     -- arithmetic mode                      ; 148   ;
 ;                                             ;       ;
 ; Total registers                             ; 125   ;
 ;     -- Dedicated logic registers            ; 125   ;
@@ -204,8 +204,8 @@ refer to the applicable agreement for further details.
 ;                                             ;       ;
 ; Maximum fan-out node                        ; div2  ;
 ; Maximum fan-out                             ; 55    ;
-; Total fan-out                               ; 1058  ;
-; Average fan-out                             ; 2.58  ;
+; Total fan-out                               ; 1226  ;
+; Average fan-out                             ; 2.63  ;
 +---------------------------------------------+-------+
 
 
@@ -214,7 +214,7 @@ refer to the applicable agreement for further details.
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                     ; Entity Name     ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
-; |CONTROLADOR_VGA            ; 241 (209)           ; 125 (83)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 22   ; 0            ; 0          ; |CONTROLADOR_VGA                        ; CONTROLADOR_VGA ; work         ;
+; |CONTROLADOR_VGA            ; 298 (266)           ; 125 (83)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 22   ; 0            ; 0          ; |CONTROLADOR_VGA                        ; CONTROLADOR_VGA ; work         ;
 ;    |SINC_VGA:sincronizador| ; 32 (32)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|SINC_VGA:sincronizador ; SINC_VGA        ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -240,16 +240,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; mov_y[8]                               ; 3       ;
-; mov_y[5]                               ; 3       ;
-; mov_y[3]                               ; 4       ;
-; mov_y[2]                               ; 4       ;
-; mov_x[8]                               ; 3       ;
-; mov_x[5]                               ; 3       ;
-; mov_x[3]                               ; 4       ;
-; mov_x[2]                               ; 4       ;
+; mov_y[8]                               ; 6       ;
+; mov_y[5]                               ; 6       ;
+; mov_y[3]                               ; 6       ;
+; mov_y[2]                               ; 6       ;
+; mov_x[8]                               ; 7       ;
+; mov_x[5]                               ; 5       ;
+; mov_x[3]                               ; 6       ;
+; mov_x[2]                               ; 6       ;
 ; Total number of inverted registers = 8 ;         ;
 +----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |CONTROLADOR_VGA|mov_y[7]  ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |CONTROLADOR_VGA|mov_x[4]  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |CONTROLADOR_VGA|mov_y[8]  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |CONTROLADOR_VGA|mov_x[8]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -272,19 +284,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;     ENA SCLR          ; 10                          ;
 ;     SCLR              ; 59                          ;
 ;     plain             ; 37                          ;
-; cycloneiii_lcell_comb ; 241                         ;
-;     arith             ; 131                         ;
-;         2 data inputs ; 74                          ;
-;         3 data inputs ; 57                          ;
-;     normal            ; 110                         ;
+; cycloneiii_lcell_comb ; 298                         ;
+;     arith             ; 148                         ;
+;         2 data inputs ; 106                         ;
+;         3 data inputs ; 42                          ;
+;     normal            ; 150                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 13                          ;
-;         2 data inputs ; 13                          ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 70                          ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 98                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.30                        ;
-; Average LUT depth     ; 3.82                        ;
+; Average LUT depth     ; 3.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -293,7 +305,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -303,32 +315,32 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Oct 02 16:10:55 2019
+    Info: Processing started: Thu Oct 03 10:35:47 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Anima -c Anima
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file sinc_vga.vhd
-    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/SINC_VGA.vhd Line: 12
-    Info (12023): Found entity 1: SINC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/SINC_VGA.vhd Line: 5
+    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/SINC_VGA.vhd Line: 12
+    Info (12023): Found entity 1: SINC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/SINC_VGA.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file div_frec.vhd
-    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/DIV_FREC.vhd Line: 9
-    Info (12023): Found entity 1: DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/DIV_FREC.vhd Line: 4
+    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/DIV_FREC.vhd Line: 9
+    Info (12023): Found entity 1: DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/DIV_FREC.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_vga.vhd
-    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 14
-    Info (12023): Found entity 1: CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 6
+    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 14
+    Info (12023): Found entity 1: CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 6
 Info (12127): Elaborating entity "CONTROLADOR_VGA" for the top level hierarchy
-Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: Z:/Istanolion/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 72
+Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: C:/Users/akuma/Documents/GitHub/VLSI/AnimacionVGA/CONTROLADOR_VGA.vhd Line: 72
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 294 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 351 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 272 logic cells
+    Info (21061): Implemented 329 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4793 megabytes
-    Info: Processing ended: Wed Oct 02 16:11:08 2019
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Thu Oct 03 10:36:15 2019
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:43
 
 
