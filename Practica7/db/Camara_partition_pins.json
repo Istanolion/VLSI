@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "OV7670_SIOC",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_XCLK",
+					"strict" : false
+				},
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_red[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_red[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_red[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_green[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_green[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_green[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_blue[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_blue[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vga_hsync",
+					"strict" : false
+				},
+				{
+					"name" : "vga_vsync",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_SIOD",
+					"strict" : false
+				},
+				{
+					"name" : "clk50",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_PCLK",
+					"strict" : false
+				},
+				{
+					"name" : "btn",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_VSYNC",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_HREF",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[3]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[4]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[1]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[2]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[5]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[6]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
