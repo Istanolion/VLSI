@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VHDL_CAM
-Thu Oct 24 14:13:32 2019
+Thu Oct 31 10:11:05 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -51,7 +51,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Oct 24 14:13:32 2019       ;
+; Analysis & Synthesis Status        ; Successful - Thu Oct 31 10:11:05 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; VHDL_CAM                                    ;
 ; Top-level Entity Name              ; VHDL_CAM                                    ;
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
 ; Top-level entity name                                            ; VHDL_CAM           ; VHDL_CAM           ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
@@ -508,7 +508,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Oct 24 14:13:05 2019
+    Info: Processing started: Thu Oct 31 10:10:34 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VHDL_CAM -c VHDL_CAM
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -629,9 +629,9 @@ Info (21057): Implemented 479 device resources after synthesis - the final resou
     Info (21061): Implemented 411 logic cells
     Info (21064): Implemented 32 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4827 megabytes
-    Info: Processing ended: Thu Oct 24 14:13:32 2019
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:44
+    Info: Peak virtual memory: 4826 megabytes
+    Info: Processing ended: Thu Oct 31 10:11:06 2019
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:00:55
 
 

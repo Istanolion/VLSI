@@ -37,7 +37,7 @@
 
 
 set_global_assignment -name FAMILY "MAX 10"
-set_global_assignment -name DEVICE 10M50DAF484C6GES
+set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY VHDL_CAM
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:42:43  OCTOBER 03, 2019"
@@ -46,6 +46,14 @@ set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name QIP_FILE RAM_CAM.qip
+set_global_assignment -name VHDL_FILE VHDL_CAM.vhd
+set_global_assignment -name VHDL_FILE debounce.vhd
+set_global_assignment -name VHDL_FILE ov7670_capture.vhd
+set_global_assignment -name VHDL_FILE ov7670_controller.vhd
+set_global_assignment -name VHDL_FILE i2c_sender.vhd
+set_global_assignment -name VHDL_FILE vga.vhd
+set_global_assignment -name VHDL_FILE ov7670_registers.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -62,6 +70,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to vga_blue[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_XCLK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_VSYNC
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_SIOD
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_SIOC
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_RESET
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_PWDN
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OV7670_PCLK
@@ -86,6 +95,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk50
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to btn
 set_location_assignment PIN_B8 -to btn
 set_location_assignment PIN_P11 -to clk50
+set_location_assignment PIN_Y7 -to OV7670_SIOC
 set_location_assignment PIN_AA8 -to OV7670_SIOD
 set_location_assignment PIN_Y8 -to OV7670_VSYNC
 set_location_assignment PIN_AA9 -to OV7670_HREF
@@ -119,17 +129,4 @@ set_location_assignment PIN_R2 -to vga_green[1]
 set_location_assignment PIN_R1 -to vga_green[2]
 set_location_assignment PIN_N3 -to vga_hsync
 set_location_assignment PIN_N1 -to vga_vsync
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to |
-set_location_assignment PIN_Y7 -to |
-set_global_assignment -name QIP_FILE RAM_CAM.qip
-set_global_assignment -name VHDL_FILE VHDL_CAM.vhd
-set_global_assignment -name VHDL_FILE debounce.vhd
-set_global_assignment -name VHDL_FILE ov7670_capture.vhd
-set_global_assignment -name VHDL_FILE ov7670_controller.vhd
-set_global_assignment -name VHDL_FILE i2c_sender.vhd
-set_global_assignment -name VHDL_FILE vga.vhd
-set_global_assignment -name VHDL_FILE ov7670_registers.vhd
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name BOARD "MAX 10 DE10 - Lite"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
