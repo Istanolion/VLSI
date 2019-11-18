@@ -35,6 +35,15 @@ port (clk : in std_logic;
 		pos_y : out integer range 0 to 525 := 0);
 end component;
 
+
+type rom_type is array (8 downto 0) of integer range 0 to 8; 
+type twoInts is array (1 downto 0) of integer range 0 to 8;
+Signal notas:rom_type:=(1,2,3,4,5,6,7,8,0);
+signal index: integer range 0 to 8:=0;
+signal playingnote: twoInts;
+signal mov_y1,mov_y2 : integer range 0 to 480 := 0;
+
+
 begin
 	sincronizador: SINC_VGA port map (div2, VGA_HS, VGA_VS, habilitado, pos_x, pos_y);
 
@@ -58,12 +67,15 @@ begin
 	begin
 			if rising_edge(div2) then
 				if habilitado = '1' then
-						IF (pos_y<360) then
+						IF (pos_y<320) then
 							IF(pos_x<80 and pos_x>=0) then
 								if columActiv=1 then
 									RGBCOLORS<=COLORGRIS;
 								ELSE
 									RGBCOLORS<=COLORBLANCO;
+								end if;
+								if (pos_y <mov_y1-320)then
+									RGBCOLORS<=COLORNEGRO;
 								end if;
 							elsif (pos_x>81 and pos_x<159) then 
 								if columActiv=2 then
@@ -110,6 +122,9 @@ begin
 							else
 								RGBCOLORS<=COLORNEGRO;
 							end if;
+							if (pos_x<640 and pos_x>439 AND pos_y<105 and pos_y>4) THEN
+								RGBCOLORS<=COLORNEGRO;
+							end if;
 						else 
 							IF(pos_x/=80 and pos_x/=81 and pos_x/=160 and pos_x/=159 and pos_x/=240 and pos_x/=239 and pos_x/=320 and pos_x/=319 and pos_x/=400 and pos_x/=399 and pos_x/=480 and pos_x/=479 and pos_x/=560 and pos_x/=559) then
 								RGBCOLORS<=COLORNEGRO;
@@ -124,6 +139,9 @@ begin
 					VGA_R <= "0000";
 					VGA_G <= "0000";
 					VGA_B <= "0000";
+				end if;
+				if pos_y=640 then
+					mov_y1<=mov_y1+1;
 				end if;
 			end if;
 	end process;

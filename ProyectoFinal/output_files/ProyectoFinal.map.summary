@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Thu Nov 14 09:56:55 2019
+Analysis & Synthesis Status : Successful - Mon Nov 18 14:43:25 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : ProyectoFinal
 Top-level Entity Name : CONTROLADOR_VGA
 Family : MAX 10
-Total logic elements : 136
-    Total combinational functions : 110
-    Dedicated logic registers : 54
-Total registers : 54
+Total logic elements : 146
+    Total combinational functions : 117
+    Dedicated logic registers : 57
+Total registers : 57
 Total pins : 25
 Total virtual pins : 0
 Total memory bits : 0
