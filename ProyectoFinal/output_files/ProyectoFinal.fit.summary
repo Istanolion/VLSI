@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Nov 18 14:43:36 2019
+Fitter Status : Successful - Mon Nov 18 17:59:11 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : ProyectoFinal
 Top-level Entity Name : CONTROLADOR_VGA
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 135 / 49,760 ( < 1 % )
-    Total combinational functions : 118 / 49,760 ( < 1 % )
-    Dedicated logic registers : 57 / 49,760 ( < 1 % )
-Total registers : 57
+Total logic elements : 536 / 49,760 ( 1 % )
+    Total combinational functions : 517 / 49,760 ( 1 % )
+    Dedicated logic registers : 141 / 49,760 ( < 1 % )
+Total registers : 141
 Total pins : 25 / 360 ( 7 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
