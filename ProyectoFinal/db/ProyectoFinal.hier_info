@@ -36,6 +36,7 @@ SW[7] => Mux2.IN256
 SW[7] => Mux3.IN256
 VGA_HS <= SINC_VGA:sincronizador.hsync
 VGA_VS <= SINC_VGA:sincronizador.vsync
+buzzer <= buzzer~reg0.DB_MAX_OUTPUT_PORT_TYPE
 VGA_R[0] <= VGA_R[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 VGA_R[1] <= VGA_R[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 VGA_R[2] <= VGA_R[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE

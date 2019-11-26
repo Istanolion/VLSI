@@ -8,6 +8,7 @@ port(	KEY : in std_logic_VECTOR (1 DOWNTO 0);
 		MAX10_CLK1_50 : in STD_LOGIC;
 		SW: in STD_LOGIC_VECTOR(7 downto 0);
 		VGA_HS, VGA_VS : out std_logic;
+		buzzer : out std_logic;
 		VGA_R, VGA_G, VGA_B: out std_logic_vector(3 downto 0));
 end CONTROLADOR_VGA;
 
@@ -507,9 +508,15 @@ signal score_y : integer range 0 to 39:=0;
 signal number_x: integer range 0 to 23:=0;
 signal number_y: integer range 0 to 39:=0;
 ---Ahora se necesita una variable que nos vaya guardando el score, almacenaremos unidades y decenas por separado
-signal score_unit : integer range 0 to 9:=1;
-signal score_dec  : integer range 0 to 9:=2;
+signal score_unit : integer range 0 to 9:=0;
+signal score_dec  : integer range 0 to 9:=0;
 ------------------------------------------------
+--nos ayudara a llevar la cuenta
+signal puntaje : integer range 0 to 15:=0;
+---debemos ver que solo pueda sumar puntos una vez cada nota
+signal puntos1: std_logic:='1';
+signal puntos2,puntos3,puntos4,puntos5,puntos6,puntos7,puntos8 : std_logic:='0';
+-------------------------------------------------
 type rom_type is array (0 to 18) of integer range 0 to 9; 
 type threeInts is array (0 to 2) of integer range 0 to 9;
 Signal notas:rom_type:=(4,3,5,8,4,7,5,4,2,3,1,7,5,2,6,1,5,7,1);
@@ -563,6 +570,23 @@ begin
 							if (pos_y >mov_y1-160 and pos_y<mov_y1)then
 								RGBCOLORS<=COLORAZUL;
 							end if;
+							if (puntos1='1') then
+								if (mov_y1>320 and mov_y1<400 and columActiv=1) then
+									puntaje<=puntaje+1;
+									puntos1<='0';
+								elsif (mov_y1>400 and mov_y1<450 and columActiv=1) then
+									puntaje<=puntaje+2;
+									puntos1<='0';
+								elsif (mov_y1>450 and columActiv=1) then
+									puntaje<=puntaje+3;
+									puntos1<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
+							end if;
 						end if;
 					elsif (pos_x>81 and pos_x<159) then 
 						if (pos_y<320) then
@@ -575,6 +599,23 @@ begin
 						if (playingnote(0)=2 or playingnote(1)=2 or playingnote(2)=2) then
 							if (pos_y >mov_y2-160 and pos_y<mov_y2)then
 								RGBCOLORS<=COLORAZUL;
+							end if;
+							if (puntos2='1') then
+								if (mov_y2>320 and mov_y2<400 and columActiv=2) then
+									puntaje<=puntaje+1;
+									puntos2<='0';
+								elsif (mov_y2>400 and mov_y2<450 and columActiv=2) then
+									puntaje<=puntaje+2;
+									puntos2<='0';
+								elsif (mov_y2>450 and columActiv=2) then
+									puntaje<=puntaje+3;
+									puntos2<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<239 and pos_x>160) then
@@ -589,6 +630,23 @@ begin
 							if (pos_y >mov_y3-160 and pos_y<mov_y3)then
 								RGBCOLORS<=COLORAZUL;
 							end if;
+							if (puntos3='1') then
+								if (mov_y3>320 and mov_y3<400 and columActiv=3) then
+									puntaje<=puntaje+1;
+									puntos3<='0';
+								elsif (mov_y3>400 and mov_y3<450 and columActiv=3) then
+									puntaje<=puntaje+2;
+									puntos3<='0';
+								elsif (mov_y3>450 and columActiv=3) then
+									puntaje<=puntaje+3;
+									puntos3<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
+							end if;
 						end if;
 					elsif (pos_x<319 and pos_x>240) then
 						if (pos_y<320) then
@@ -601,6 +659,23 @@ begin
 						if (playingnote(0)=4 or playingnote(1)=4 or playingnote(2)=4) then
 							if (pos_y >mov_y4-160 and pos_y<mov_y4)then
 								RGBCOLORS<=COLORAZUL;
+							end if;
+							if (puntos4='1') then
+								if (mov_y4>320 and mov_y4<400 and columActiv=4) then
+									puntaje<=puntaje+1;
+									puntos4<='0';
+								elsif (mov_y4>400 and mov_y4<450 and columActiv=4) then
+									puntaje<=puntaje+2;
+									puntos4<='0';
+								elsif (mov_y4>450 and columActiv=4) then
+									puntaje<=puntaje+3;
+									puntos4<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<399 and pos_x>320) then
@@ -615,6 +690,23 @@ begin
 							if (pos_y >mov_y5-160 and pos_y<mov_y5)then
 								RGBCOLORS<=COLORAZUL;
 							end if;
+							if (puntos5='1') then
+								if (mov_y5>320 and mov_y5<400 and columActiv=5) then
+									puntaje<=puntaje+1;
+									puntos5<='0';
+								elsif (mov_y5>400 and mov_y5<450 and columActiv=5) then
+									puntaje<=puntaje+2;
+									puntos5<='0';
+								elsif (mov_y5>450 and columActiv=5) then
+									puntaje<=puntaje+3;
+									puntos5<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
+							end if;
 						end if;
 					elsif (pos_x<479 and pos_x>400) then
 						if (pos_y<320) then
@@ -627,6 +719,23 @@ begin
 						if (playingnote(0)=6 or playingnote(1)=6 or playingnote(2)=6) then
 							if (pos_y >mov_y6-160 and pos_y<mov_y6)then
 								RGBCOLORS<=COLORAZUL;
+							end if;
+							if (puntos6='1') then
+								if (mov_y6>320 and mov_y6<400 and columActiv=6) then
+									puntaje<=puntaje+1;
+									puntos6<='0';
+								elsif (mov_y6>400 and mov_y6<450 and columActiv=6) then
+									puntaje<=puntaje+2;
+									puntos6<='0';
+								elsif (mov_y6>450 and columActiv=6) then
+									puntaje<=puntaje+3;
+									puntos6<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<559 and pos_x>480) then
@@ -641,6 +750,23 @@ begin
 							if (pos_y >mov_y7-160 and pos_y<mov_y7)then
 								RGBCOLORS<=COLORAZUL;
 							end if;
+							if (puntos7='1') then
+								if (mov_y7>320 and mov_y7<400 and columActiv=7) then
+									puntaje<=puntaje+1;
+									puntos7<='0';
+								elsif (mov_y7>400 and mov_y7<450 and columActiv=7) then
+									puntaje<=puntaje+2;
+									puntos7<='0';
+								elsif (mov_y7>450 and columActiv=7) then
+									puntaje<=puntaje+3;
+									puntos7<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
+							end if;
 						end if;
 					elsif (pos_x<638 and pos_x>560) then
 						if (pos_y<320) then
@@ -653,6 +779,23 @@ begin
 						if (playingnote(0)=8 or playingnote(1)=8 or playingnote(2)=8) then
 							if (pos_y >mov_y8-160 and pos_y<mov_y8)then
 								RGBCOLORS<=COLORAZUL;
+							end if;
+							if (puntos8='1') then
+								if (mov_y8>320 and mov_y8<400 and columActiv=8) then
+									puntaje<=puntaje+1;
+									puntos8<='0';
+								elsif (mov_y8>400 and mov_y8<450 and columActiv=8) then
+									puntaje<=puntaje+2;
+									puntos8<='0';
+								elsif (mov_y8>450 and columActiv=8) then
+									puntaje<=puntaje+3;
+									puntos8<='0';
+								end if;
+								if (puntaje>9) then
+									score_dec<=score_dec+1;
+									puntaje<=puntaje-10;
+								end if;
+								score_unit<=puntaje;
 							end if;
 						end if;
 					else
@@ -917,10 +1060,11 @@ begin
 								end if;
 							end if;
 					end if;
-						--Se mandan el color a pantalla
+-----------------Se mandan el color a pantalla-------------------------------------
 					VGA_R <= RGBCOLORS(11 DOWNTO 8);
 					VGA_G <= RGBCOLORS(7 DOWNTO 4);
 					VGA_B <= RGBCOLORS(3 DOWNTO 0);
+					buzzer<='0';
 				else
 				--si no esta activo
 					VGA_R <= "0000";
@@ -971,9 +1115,44 @@ begin
 					end if;
 					--Se cambia el indice de la nota que se esta tocando cada que alguna nota llegue al 160
 					if(mov_y1=160 or mov_y2=160 or mov_y3=160 or mov_y4=160 or mov_y5=160 or mov_y6=160 or mov_y7=160 or mov_y8=160) then
+						if playingnote(0)=1 then
+							puntos1<='0';
+						elsif playingnote(0)=2 then
+							puntos2<='0';
+						elsif playingnote(0)=3 then
+							puntos3<='0';
+						elsif playingnote(0)=4 then
+							puntos4<='0';
+						elsif playingnote(0)=5 then
+							puntos5<='0';
+						elsif playingnote(0)=6 then
+							puntos6<='0';
+						elsif playingnote(0)=7 then
+							puntos7<='0';
+						elsif playingnote(0)=8 then
+							puntos8<='0';
+						end if;
 						playingnote(0)<=playingnote(1);
 						playingnote(1)<=playingnote(2);
 						playingnote(2)<=notas(index);
+						if notas(index)=1 then
+							puntos1<='1';
+						elsif notas(index)=2 then
+							puntos2<='1';
+						elsif notas(index)=3 then
+							puntos3<='1';
+						elsif notas(index)=4 then
+							puntos4<='1';
+						elsif notas(index)=5 then
+							puntos5<='1';
+						elsif notas(index)=6 then
+							puntos6<='1';
+						elsif notas(index)=7 then
+							puntos7<='1';
+						elsif notas(index)=8 then
+							puntos8<='1';
+						end if;
+						
 						if (index <18) then
 							index<=index+1;
 						else
