@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProyectoFinal
-Thu Nov 21 14:37:25 2019
+Tue Nov 26 12:19:13 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -16,10 +16,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   8. Registers Removed During Synthesis
   9. General Register Statistics
  10. Inverted Register Statistics
- 11. Port Connectivity Checks: "SINC_VGA:sincronizador"
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "SINC_VGA:sincronizador"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -45,15 +46,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 21 14:37:25 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 26 12:19:13 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ProyectoFinal                               ;
 ; Top-level Entity Name              ; CONTROLADOR_VGA                             ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 497                                         ;
-;     Total combinational functions  ; 465                                         ;
-;     Dedicated logic registers      ; 131                                         ;
-; Total registers                    ; 131                                         ;
+; Total logic elements               ; 581                                         ;
+;     Total combinational functions  ; 551                                         ;
+;     Dedicated logic registers      ; 158                                         ;
+; Total registers                    ; 158                                         ;
 ; Total pins                         ; 25                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -156,25 +157,27 @@ refer to the applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; SINC_VGA.vhd                     ; yes             ; User VHDL File  ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd        ;         ;
-; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File  ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; SINC_VGA.vhd                     ; yes             ; User VHDL File  ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd        ;         ;
+; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File  ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -182,20 +185,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 497   ;
+; Estimated Total logic elements              ; 581   ;
 ;                                             ;       ;
-; Total combinational functions               ; 465   ;
+; Total combinational functions               ; 551   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 180   ;
-;     -- 3 input functions                    ; 152   ;
-;     -- <=2 input functions                  ; 133   ;
+;     -- 4 input functions                    ; 228   ;
+;     -- 3 input functions                    ; 164   ;
+;     -- <=2 input functions                  ; 159   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 275   ;
-;     -- arithmetic mode                      ; 190   ;
+;     -- normal mode                          ; 340   ;
+;     -- arithmetic mode                      ; 211   ;
 ;                                             ;       ;
-; Total registers                             ; 131   ;
-;     -- Dedicated logic registers            ; 131   ;
+; Total registers                             ; 158   ;
+;     -- Dedicated logic registers            ; 158   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 25    ;
@@ -203,9 +206,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ;                                             ;       ;
 ; Maximum fan-out node                        ; div2  ;
-; Maximum fan-out                             ; 131   ;
-; Total fan-out                               ; 1906  ;
-; Average fan-out                             ; 2.95  ;
+; Maximum fan-out                             ; 158   ;
+; Total fan-out                               ; 2288  ;
+; Average fan-out                             ; 3.01  ;
 +---------------------------------------------+-------+
 
 
@@ -214,7 +217,7 @@ refer to the applicable agreement for further details.
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                     ; Entity Name     ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
-; |CONTROLADOR_VGA            ; 465 (433)           ; 131 (89)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |CONTROLADOR_VGA                        ; CONTROLADOR_VGA ; work         ;
+; |CONTROLADOR_VGA            ; 551 (519)           ; 158 (116)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |CONTROLADOR_VGA                        ; CONTROLADOR_VGA ; work         ;
 ;    |SINC_VGA:sincronizador| ; 32 (32)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|SINC_VGA:sincronizador ; SINC_VGA        ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -225,12 +228,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; RGBCOLORS[3,5,7,9,11]                  ; Merged with RGBCOLORS[1]               ;
-; RGBCOLORS[2,4,6,8,10]                  ; Merged with RGBCOLORS[0]               ;
+; RGBCOLORS[3,5,7]                       ; Merged with RGBCOLORS[1]               ;
+; RGBCOLORS[11]                          ; Merged with RGBCOLORS[9]               ;
+; RGBCOLORS[8]                           ; Merged with RGBCOLORS[10]              ;
+; RGBCOLORS[2,4,6]                       ; Merged with RGBCOLORS[0]               ;
 ; playingnote[1][3]                      ; Stuck at GND due to stuck port data_in ;
 ; playingnote[0][3]                      ; Stuck at GND due to stuck port data_in ;
 ; mov_y8[0..8]                           ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 21 ;                                        ;
+; Total Number of Removed Registers = 19 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -239,12 +244,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 131   ;
-; Number of registers using Synchronous Clear  ; 88    ;
+; Total registers                              ; 158   ;
+; Number of registers using Synchronous Clear  ; 113   ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 86    ;
+; Number of registers using Clock Enable       ; 113   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -258,6 +263,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; playingnote[1][0]                      ; 11      ;
 ; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CONTROLADOR_VGA|number_x[4]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |CONTROLADOR_VGA|RGBCOLORS[9] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -275,23 +290,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 25                          ;
-; cycloneiii_ff         ; 131                         ;
-;     ENA               ; 8                           ;
-;     ENA SCLR          ; 78                          ;
+; cycloneiii_ff         ; 158                         ;
+;     ENA               ; 10                          ;
+;     ENA SCLR          ; 103                         ;
 ;     SCLR              ; 10                          ;
 ;     plain             ; 35                          ;
-; cycloneiii_lcell_comb ; 465                         ;
-;     arith             ; 190                         ;
-;         2 data inputs ; 78                          ;
+; cycloneiii_lcell_comb ; 551                         ;
+;     arith             ; 211                         ;
+;         2 data inputs ; 99                          ;
 ;         3 data inputs ; 112                         ;
-;     normal            ; 275                         ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 44                          ;
-;         3 data inputs ; 40                          ;
-;         4 data inputs ; 180                         ;
+;     normal            ; 340                         ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 45                          ;
+;         3 data inputs ; 52                          ;
+;         4 data inputs ; 228                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 10.00                       ;
-; Average LUT depth     ; 5.34                        ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 5.14                        ;
 +-----------------------+-----------------------------+
 
 
@@ -300,7 +315,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -310,41 +325,55 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Nov 21 14:36:57 2019
+    Info: Processing started: Tue Nov 26 12:18:56 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFinal -c ProyectoFinal
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file sinc_vga.vhd
-    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 12
-    Info (12023): Found entity 1: SINC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 5
+    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 12
+    Info (12023): Found entity 1: SINC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file div_frec.vhd
-    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 9
-    Info (12023): Found entity 1: DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 4
+    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 9
+    Info (12023): Found entity 1: DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_vga.vhd
-    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 14
-    Info (12023): Found entity 1: CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 6
+    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 14
+    Info (12023): Found entity 1: CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
-    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DE10_LITE_Golden_Top.v Line: 29
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DE10_LITE_Golden_Top.v Line: 29
 Info (12127): Elaborating entity "CONTROLADOR_VGA" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(22): used explicit default value for signal "COLORBLANCO" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 22
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(23): used explicit default value for signal "COLORNEGRO" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(24): used explicit default value for signal "COLORGRIS" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 24
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(41): used explicit default value for signal "notas" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 41
-Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 48
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(22): used explicit default value for signal "COLORBLANCO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 22
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(23): used explicit default value for signal "COLORNEGRO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(24): used explicit default value for signal "COLORGRIS" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 24
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(25): used explicit default value for signal "COLORROJO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 25
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(39): used explicit default value for signal "score" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 39
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(83): used explicit default value for signal "cero" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 83
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(125): used explicit default value for signal "uno" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 125
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(167): used explicit default value for signal "dos" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 167
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(209): used explicit default value for signal "tres" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 209
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(251): used explicit default value for signal "cuatro" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 251
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(293): used explicit default value for signal "cinco" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 293
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(335): used explicit default value for signal "seis" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 335
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(377): used explicit default value for signal "siete" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 377
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(419): used explicit default value for signal "ocho" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 419
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(461): used explicit default value for signal "nueve" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 461
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(509): used explicit default value for signal "score_unit" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 509
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(510): used explicit default value for signal "score_dec" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 510
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(514): used explicit default value for signal "notas" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 514
+Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 521
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
-Info (21057): Implemented 527 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[0]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
+    Warning (15610): No output dependent on input pin "KEY[1]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 7
+Info (21057): Implemented 613 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 502 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Thu Nov 21 14:37:25 2019
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:44
+    Info (21061): Implemented 588 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Tue Nov 26 12:19:13 2019
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:24
 
 

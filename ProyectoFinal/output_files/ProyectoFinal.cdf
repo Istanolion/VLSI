@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484ES) Path("C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/output_files/") File("ProyectoFinal.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484ES) Path("Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/output_files/") File("ProyectoFinal.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
