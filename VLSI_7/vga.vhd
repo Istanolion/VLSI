@@ -55,12 +55,12 @@ begin
          if blank = '0' then
 				if (frame_pixel="11111111") then
 					vga_red   <= "111";
-					vga_green <= "111";
-					vga_blue  <= "11";
-				else
-					vga_red   <= "000";
-					vga_green <= "111";
+					vga_green <= "000";
 					vga_blue  <= "00";
+				else
+					vga_red   <= frame_pixel(7 downto 5);
+					vga_green <= frame_pixel(4 downto 2);
+					vga_blue  <= frame_pixel(1 downto 0);
 				end if;
          else
             vga_red   <= (others => '0');

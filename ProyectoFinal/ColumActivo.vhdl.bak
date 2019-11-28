@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+entity ov7670_capture is
+    Port ( 	clk : in std_logic;
+				pix_x : in  integer range 0 to 700;
+            activo    : out  integer range 0 to 9) ;
+end ov7670_capture;
+
+architecture Behavioral of ov7670_capture is
+
+   
+begin
+	process(clk)
+		if pix_x>0 and pix_x<80 then
+			activo<= 1;
+		elsif pix>80 and pix_<160 then
+			activo<=2;
+		elsif pix>160 and pix_<240 then
+			activo<=3;
+		elsif pix>240 and pix_<320 then
+			activo<=4;
+		elsif pix>320 and pix_<400 then
+			activo<=5;
+		elsif pix>400 and pix_<480 then
+			activo<=6;
+		elsif pix>480 and pix_<560 then
+			activo<=7;
+		elsif pix>560 and pix_<640 then
+			activo<=8;
+		end if;
+	end process;
+end Behavioral;

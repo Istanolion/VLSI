@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VHDL_CAM
-Wed Nov 27 22:33:05 2019
+Thu Nov 28 09:50:06 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -51,13 +51,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 27 22:33:05 2019       ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 28 09:50:06 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; VHDL_CAM                                    ;
 ; Top-level Entity Name              ; VHDL_CAM                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 411                                         ;
-;     Total combinational functions  ; 377                                         ;
+; Total logic elements               ; 415                                         ;
+;     Total combinational functions  ; 388                                         ;
 ;     Dedicated logic registers      ; 214                                         ;
 ; Total registers                    ; 214                                         ;
 ; Total pins                         ; 36                                          ;
@@ -169,7 +169,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -207,16 +208,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 411         ;
+; Estimated Total logic elements              ; 415         ;
 ;                                             ;             ;
-; Total combinational functions               ; 377         ;
+; Total combinational functions               ; 388         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 160         ;
-;     -- 3 input functions                    ; 49          ;
-;     -- <=2 input functions                  ; 168         ;
+;     -- 4 input functions                    ; 168         ;
+;     -- 3 input functions                    ; 48          ;
+;     -- <=2 input functions                  ; 172         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 276         ;
+;     -- normal mode                          ; 287         ;
 ;     -- arithmetic mode                      ; 101         ;
 ;                                             ;             ;
 ; Total registers                             ; 214         ;
@@ -230,8 +231,8 @@ refer to the applicable agreement for further details.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clk50~input ;
 ; Maximum fan-out                             ; 205         ;
-; Total fan-out                               ; 2791        ;
-; Average fan-out                             ; 4.01        ;
+; Total fan-out                               ; 2828        ;
+; Average fan-out                             ; 4.00        ;
 +---------------------------------------------+-------------+
 
 
@@ -240,7 +241,7 @@ refer to the applicable agreement for further details.
 +------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                ; Entity Name       ; Library Name ;
 +------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |VHDL_CAM                                      ; 377 (0)             ; 214 (0)                   ; 262144      ; 0          ; 0            ; 0       ; 0         ; 36   ; 0            ; 0          ; |VHDL_CAM                                                                                                          ; VHDL_CAM          ; work         ;
+; |VHDL_CAM                                      ; 388 (0)             ; 214 (0)                   ; 262144      ; 0          ; 0            ; 0       ; 0         ; 36   ; 0            ; 0          ; |VHDL_CAM                                                                                                          ; VHDL_CAM          ; work         ;
 ;    |RAM_CAM:inst_ram|                          ; 24 (0)              ; 4 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|RAM_CAM:inst_ram                                                                                         ; RAM_CAM           ; work         ;
 ;       |altsyncram:altsyncram_component|        ; 24 (0)              ; 4 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|RAM_CAM:inst_ram|altsyncram:altsyncram_component                                                         ; altsyncram        ; work         ;
 ;          |altsyncram_u3o3:auto_generated|      ; 24 (0)              ; 4 (4)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated                          ; altsyncram_u3o3   ; work         ;
@@ -248,11 +249,11 @@ refer to the applicable agreement for further details.
 ;             |decode_c7a:decode2|               ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|decode_c7a:decode2       ; decode_c7a        ; work         ;
 ;             |mux_s1b:mux3|                     ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|mux_s1b:mux3             ; mux_s1b           ; work         ;
 ;    |debounce:btn_debounce|                     ; 32 (32)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|debounce:btn_debounce                                                                                    ; debounce          ; work         ;
-;    |ov7670_capture:capture|                    ; 27 (27)             ; 41 (41)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|ov7670_capture:capture                                                                                   ; ov7670_capture    ; work         ;
+;    |ov7670_capture:capture|                    ; 26 (26)             ; 41 (41)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|ov7670_capture:capture                                                                                   ; ov7670_capture    ; work         ;
 ;    |ov7670_controller:controller|              ; 207 (1)             ; 96 (1)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|ov7670_controller:controller                                                                             ; ov7670_controller ; work         ;
 ;       |i2c_sender:Inst_i2c_sender|             ; 95 (95)             ; 71 (71)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender                                                  ; i2c_sender        ; work         ;
 ;       |ov7670_registers:Inst_ov7670_registers| ; 111 (111)           ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|ov7670_controller:controller|ov7670_registers:Inst_ov7670_registers                                      ; ov7670_registers  ; work         ;
-;    |vga:Inst_vga|                              ; 87 (87)             ; 48 (48)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|vga:Inst_vga                                                                                             ; vga               ; work         ;
+;    |vga:Inst_vga|                              ; 99 (99)             ; 48 (48)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |VHDL_CAM|vga:Inst_vga                                                                                             ; vga               ; work         ;
 +------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -308,7 +309,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------+---------+
 ; Inverted Register                                                   ; Fan out ;
 +---------------------------------------------------------------------+---------+
-; vga:Inst_vga|blank                                                  ; 4       ;
+; vga:Inst_vga|blank                                                  ; 8       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|divider[0]  ; 4       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[31] ; 1       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[30] ; 1       ;
@@ -348,13 +349,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|divider[6]  ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|busy_sr[16] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |VHDL_CAM|ov7670_capture:capture|cnt[1]                                       ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |VHDL_CAM|ov7670_capture:capture|address[11]                                  ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |VHDL_CAM|vga:Inst_vga|address[4]                                             ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[26] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[17] ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|divider[1]  ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|busy_sr[2]  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |VHDL_CAM|vga:Inst_vga|vga_red[1]                                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |VHDL_CAM|ov7670_capture:capture|cnt[0]                                       ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |VHDL_CAM|ov7670_capture:capture|address[0]                                   ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |VHDL_CAM|vga:Inst_vga|address[0]                                             ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[31] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |VHDL_CAM|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[16] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
 
 
@@ -476,20 +478,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 1                           ;
 ;     plain             ; 75                          ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 379                         ;
+; cycloneiii_lcell_comb ; 390                         ;
 ;     arith             ; 101                         ;
 ;         2 data inputs ; 99                          ;
 ;         3 data inputs ; 2                           ;
-;     normal            ; 278                         ;
+;     normal            ; 289                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 59                          ;
-;         3 data inputs ; 47                          ;
-;         4 data inputs ; 160                         ;
+;         2 data inputs ; 63                          ;
+;         3 data inputs ; 46                          ;
+;         4 data inputs ; 168                         ;
 ; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.39                        ;
+; Average LUT depth     ; 2.41                        ;
 +-----------------------+-----------------------------+
 
 
@@ -498,7 +500,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -508,7 +510,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Nov 27 22:32:50 2019
+    Info: Processing started: Thu Nov 28 09:49:51 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VHDL_CAM -c VHDL_CAM
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -622,16 +624,16 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 481 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 484 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 22 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 413 logic cells
+    Info (21061): Implemented 416 logic cells
     Info (21064): Implemented 32 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
     Info: Peak virtual memory: 4809 megabytes
-    Info: Processing ended: Wed Nov 27 22:33:05 2019
+    Info: Processing ended: Thu Nov 28 09:50:06 2019
     Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Total CPU time (on all processors): 00:00:26
 
 

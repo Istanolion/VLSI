@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Nov 27 22:33:05 2019
+Analysis & Synthesis Status : Successful - Thu Nov 28 09:50:06 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : VHDL_CAM
 Top-level Entity Name : VHDL_CAM
 Family : MAX 10
-Total logic elements : 411
-    Total combinational functions : 377
+Total logic elements : 415
+    Total combinational functions : 388
     Dedicated logic registers : 214
 Total registers : 214
 Total pins : 36

@@ -88,11 +88,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "OV7670_D[5]",
+					"name" : "OV7670_D[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[1]",
 					"strict" : false
 				},
 				{
 					"name" : "OV7670_D[2]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_D[5]",
 					"strict" : false
 				},
 				{
@@ -101,14 +109,6 @@
 				},
 				{
 					"name" : "OV7670_D[7]",
-					"strict" : false
-				},
-				{
-					"name" : "OV7670_D[0]",
-					"strict" : false
-				},
-				{
-					"name" : "OV7670_D[1]",
 					"strict" : false
 				}
 			]

@@ -15,6 +15,7 @@ entity ov7670_capture is
            d     : in   STD_LOGIC_VECTOR (7 downto 0);
            addr  : out  STD_LOGIC_VECTOR (14 downto 0);
            dout  : out  STD_LOGIC_VECTOR (7 downto 0);
+			  pix_x : out  integer range 0 to 700;
            we    : out  STD_LOGIC);
 end ov7670_capture;
 
@@ -27,6 +28,7 @@ architecture Behavioral of ov7670_capture is
    signal address    : STD_LOGIC_VECTOR(14 downto 0) := (others => '0');
    
 begin
+	pix_x<=to_integer(signed(address));
    addr <= address;
    process(pclk)
    begin
@@ -45,6 +47,8 @@ begin
                   we   <='1';
                end if;
                cnt <= std_logic_vector(unsigned(cnt)+1);
+				elsif href_last='0' then
+					address<=(others=>'0');
             end if;
          end if;
          

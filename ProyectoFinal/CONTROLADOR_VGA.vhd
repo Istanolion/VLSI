@@ -56,10 +56,34 @@ COMPONENT debounce
       d     : IN std_logic_vector(7 downto 0);          
       addr  : OUT std_logic_vector(14 downto 0);
       dout  : OUT std_logic_vector(7 downto 0);
+		pix_x : out integer range 0 to 700;
       we    : OUT std_logic
       );
    END COMPONENT;
 
+	Component ColumActivo 
+    Port ( 	data : in std_logic_vector(7 downto 0);
+				clk : in std_logic;
+				frame_addr : out std_logic_vector(14 downto 0);
+            activo    : out  integer range 0 to 9) ;
+	end Component;
+			-- COMPONENTE DE RAM (agregado por nosotros) 
+	COMPONENT RAM_CAM
+	PORT(
+		data			: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		rdaddress	: IN STD_LOGIC_VECTOR (14 DOWNTO 0);
+		rdclock		: IN STD_LOGIC ;
+		wraddress	: IN STD_LOGIC_VECTOR (14 DOWNTO 0);
+		wrclock		: IN STD_LOGIC  := '1';
+		wren			: IN STD_LOGIC  := '0';
+		q				: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
+		);
+	END COMPONENT;
+	
+	signal frame_addr  : std_logic_vector(14 downto 0);
+   signal frame_pixel : std_logic_vector(7 downto 0);
+	
+	
    signal capture_addr  : std_logic_vector(14 downto 0);
    signal capture_data  : std_logic_vector(7 downto 0);
    signal capture_we    : std_logic;
@@ -97,6 +121,8 @@ constant cont_max7: std_logic_vector :="111011101111100100";  -- frecuencia de D
 
 
 signal div2 : std_logic := '0';
+
+signal cPos_x : integer range 0 to 700;
 --resolución de la pantalla en pixeles x,y
 signal pos_x : integer range 0 to 640 := 640;
 signal pos_y : integer range 0 to 480 := 480;
@@ -621,6 +647,7 @@ begin
       d     => OV7670_D,
       addr  => capture_addr,
       dout  => capture_data,
+		pix_x => cPos_x,
       we    => capture_we
    );
 	controller: ov7670_controller PORT MAP(
@@ -633,6 +660,31 @@ begin
       reset => OV7670_RESET,
       xclk  => OV7670_XCLK
    );
+	
+	--act: ColumActivo Port Map (
+		--data =>frame_pixel,
+		--clk =>  MAX10_CLK1_50,
+		--frame_addr => frame_addr,
+      --activo => columActiv);
+
+		
+		inst_ram: RAM_CAM PORT MAP(
+		--	RECIBE EL DATO DE LA CAMARA
+		data			=> capture_data,
+		-- DIRECCION DE DONDE LEERA EL VGA
+		rdaddress	=> frame_addr,
+		-- RELOJ DE LECTURA DEL VGA
+		rdclock		=> MAX10_CLK1_50,
+		-- DIRECCION DE ESCRITURA DE LA CAMARA A LA RAM
+		wraddress	=> capture_addr,
+		-- RELOJ DE ESCRITURA A LA RAM
+		wrclock		=> OV7670_PCLK,
+		-- ENABLE DE ESCRITURA 
+		wren			=> capture_we,
+		-- DATO QUE LEE EL VGA DESDE LA RAM
+		q				=> frame_pixel
+		);
+		
 
 -----------------------------------------------------	
 
@@ -776,8 +828,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=1 or playingnote(1)=1 or playingnote(2)=1) then
-							if (pos_y >mov_y1-160 and pos_y<mov_y1)then
+							if (pos_y >mov_y1-160 and pos_y<mov_y1 and puntos1='1' )then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y1-160 and pos_y<mov_y1 and puntos1='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos1='1') then
 								if (mov_y1>320 and mov_y1<400 and columActiv=1) then
@@ -801,8 +855,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=2 or playingnote(1)=2 or playingnote(2)=2) then
-							if (pos_y >mov_y2-160 and pos_y<mov_y2)then
+							if (pos_y >mov_y2-160 and pos_y<mov_y2 and puntos2='1')then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y2-160 and pos_y<mov_y2 and puntos2='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos2='1') then
 								if (mov_y2>320 and mov_y2<400 and columActiv=2) then
@@ -826,8 +882,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=3 or playingnote(1)=3 or playingnote(2)=3) then
-							if (pos_y >mov_y3-160 and pos_y<mov_y3)then
+							if (pos_y >mov_y3-160 and pos_y<mov_y3 and puntos3='1')then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y3-160 and pos_y<mov_y3 and puntos3='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos3='1') then
 								if (mov_y3>320 and mov_y3<400 and columActiv=3) then
@@ -851,8 +909,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=4 or playingnote(1)=4 or playingnote(2)=4) then
-							if (pos_y >mov_y4-160 and pos_y<mov_y4)then
+							if (pos_y >mov_y4-160 and pos_y<mov_y4 and puntos4='1')then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y4-160 and pos_y<mov_y4 and puntos4='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos4='1') then
 								if (mov_y4>320 and mov_y4<400 and columActiv=4) then
@@ -876,8 +936,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=5 or playingnote(1)=5 or playingnote(2)=5) then
-							if (pos_y >mov_y5-160 and pos_y<mov_y5)then
+							if (pos_y >mov_y5-160 and pos_y<mov_y5 and puntos5='1')then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y5-160 and pos_y<mov_y5 and puntos5='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos5='1') then
 								if (mov_y5>320 and mov_y5<400 and columActiv=5) then
@@ -901,8 +963,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=6 or playingnote(1)=6 or playingnote(2)=6) then
-							if (pos_y >mov_y6-160 and pos_y<mov_y6)then
+							if (pos_y >mov_y6-160 and pos_y<mov_y6 and puntos6='1')then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y6-160 and pos_y<mov_y6 and puntos6='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos6='1') then
 								if (mov_y6>320 and mov_y6<400 and columActiv=6) then
@@ -926,8 +990,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=7 or playingnote(1)=7 or playingnote(2)=7) then
-							if (pos_y >mov_y7-160 and pos_y<mov_y7)then
+							if (pos_y >mov_y7-160 and pos_y<mov_y7 and puntos7='1')then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y7-160 and pos_y<mov_y7 and puntos7='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos7='1') then
 								if (mov_y7>320 and mov_y7<400 and columActiv=7) then
@@ -951,8 +1017,10 @@ process (MAX10_CLK1_50)
 							end if;
 						end if;
 						if (playingnote(0)=8 or playingnote(1)=8 or playingnote(2)=8) then
-							if (pos_y >mov_y8-160 and pos_y<mov_y8)then
+							if (pos_y >mov_y8-160 and pos_y<mov_y8 and puntos8='1')then
 								RGBCOLORS<=COLORAZUL;
+							elsif (pos_y >mov_y8-160 and pos_y<mov_y8 and puntos8='0' ) then
+								RGBCOLORS<=COLORRojo;
 							end if;
 							if (puntos8='1') then
 								if (mov_y8>320 and mov_y8<400 and columActiv=8) then
