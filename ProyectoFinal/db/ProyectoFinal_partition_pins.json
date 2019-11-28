@@ -4,6 +4,14 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "OV7670_SIOC",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_XCLK",
+					"strict" : false
+				},
+				{
 					"name" : "VGA_HS",
 					"strict" : false
 				},
@@ -57,6 +65,10 @@
 				},
 				{
 					"name" : "VGA_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "OV7670_SIOD",
 					"strict" : false
 				},
 				{

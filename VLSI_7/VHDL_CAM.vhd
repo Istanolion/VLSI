@@ -56,20 +56,6 @@ architecture Behavioral of VHDL_CAM is
       );
    END COMPONENT;
 
--- RAM_CAM HACE LA FUNCION DE FRAME BUFFER
-
---   COMPONENT frame_buffer
---   PORT (
---      clka  : IN  STD_LOGIC;
---      wea   : IN  STD_LOGIC_VECTOR(0 DOWNTO 0);
---      addra : IN  STD_LOGIC_VECTOR(14 DOWNTO 0);
---      dina  : IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
---      clkb  : IN  STD_LOGIC;
---      addrb : IN  STD_LOGIC_VECTOR(14 DOWNTO 0);
---      doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
---   );
---   END COMPONENT;
-
    COMPONENT ov7670_capture
    PORT(
       pclk : IN std_logic;
@@ -142,20 +128,6 @@ btn_debounce: debounce PORT MAP(
       frame_pixel => frame_pixel
    );
 
--- LA INSTANCIA DE RAM HACE LA FUNCION DE FRAME BUFFER
-			
---fb : frame_buffer
---  PORT MAP (
---    clka  => OV7670_PCLK,
---    wea   => capture_we,
---    addra => capture_addr,
---    dina  => capture_data,
---    
---    clkb  => clk50,
---    addrb => frame_addr,
---    doutb => frame_pixel
---  );
-  
 inst_ram: RAM_CAM PORT MAP(
 		--	RECIBE EL DATO DE LA CAMARA
 		data			=> capture_data,

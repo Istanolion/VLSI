@@ -4,7 +4,19 @@ USE ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
 entity CONTROLADOR_VGA is
-port(	KEY : in std_logic_VECTOR (1 DOWNTO 0);
+port(	
+		OV7670_SIOC  : out   STD_LOGIC;
+      OV7670_SIOD  : inout STD_LOGIC;
+      OV7670_RESET : out   STD_LOGIC;
+      OV7670_PWDN  : out   STD_LOGIC;
+      OV7670_VSYNC : in    STD_LOGIC;
+      OV7670_HREF  : in    STD_LOGIC;
+      OV7670_PCLK  : in    STD_LOGIC;
+      OV7670_XCLK  : out   STD_LOGIC;
+      OV7670_D     : in    STD_LOGIC_VECTOR(7 downto 0);
+
+
+		KEY : in std_logic_VECTOR (1 DOWNTO 0);
 		MAX10_CLK1_50 : in STD_LOGIC;
 		SW: in STD_LOGIC_VECTOR(7 downto 0);
 		VGA_HS, VGA_VS : out std_logic;
@@ -13,6 +25,48 @@ port(	KEY : in std_logic_VECTOR (1 DOWNTO 0);
 end CONTROLADOR_VGA;
 
 architecture COMP_CONTROLADOR_VGA of CONTROLADOR_VGA is
+---Componentes para la camara
+
+COMPONENT debounce
+   PORT(
+      clk : IN std_logic;
+      i : IN std_logic;          
+      o : OUT std_logic
+      );
+   END COMPONENT;
+
+   COMPONENT ov7670_controller
+   PORT(
+      clk   : IN    std_logic;    
+      resend: IN    std_logic;    
+      config_finished : out std_logic;
+      siod  : INOUT std_logic;      
+      sioc  : OUT   std_logic;
+      reset : OUT   std_logic;
+      pwdn  : OUT   std_logic;
+      xclk  : OUT   std_logic
+      );
+   END COMPONENT;
+
+   COMPONENT ov7670_capture
+   PORT(
+      pclk : IN std_logic;
+      vsync : IN std_logic;
+      href  : IN std_logic;
+      d     : IN std_logic_vector(7 downto 0);          
+      addr  : OUT std_logic_vector(14 downto 0);
+      dout  : OUT std_logic_vector(7 downto 0);
+      we    : OUT std_logic
+      );
+   END COMPONENT;
+
+   signal capture_addr  : std_logic_vector(14 downto 0);
+   signal capture_data  : std_logic_vector(7 downto 0);
+   signal capture_we    : std_logic;
+   signal resend : std_logic;
+   signal config_finished : std_logic;
+	
+
 ----Genrador de frecuencia para las notas
 signal cont : std_logic_vector (16 downto 0);
 constant cont_max: std_logic_vector :="11011101111100100";  -- frecuencia de LA
@@ -554,6 +608,34 @@ signal mov_y1,mov_y2,mov_y3,mov_y4,mov_y5,mov_y6,mov_y7,mov_y8 : integer range 0
 
 
 begin
+--instanciacion de los componentes de la camara	
+	btn_debounce: debounce PORT MAP(
+      clk => MAX10_CLK1_50,
+      i   => '1',
+      o   => resend
+   );
+	capture: ov7670_capture PORT MAP(
+      pclk  => OV7670_PCLK,
+      vsync => OV7670_VSYNC,
+      href  => OV7670_HREF,
+      d     => OV7670_D,
+      addr  => capture_addr,
+      dout  => capture_data,
+      we    => capture_we
+   );
+	controller: ov7670_controller PORT MAP(
+      clk   => MAX10_CLK1_50,
+      sioc  => ov7670_sioc,
+      resend => resend,
+      config_finished => config_finished,
+      siod  => ov7670_siod,
+      pwdn  => OV7670_PWDN,
+      reset => OV7670_RESET,
+      xclk  => OV7670_XCLK
+   );
+
+-----------------------------------------------------	
+
 ---sincroniza la señal VGA
 	sincronizador: SINC_VGA port map (div2, VGA_HS, VGA_VS, habilitado, pos_x, pos_y);
 ----Proceso para divir el reloj a 25MHz
@@ -704,15 +786,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y1>400 and mov_y1<450 and columActiv=1) then
 									puntaje<=puntaje+2;
 									puntos1<='0';
-								elsif (mov_y1>450 and columActiv=1) then
+								elsif (mov_y1>450 and mov_y1<480 and columActiv=1) then
 									puntaje<=puntaje+3;
 									puntos1<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x>81 and pos_x<159) then 
@@ -734,15 +811,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y2>400 and mov_y2<450 and columActiv=2) then
 									puntaje<=puntaje+2;
 									puntos2<='0';
-								elsif (mov_y2>450 and columActiv=2) then
+								elsif (mov_y2>450 and mov_y2<480 and columActiv=2) then
 									puntaje<=puntaje+3;
 									puntos2<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<239 and pos_x>160) then
@@ -764,15 +836,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y3>400 and mov_y3<450 and columActiv=3) then
 									puntaje<=puntaje+2;
 									puntos3<='0';
-								elsif (mov_y3>450 and columActiv=3) then
+								elsif (mov_y3>450 and mov_y3<480 and columActiv=3) then
 									puntaje<=puntaje+3;
 									puntos3<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<319 and pos_x>240) then
@@ -794,15 +861,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y4>400 and mov_y4<450 and columActiv=4) then
 									puntaje<=puntaje+2;
 									puntos4<='0';
-								elsif (mov_y4>450 and columActiv=4) then
+								elsif (mov_y4>450 and mov_y4<480 and columActiv=4) then
 									puntaje<=puntaje+3;
 									puntos4<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<399 and pos_x>320) then
@@ -824,15 +886,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y5>400 and mov_y5<450 and columActiv=5) then
 									puntaje<=puntaje+2;
 									puntos5<='0';
-								elsif (mov_y5>450 and columActiv=5) then
+								elsif (mov_y5>450 and mov_y5<480 and columActiv=5) then
 									puntaje<=puntaje+3;
 									puntos5<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<479 and pos_x>400) then
@@ -854,15 +911,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y6>400 and mov_y6<450 and columActiv=6) then
 									puntaje<=puntaje+2;
 									puntos6<='0';
-								elsif (mov_y6>450 and columActiv=6) then
+								elsif (mov_y6>450 and mov_y6<480 and columActiv=6) then
 									puntaje<=puntaje+3;
 									puntos6<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<559 and pos_x>480) then
@@ -884,15 +936,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y7>400 and mov_y7<450 and columActiv=7) then
 									puntaje<=puntaje+2;
 									puntos7<='0';
-								elsif (mov_y7>450 and columActiv=7) then
+								elsif (mov_y7>450 and mov_y7<480 and columActiv=7) then
 									puntaje<=puntaje+3;
 									puntos7<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					elsif (pos_x<638 and pos_x>560) then
@@ -914,15 +961,10 @@ process (MAX10_CLK1_50)
 								elsif (mov_y8>400 and mov_y8<450 and columActiv=8) then
 									puntaje<=puntaje+2;
 									puntos8<='0';
-								elsif (mov_y8>450 and columActiv=8) then
+								elsif (mov_y8>450 and mov_y8<480 and columActiv=8) then
 									puntaje<=puntaje+3;
 									puntos8<='0';
 								end if;
-								if (puntaje>9) then
-									score_dec<=score_dec+1;
-									puntaje<=puntaje-10;
-								end if;
-								score_unit<=puntaje;
 							end if;
 						end if;
 					else
@@ -1239,6 +1281,12 @@ process (MAX10_CLK1_50)
 					else
 						mov_y8<=0;
 					end if;
+					---Se actualizan las unidades y decenas del score
+					if (puntaje>9) then
+						score_dec<=score_dec+1;
+						puntaje<=puntaje-10;
+					end if;
+					score_unit<=puntaje;
 					--Se cambia el indice de la nota que se esta tocando cada que alguna nota llegue al 160
 					if(mov_y1=160 or mov_y2=160 or mov_y3=160 or mov_y4=160 or mov_y5=160 or mov_y6=160 or mov_y7=160 or mov_y8=160) then
 						if playingnote(0)=1 then
