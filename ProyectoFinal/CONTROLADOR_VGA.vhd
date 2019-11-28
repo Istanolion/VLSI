@@ -8,11 +8,39 @@ port(	KEY : in std_logic_VECTOR (1 DOWNTO 0);
 		MAX10_CLK1_50 : in STD_LOGIC;
 		SW: in STD_LOGIC_VECTOR(7 downto 0);
 		VGA_HS, VGA_VS : out std_logic;
-		buzzer : out std_logic;
+		buzzer : inout std_logic;
 		VGA_R, VGA_G, VGA_B: out std_logic_vector(3 downto 0));
 end CONTROLADOR_VGA;
 
 architecture COMP_CONTROLADOR_VGA of CONTROLADOR_VGA is
+----Genrador de frecuencia para las notas
+signal cont : std_logic_vector (16 downto 0);
+constant cont_max: std_logic_vector :="11011101111100100";  -- frecuencia de LA
+
+signal cont1 : std_logic_vector (17 downto 0);
+constant cont_max1: std_logic_vector :="101110110001010010";  -- fecuencia de DO
+
+signal cont2 : std_logic_vector (17 downto 0);
+constant cont_max2: std_logic_vector :="100101000110100111";  -- fecuencia de MI
+
+signal cont3 : std_logic_vector (16 downto 0);
+constant cont_max3: std_logic_vector :="11111001000111111";  --frecuencia de SOL
+
+signal cont4 : std_logic_vector (17 downto 0);
+constant cont_max4: std_logic_vector :="101001100100011001";  --frecuencia de RE
+
+signal cont5 : std_logic_vector (17 downto 0);
+constant cont_max5: std_logic_vector :="100010111101001000";  --frecuencia de FA
+
+signal cont6 : std_logic_vector (16 downto 0);
+constant cont_max6: std_logic_vector :="11000101101110111";  --frecuencia de SI
+
+signal cont7 : std_logic_vector (18 downto 0);
+constant cont_max7: std_logic_vector :="111011101111100100";  -- frecuencia de DO#
+
+-------
+
+
 
 signal div2 : std_logic := '0';
 --resolución de la pantalla en pixeles x,y
@@ -526,8 +554,9 @@ signal mov_y1,mov_y2,mov_y3,mov_y4,mov_y5,mov_y6,mov_y7,mov_y8 : integer range 0
 
 
 begin
+---sincroniza la señal VGA
 	sincronizador: SINC_VGA port map (div2, VGA_HS, VGA_VS, habilitado, pos_x, pos_y);
-
+----Proceso para divir el reloj a 25MHz
 	process(MAX10_CLK1_50)
 	begin
 		if rising_edge(MAX10_CLK1_50) then
@@ -543,7 +572,105 @@ begin
 		7 when "01000000",
 		8 when "10000000",
 		0 when others;
+-------------------------
+----Procesos para las frecuencias que se mandan al buzzer
+---LA
+process (MAX10_CLK1_50)
+		begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont <= cont+1;
+			if cont= cont_max then
+				cont <="00000000000000000";
+			end if;
+		end if;
+	end process;
+---DO
+	process (MAX10_CLK1_50)
+		begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont1 <= cont1+1;
+			if cont1= cont_max1 then
+				cont1 <="000000000000000000";
+			end if;
+		end if;
+	end process;
+---MI
+	process (MAX10_CLK1_50)
+		begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont2 <= cont2+1;
+			if cont2= cont_max2 then
+				cont2 <="000000000000000000";
+			end if;
+		end if;
+	end process;
+--SOL
+	process (MAX10_CLK1_50)
+	begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont3 <= cont3+1;
+			if cont3= cont_max3 then
+				cont3 <= "00000000000000000";
+			end if;
+		end if;
+	end process;
+--RE
+	process (MAX10_CLK1_50)
+		begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont4 <= cont4+1;
+			if cont4= cont_max4 then
+				cont4 <= "000000000000000000";
+			end if;
+		end if;
+	end process;
+--FA
+	process (MAX10_CLK1_50)
+		begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont5 <= cont5+1;
+			if cont5= cont_max5 then
+				cont5 <= "000000000000000000";
+			end if;
+		end if;
+	end process;
+--SI
+	process (MAX10_CLK1_50)
+		begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont6 <= cont6+1;
+			if cont6= cont_max6 then
+				cont6 <= "00000000000000000";
+			end if;
+		end if;
+	end process;
+--DO#
+		process (MAX10_CLK1_50)
+		begin
+		if MAX10_CLK1_50'event and MAX10_CLK1_50= '1' then
+			cont7 <= cont7+1;
+			if cont7= cont_max7 then
+				cont7 <= "0000000000000000000";
+			end if;
+		end if;
+	end process;
+----PROCESO QUE MANDA LA SEÑAL AL BUZZER
+	process (buzzer) 
+		begin
+		if columActiv=1 then buzzer <= cont1 (17);
+		elsif columActiv=2 then buzzer <= cont4 (17);
+		elsif columActiv=3 then buzzer <= cont2 (17);
+		elsif columActiv=4 then buzzer <= cont5 (17);
+		elsif columActiv=5 then buzzer <= cont3 (16);
+		elsif columActiv=6 then buzzer <= cont (16);
+		elsif columActiv=7 then buzzer <= cont6 (16);
+		elsif columActiv=8 then buzzer <= cont7 (17);
+		else 
+			buzzer <= '0';
+		end if;
+	end process;
 
+-----Proceso para ver que se dibuja en pantalla
 	senialVGA: process(div2)
 	begin
 			if rising_edge(div2) then
@@ -1064,7 +1191,6 @@ begin
 					VGA_R <= RGBCOLORS(11 DOWNTO 8);
 					VGA_G <= RGBCOLORS(7 DOWNTO 4);
 					VGA_B <= RGBCOLORS(3 DOWNTO 0);
-					buzzer<='0';
 				else
 				--si no esta activo
 					VGA_R <= "0000";

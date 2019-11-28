@@ -60,6 +60,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "buzzer",
+					"strict" : false
+				},
+				{
 					"name" : "MAX10_CLK1_50",
 					"strict" : false
 				},
@@ -80,15 +84,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
 					"name" : "SW[7]",
 					"strict" : false
 				},
 				{
 					"name" : "SW[0]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
 					"strict" : false
 				},
 				{
