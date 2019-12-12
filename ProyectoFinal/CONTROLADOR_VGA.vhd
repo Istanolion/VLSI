@@ -661,11 +661,11 @@ begin
       xclk  => OV7670_XCLK
    );
 	
-	--act: ColumActivo Port Map (
-		--data =>frame_pixel,
-		--clk =>  MAX10_CLK1_50,
-		--frame_addr => frame_addr,
-      --activo => columActiv);
+	act: ColumActivo Port Map (
+		data =>frame_pixel,
+		clk =>  MAX10_CLK1_50,
+		frame_addr => frame_addr,
+      activo => columActiv);
 
 		
 		inst_ram: RAM_CAM PORT MAP(
@@ -697,15 +697,15 @@ begin
 			div2 <= not div2;
 		end if;
 	end process;
-	with SW select columActiv<= 1 when "00000001",
-		2 when "00000010",
-		3 when "00000100",
-		4 when "00001000",
-		5 when "00010000",
-		6 when "00100000",
-		7 when "01000000",
-		8 when "10000000",
-		0 when others;
+--	with SW select columActiv<= 1 when "00000001",
+	--	2 when "00000010",
+		--3 when "00000100",
+		--4 when "00001000",
+		--5 when "00010000",
+		--6 when "00100000",
+		--7 when "01000000",
+		--8 when "10000000",
+		--0 when others;
 -------------------------
 ----Procesos para las frecuencias que se mandan al buzzer
 ---LA

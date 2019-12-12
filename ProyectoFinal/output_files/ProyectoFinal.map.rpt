@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProyectoFinal
-Thu Nov 28 10:38:18 2019
+Thu Nov 28 14:17:32 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,8 +13,8 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
  10. General Register Statistics
  11. Inverted Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
@@ -22,14 +22,13 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  14. Parameter Settings for User Entity Instance: RAM_CAM:inst_ram|altsyncram:altsyncram_component
  15. altsyncram Parameter Settings by Entity Instance
  16. Port Connectivity Checks: "SINC_VGA:sincronizador"
- 17. Port Connectivity Checks: "RAM_CAM:inst_ram"
- 18. Port Connectivity Checks: "ov7670_controller:controller|i2c_sender:Inst_i2c_sender"
- 19. Port Connectivity Checks: "ov7670_controller:controller"
- 20. Port Connectivity Checks: "ov7670_capture:capture"
- 21. Port Connectivity Checks: "debounce:btn_debounce"
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+ 17. Port Connectivity Checks: "ov7670_controller:controller|i2c_sender:Inst_i2c_sender"
+ 18. Port Connectivity Checks: "ov7670_controller:controller"
+ 19. Port Connectivity Checks: "ov7670_capture:capture"
+ 20. Port Connectivity Checks: "debounce:btn_debounce"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -55,18 +54,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 28 10:38:18 2019       ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 28 14:17:32 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ProyectoFinal                               ;
 ; Top-level Entity Name              ; CONTROLADOR_VGA                             ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 1,418                                       ;
-;     Total combinational functions  ; 1,382                                       ;
-;     Dedicated logic registers      ; 425                                         ;
-; Total registers                    ; 425                                         ;
+; Total logic elements               ; 1,610                                       ;
+;     Total combinational functions  ; 1,547                                       ;
+;     Dedicated logic registers      ; 508                                         ;
+; Total registers                    ; 508                                         ;
 ; Total pins                         ; 42                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
+; Total memory bits                  ; 262,144                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 ; UFM blocks                         ; 0                                           ;
@@ -166,16 +165,14 @@ refer to the applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -184,27 +181,28 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------------------------+------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                         ; File Name with Absolute Path                                                 ; Library ;
 +----------------------------------+-----------------+-----------------------------------+------------------------------------------------------------------------------+---------+
-; ov7670_registers.vhd             ; yes             ; User VHDL File                    ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_registers.vhd       ;         ;
-; ov7670_controller.vhd            ; yes             ; User VHDL File                    ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd      ;         ;
-; ov7670_capture.vhd               ; yes             ; User VHDL File                    ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_capture.vhd         ;         ;
-; i2c_sender.vhd                   ; yes             ; User VHDL File                    ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/i2c_sender.vhd             ;         ;
-; debounce.vhd                     ; yes             ; User VHDL File                    ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/debounce.vhd               ;         ;
-; SINC_VGA.vhd                     ; yes             ; User VHDL File                    ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd               ;         ;
-; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File                    ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd        ;         ;
-; ram_cam.vhd                      ; yes             ; Auto-Found Wizard-Generated File  ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd                ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                      ; z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_u3o3.tdf           ; yes             ; Auto-Generated Megafunction       ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf     ;         ;
-; db/decode_c7a.tdf                ; yes             ; Auto-Generated Megafunction       ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/decode_c7a.tdf          ;         ;
-; db/decode_5j9.tdf                ; yes             ; Auto-Generated Megafunction       ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/decode_5j9.tdf          ;         ;
-; db/mux_s1b.tdf                   ; yes             ; Auto-Generated Megafunction       ; Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/mux_s1b.tdf             ;         ;
+; ov7670_registers.vhd             ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_registers.vhd      ;         ;
+; ov7670_controller.vhd            ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd     ;         ;
+; ov7670_capture.vhd               ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_capture.vhd        ;         ;
+; i2c_sender.vhd                   ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/i2c_sender.vhd            ;         ;
+; debounce.vhd                     ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/debounce.vhd              ;         ;
+; SINC_VGA.vhd                     ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd              ;         ;
+; CONTROLADOR_VGA.vhd              ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd       ;         ;
+; ColumActivo.vhdl                 ; yes             ; User VHDL File                    ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ColumActivo.vhdl          ;         ;
+; ram_cam.vhd                      ; yes             ; Auto-Found Wizard-Generated File  ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd               ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                      ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_u3o3.tdf           ; yes             ; Auto-Generated Megafunction       ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf    ;         ;
+; db/decode_c7a.tdf                ; yes             ; Auto-Generated Megafunction       ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/decode_c7a.tdf         ;         ;
+; db/decode_5j9.tdf                ; yes             ; Auto-Generated Megafunction       ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/decode_5j9.tdf         ;         ;
+; db/mux_s1b.tdf                   ; yes             ; Auto-Generated Megafunction       ; C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/mux_s1b.tdf            ;         ;
 +----------------------------------+-----------------+-----------------------------------+------------------------------------------------------------------------------+---------+
 
 
@@ -213,45 +211,63 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------------+
 ; Resource                                    ; Usage               ;
 +---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 1,418               ;
+; Estimated Total logic elements              ; 1,610               ;
 ;                                             ;                     ;
-; Total combinational functions               ; 1382                ;
+; Total combinational functions               ; 1547                ;
 ; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 644                 ;
-;     -- 3 input functions                    ; 304                 ;
-;     -- <=2 input functions                  ; 434                 ;
+;     -- 4 input functions                    ; 702                 ;
+;     -- 3 input functions                    ; 326                 ;
+;     -- <=2 input functions                  ; 519                 ;
 ;                                             ;                     ;
 ; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 1004                ;
-;     -- arithmetic mode                      ; 378                 ;
+;     -- normal mode                          ; 1105                ;
+;     -- arithmetic mode                      ; 442                 ;
 ;                                             ;                     ;
-; Total registers                             ; 425                 ;
-;     -- Dedicated logic registers            ; 425                 ;
+; Total registers                             ; 508                 ;
+;     -- Dedicated logic registers            ; 508                 ;
 ;     -- I/O registers                        ; 0                   ;
 ;                                             ;                     ;
 ; I/O pins                                    ; 42                  ;
+; Total memory bits                           ; 262144              ;
 ;                                             ;                     ;
 ; Embedded Multiplier 9-bit elements          ; 0                   ;
 ;                                             ;                     ;
 ; Maximum fan-out node                        ; MAX10_CLK1_50~input ;
-; Maximum fan-out                             ; 231                 ;
-; Total fan-out                               ; 5579                ;
-; Average fan-out                             ; 2.95                ;
+; Maximum fan-out                             ; 305                 ;
+; Total fan-out                               ; 7300                ;
+; Average fan-out                             ; 3.36                ;
 +---------------------------------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                           ;
-+------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                  ; Entity Name       ; Library Name ;
-+------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------+-------------------+--------------+
-; |CONTROLADOR_VGA                               ; 1382 (1143)         ; 425 (287)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 42   ; 0            ; 0          ; |CONTROLADOR_VGA                                                                     ; CONTROLADOR_VGA   ; work         ;
-;    |SINC_VGA:sincronizador|                    ; 32 (32)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|SINC_VGA:sincronizador                                              ; SINC_VGA          ; work         ;
-;    |ov7670_controller:controller|              ; 207 (1)             ; 96 (1)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ov7670_controller:controller                                        ; ov7670_controller ; work         ;
-;       |i2c_sender:Inst_i2c_sender|             ; 95 (95)             ; 71 (71)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender             ; i2c_sender        ; work         ;
-;       |ov7670_registers:Inst_ov7670_registers| ; 111 (111)           ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ov7670_controller:controller|ov7670_registers:Inst_ov7670_registers ; ov7670_registers  ; work         ;
-+------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------+-------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                ;
++------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                       ; Entity Name       ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; |CONTROLADOR_VGA                               ; 1547 (1133)         ; 508 (283)                 ; 262144      ; 0          ; 0            ; 0       ; 0         ; 42   ; 0            ; 0          ; |CONTROLADOR_VGA                                                                                                          ; CONTROLADOR_VGA   ; work         ;
+;    |ColumActivo:act|                           ; 111 (111)           ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ColumActivo:act                                                                                          ; ColumActivo       ; work         ;
+;    |RAM_CAM:inst_ram|                          ; 24 (0)              ; 4 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|RAM_CAM:inst_ram                                                                                         ; RAM_CAM           ; work         ;
+;       |altsyncram:altsyncram_component|        ; 24 (0)              ; 4 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|RAM_CAM:inst_ram|altsyncram:altsyncram_component                                                         ; altsyncram        ; work         ;
+;          |altsyncram_u3o3:auto_generated|      ; 24 (0)              ; 4 (4)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated                          ; altsyncram_u3o3   ; work         ;
+;             |decode_5j9:rden_decode_b|         ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|decode_5j9:rden_decode_b ; decode_5j9        ; work         ;
+;             |decode_c7a:decode2|               ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|decode_c7a:decode2       ; decode_c7a        ; work         ;
+;             |mux_s1b:mux3|                     ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|mux_s1b:mux3             ; mux_s1b           ; work         ;
+;    |SINC_VGA:sincronizador|                    ; 32 (32)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|SINC_VGA:sincronizador                                                                                   ; SINC_VGA          ; work         ;
+;    |ov7670_capture:capture|                    ; 40 (40)             ; 41 (41)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ov7670_capture:capture                                                                                   ; ov7670_capture    ; work         ;
+;    |ov7670_controller:controller|              ; 207 (1)             ; 96 (1)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ov7670_controller:controller                                                                             ; ov7670_controller ; work         ;
+;       |i2c_sender:Inst_i2c_sender|             ; 95 (95)             ; 71 (71)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender                                                  ; i2c_sender        ; work         ;
+;       |ov7670_registers:Inst_ov7670_registers| ; 111 (111)           ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CONTROLADOR_VGA|ov7670_controller:controller|ov7670_registers:Inst_ov7670_registers                                      ; ov7670_registers  ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                 ;
++--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------+
+; Name                                                                                       ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF  ;
++--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------+
+; RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32768        ; 8            ; 32768        ; 8            ; 262144 ; None ;
++--------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -259,34 +275,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------+--------------------------------------------------------------------------------+
 ; Register name                                                      ; Reason for Removal                                                             ;
 +--------------------------------------------------------------------+--------------------------------------------------------------------------------+
-; ov7670_capture:capture|dout[0]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[3]                                  ; Lost fanout                                                                    ;
-; ov7670_capture:capture|dout[1]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[4]                                  ; Lost fanout                                                                    ;
-; ov7670_capture:capture|dout[2]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|hold_green[0]                               ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[5]                                  ; Lost fanout                                                                    ;
-; ov7670_capture:capture|dout[3]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|hold_green[1]                               ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[6]                                  ; Lost fanout                                                                    ;
-; ov7670_capture:capture|dout[4]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|hold_green[2]                               ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[7]                                  ; Lost fanout                                                                    ;
-; ov7670_capture:capture|dout[5]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|hold_red[0]                                 ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[0]                                  ; Lost fanout                                                                    ;
-; ov7670_capture:capture|dout[6]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|hold_red[1]                                 ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[1]                                  ; Lost fanout                                                                    ;
-; ov7670_capture:capture|we                                          ; Lost fanout                                                                    ;
-; ov7670_capture:capture|dout[7]                                     ; Lost fanout                                                                    ;
-; ov7670_capture:capture|hold_red[2]                                 ; Lost fanout                                                                    ;
-; ov7670_capture:capture|d_latch[2]                                  ; Lost fanout                                                                    ;
 ; debounce:btn_debounce|c[0..23]                                     ; Lost fanout                                                                    ;
 ; debounce:btn_debounce|o                                            ; Stuck at GND due to stuck port data_in                                         ;
-; ov7670_capture:capture|cnt[0,1]                                    ; Lost fanout                                                                    ;
-; ov7670_capture:capture|href_last                                   ; Lost fanout                                                                    ;
-; ov7670_capture:capture|address[0..14]                              ; Lost fanout                                                                    ;
 ; RGBCOLORS[8]                                                       ; Merged with RGBCOLORS[10]                                                      ;
 ; RGBCOLORS[9]                                                       ; Merged with RGBCOLORS[11]                                                      ;
 ; RGBCOLORS[6]                                                       ; Merged with RGBCOLORS[4]                                                       ;
@@ -296,36 +286,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[0] ; Stuck at VCC due to stuck port data_in                                         ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[1] ; Merged with ov7670_controller:controller|i2c_sender:Inst_i2c_sender|busy_sr[0] ;
 ; cont6[0]                                                           ; Merged with ov7670_controller:controller|sys_clk                               ;
-; cont4[0]                                                           ; Merged with ov7670_controller:controller|sys_clk                               ;
 ; cont2[0]                                                           ; Merged with ov7670_controller:controller|sys_clk                               ;
+; ColumActivo:act|hCounter[0]                                        ; Merged with ov7670_controller:controller|sys_clk                               ;
 ; cont3[0]                                                           ; Merged with ov7670_controller:controller|sys_clk                               ;
-; cont2[1]                                                           ; Merged with cont3[1]                                                           ;
-; cont6[1]                                                           ; Merged with cont3[1]                                                           ;
-; cont6[2]                                                           ; Merged with cont3[2]                                                           ;
-; cont2[2]                                                           ; Merged with cont3[2]                                                           ;
+; cont4[0]                                                           ; Merged with ov7670_controller:controller|sys_clk                               ;
+; cont6[1]                                                           ; Merged with cont2[1]                                                           ;
+; cont3[1]                                                           ; Merged with cont2[1]                                                           ;
+; cont2[1]                                                           ; Merged with ColumActivo:act|hCounter[1]                                        ;
+; cont6[2]                                                           ; Merged with cont2[2]                                                           ;
+; cont3[2]                                                           ; Merged with cont2[2]                                                           ;
+; cont2[2]                                                           ; Merged with ColumActivo:act|hCounter[2]                                        ;
+; cont3[3]                                                           ; Merged with ColumActivo:act|hCounter[3]                                        ;
+; cont3[4]                                                           ; Merged with ColumActivo:act|hCounter[4]                                        ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[2] ; Merged with ov7670_controller:controller|i2c_sender:Inst_i2c_sender|busy_sr[1] ;
-; Total Number of Removed Registers = 83                             ;                                                                                ;
+; Total Number of Removed Registers = 47                             ;                                                                                ;
 +--------------------------------------------------------------------+--------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                   ;
-+--------------------------------+--------------------+-------------------------------------------------------------------------+
-; Register name                  ; Reason for Removal ; Registers Removed due to This Register                                  ;
-+--------------------------------+--------------------+-------------------------------------------------------------------------+
-; ov7670_capture:capture|we      ; Lost Fanouts       ; ov7670_capture:capture|cnt[0], ov7670_capture:capture|cnt[1],           ;
-;                                ;                    ; ov7670_capture:capture|href_last, ov7670_capture:capture|address[8],    ;
-;                                ;                    ; ov7670_capture:capture|address[10], ov7670_capture:capture|address[12], ;
-;                                ;                    ; ov7670_capture:capture|address[13]                                      ;
-; ov7670_capture:capture|dout[2] ; Lost Fanouts       ; ov7670_capture:capture|hold_green[0], ov7670_capture:capture|d_latch[5] ;
-; ov7670_capture:capture|dout[3] ; Lost Fanouts       ; ov7670_capture:capture|hold_green[1], ov7670_capture:capture|d_latch[6] ;
-; ov7670_capture:capture|dout[4] ; Lost Fanouts       ; ov7670_capture:capture|hold_green[2], ov7670_capture:capture|d_latch[7] ;
-; ov7670_capture:capture|dout[5] ; Lost Fanouts       ; ov7670_capture:capture|hold_red[0], ov7670_capture:capture|d_latch[0]   ;
-; ov7670_capture:capture|dout[6] ; Lost Fanouts       ; ov7670_capture:capture|hold_red[1], ov7670_capture:capture|d_latch[1]   ;
-; ov7670_capture:capture|dout[7] ; Lost Fanouts       ; ov7670_capture:capture|hold_red[2], ov7670_capture:capture|d_latch[2]   ;
-; ov7670_capture:capture|dout[0] ; Lost Fanouts       ; ov7670_capture:capture|d_latch[3]                                       ;
-; ov7670_capture:capture|dout[1] ; Lost Fanouts       ; ov7670_capture:capture|d_latch[4]                                       ;
-+--------------------------------+--------------------+-------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -333,12 +308,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 425   ;
-; Number of registers using Synchronous Clear  ; 123   ;
-; Number of registers using Synchronous Load   ; 8     ;
+; Total registers                              ; 508   ;
+; Number of registers using Synchronous Clear  ; 142   ;
+; Number of registers using Synchronous Load   ; 25    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 202   ;
+; Number of registers using Clock Enable       ; 249   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -350,8 +325,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------+---------+
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|divider[0]  ; 4       ;
 ; playingnote[2][0]                                                   ; 7       ;
-; puntos1                                                             ; 4       ;
+; puntos1                                                             ; 5       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[31] ; 1       ;
+; ColumActivo:act|blank                                               ; 4       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[30] ; 1       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[29] ; 1       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[28] ; 1       ;
@@ -380,7 +356,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[5]  ; 1       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[4]  ; 1       ;
 ; ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[3]  ; 1       ;
-; Total number of inverted registers = 32                             ;         ;
+; Total number of inverted registers = 33                             ;         ;
 +---------------------------------------------------------------------+---------+
 
 
@@ -389,15 +365,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|divider[5]  ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|busy_sr[12] ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CONTROLADOR_VGA|number_x[2]                                                         ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |CONTROLADOR_VGA|number_y[0]                                                         ;
-; 34:1               ; 2 bits    ; 44 LEs        ; 4 LEs                ; 40 LEs                 ; Yes        ; |CONTROLADOR_VGA|puntaje[2]                                                          ;
-; 23:1               ; 3 bits    ; 45 LEs        ; 12 LEs               ; 33 LEs                 ; Yes        ; |CONTROLADOR_VGA|RGBCOLORS[1]                                                        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|divider[4]  ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|busy_sr[5]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |CONTROLADOR_VGA|ov7670_capture:capture|cnt[1]                                       ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |CONTROLADOR_VGA|ov7670_capture:capture|address[0]                                   ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |CONTROLADOR_VGA|ColumActivo:act|address[11]                                         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CONTROLADOR_VGA|number_x[1]                                                         ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |CONTROLADOR_VGA|number_y[3]                                                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |CONTROLADOR_VGA|ColumActivo:act|activo[1]                                           ;
+; 34:1               ; 2 bits    ; 44 LEs        ; 4 LEs                ; 40 LEs                 ; Yes        ; |CONTROLADOR_VGA|puntaje[3]                                                          ;
+; 23:1               ; 3 bits    ; 45 LEs        ; 12 LEs               ; 33 LEs                 ; Yes        ; |CONTROLADOR_VGA|RGBCOLORS[5]                                                        ;
 ; 30:1               ; 3 bits    ; 60 LEs        ; 54 LEs               ; 6 LEs                  ; Yes        ; |CONTROLADOR_VGA|RGBCOLORS[0]                                                        ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[22] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[13] ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[21] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |CONTROLADOR_VGA|ov7670_controller:controller|i2c_sender:Inst_i2c_sender|data_sr[17] ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |CONTROLADOR_VGA|puntaje                                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
 
@@ -501,15 +481,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "RAM_CAM:inst_ram"                                                                   ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ov7670_controller:controller|i2c_sender:Inst_i2c_sender" ;
 +----------+-------+----------+-------------------------------------------------------+
@@ -556,26 +527,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 42                          ;
-; cycloneiii_ff         ; 425                         ;
-;     ENA               ; 90                          ;
-;     ENA SCLR          ; 112                         ;
-;     SCLR              ; 11                          ;
+; cycloneiii_ff         ; 508                         ;
+;     ENA               ; 119                         ;
+;     ENA SCLR          ; 113                         ;
+;     ENA SCLR SLD      ; 17                          ;
+;     SCLR              ; 12                          ;
 ;     SLD               ; 8                           ;
-;     plain             ; 204                         ;
+;     plain             ; 239                         ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 1384                        ;
-;     arith             ; 378                         ;
-;         2 data inputs ; 245                         ;
-;         3 data inputs ; 133                         ;
-;     normal            ; 1006                        ;
+; cycloneiii_lcell_comb ; 1549                        ;
+;     arith             ; 442                         ;
+;         2 data inputs ; 308                         ;
+;         3 data inputs ; 134                         ;
+;     normal            ; 1107                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 30                          ;
-;         2 data inputs ; 159                         ;
-;         3 data inputs ; 171                         ;
-;         4 data inputs ; 644                         ;
+;         1 data inputs ; 35                          ;
+;         2 data inputs ; 176                         ;
+;         3 data inputs ; 192                         ;
+;         4 data inputs ; 702                         ;
+; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 17.00                       ;
-; Average LUT depth     ; 6.64                        ;
+; Max LUT depth         ; 18.00                       ;
+; Average LUT depth     ; 6.21                        ;
 +-----------------------+-----------------------------+
 
 
@@ -584,7 +557,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:14     ;
+; Top            ; 00:00:30     ;
 +----------------+--------------+
 
 
@@ -594,92 +567,91 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Nov 28 10:37:53 2019
+    Info: Processing started: Thu Nov 28 14:16:11 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFinal -c ProyectoFinal
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file ov7670_registers.vhd
-    Info (12022): Found design unit 1: ov7670_registers-Behavioral File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_registers.vhd Line: 20
-    Info (12023): Found entity 1: ov7670_registers File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_registers.vhd Line: 12
+    Info (12022): Found design unit 1: ov7670_registers-Behavioral File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_registers.vhd Line: 20
+    Info (12023): Found entity 1: ov7670_registers File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_registers.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file ov7670_controller.vhd
-    Info (12022): Found design unit 1: ov7670_controller-Behavioral File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 23
-    Info (12023): Found entity 1: ov7670_controller File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 11
+    Info (12022): Found design unit 1: ov7670_controller-Behavioral File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 23
+    Info (12023): Found entity 1: ov7670_controller File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file ov7670_capture.vhd
-    Info (12022): Found design unit 1: ov7670_capture-Behavioral File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_capture.vhd Line: 22
-    Info (12023): Found entity 1: ov7670_capture File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_capture.vhd Line: 11
+    Info (12022): Found design unit 1: ov7670_capture-Behavioral File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_capture.vhd Line: 22
+    Info (12023): Found entity 1: ov7670_capture File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_capture.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file i2c_sender.vhd
-    Info (12022): Found design unit 1: i2c_sender-Behavioral File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/i2c_sender.vhd Line: 16
-    Info (12023): Found entity 1: i2c_sender File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/i2c_sender.vhd Line: 5
+    Info (12022): Found design unit 1: i2c_sender-Behavioral File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/i2c_sender.vhd Line: 16
+    Info (12023): Found entity 1: i2c_sender File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/i2c_sender.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
-    Info (12022): Found design unit 1: debounce-Behavioral File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/debounce.vhd Line: 17
-    Info (12023): Found entity 1: debounce File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/debounce.vhd Line: 11
+    Info (12022): Found design unit 1: debounce-Behavioral File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/debounce.vhd Line: 17
+    Info (12023): Found entity 1: debounce File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/debounce.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file sinc_vga.vhd
-    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 12
-    Info (12023): Found entity 1: SINC_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 5
+    Info (12022): Found design unit 1: SINC_VGA-COMP_SYNC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 12
+    Info (12023): Found entity 1: SINC_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/SINC_VGA.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file div_frec.vhd
-    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 9
-    Info (12023): Found entity 1: DIV_FREC File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 4
+    Info (12022): Found design unit 1: DIV_FREC-COMP_DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 9
+    Info (12023): Found entity 1: DIV_FREC File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DIV_FREC.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file controlador_vga.vhd
-    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 27
-    Info (12023): Found entity 1: CONTROLADOR_VGA File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 6
+    Info (12022): Found design unit 1: CONTROLADOR_VGA-COMP_CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 27
+    Info (12023): Found entity 1: CONTROLADOR_VGA File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
-    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/DE10_LITE_Golden_Top.v Line: 29
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/DE10_LITE_Golden_Top.v Line: 29
 Info (12021): Found 2 design units, including 1 entities, in source file columactivo.vhdl
-    Info (12022): Found design unit 1: ColumActivo-Behavioral File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ColumActivo.vhdl Line: 11
-    Info (12023): Found entity 1: ColumActivo File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ColumActivo.vhdl Line: 4
+    Info (12022): Found design unit 1: ColumActivo-Behavioral File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ColumActivo.vhdl Line: 11
+    Info (12023): Found entity 1: ColumActivo File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ColumActivo.vhdl Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
-    Info (12022): Found design unit 1: ram-SYN File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram.vhd Line: 56
-    Info (12023): Found entity 1: ram File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram.vhd Line: 42
+    Info (12022): Found design unit 1: ram-SYN File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram.vhd Line: 56
+    Info (12023): Found entity 1: ram File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram.vhd Line: 42
 Info (12127): Elaborating entity "CONTROLADOR_VGA" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(83): used implicit default value for signal "frame_addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 83
-Warning (10036): Verilog HDL or VHDL warning at CONTROLADOR_VGA.vhd(84): object "frame_pixel" assigned a value but never read File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 84
-Warning (10036): Verilog HDL or VHDL warning at CONTROLADOR_VGA.vhd(91): object "config_finished" assigned a value but never read File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 91
-Warning (10036): Verilog HDL or VHDL warning at CONTROLADOR_VGA.vhd(125): object "cPos_x" assigned a value but never read File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 125
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(131): used explicit default value for signal "COLORBLANCO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 131
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(132): used explicit default value for signal "COLORNEGRO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 132
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(133): used explicit default value for signal "COLORGRIS" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 133
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(134): used explicit default value for signal "COLORROJO" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 134
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(135): used explicit default value for signal "COLORAZUL" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 135
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(149): used explicit default value for signal "score" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 149
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(193): used explicit default value for signal "cero" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 193
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(235): used explicit default value for signal "uno" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 235
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(277): used explicit default value for signal "dos" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 277
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(319): used explicit default value for signal "tres" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 319
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(361): used explicit default value for signal "cuatro" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 361
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(403): used explicit default value for signal "cinco" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 403
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(445): used explicit default value for signal "seis" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 445
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(487): used explicit default value for signal "siete" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 487
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(529): used explicit default value for signal "ocho" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 529
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(571): used explicit default value for signal "nueve" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 571
-Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(630): used explicit default value for signal "notas" because signal was never assigned a value File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 630
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(794): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 794
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(794): signal "cont1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 794
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(795): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 795
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(795): signal "cont4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 795
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(796): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 796
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(796): signal "cont2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 796
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(797): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 797
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(797): signal "cont5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 797
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(798): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 798
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(798): signal "cont3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 798
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(799): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 799
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(799): signal "cont" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 799
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(800): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 800
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(800): signal "cont6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 800
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(801): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 801
-Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(801): signal "cont7" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 801
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce:btn_debounce" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 638
-Info (12128): Elaborating entity "ov7670_capture" for hierarchy "ov7670_capture:capture" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 643
-Info (12128): Elaborating entity "ov7670_controller" for hierarchy "ov7670_controller:controller" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 653
-Info (12128): Elaborating entity "i2c_sender" for hierarchy "ov7670_controller:controller|i2c_sender:Inst_i2c_sender" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 58
-Info (12128): Elaborating entity "ov7670_registers" for hierarchy "ov7670_controller:controller|ov7670_registers:Inst_ov7670_registers" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 73
+Warning (10036): Verilog HDL or VHDL warning at CONTROLADOR_VGA.vhd(91): object "config_finished" assigned a value but never read File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 91
+Warning (10036): Verilog HDL or VHDL warning at CONTROLADOR_VGA.vhd(125): object "cPos_x" assigned a value but never read File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 125
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(131): used explicit default value for signal "COLORBLANCO" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 131
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(132): used explicit default value for signal "COLORNEGRO" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 132
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(133): used explicit default value for signal "COLORGRIS" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 133
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(134): used explicit default value for signal "COLORROJO" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 134
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(135): used explicit default value for signal "COLORAZUL" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 135
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(149): used explicit default value for signal "score" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 149
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(193): used explicit default value for signal "cero" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 193
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(235): used explicit default value for signal "uno" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 235
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(277): used explicit default value for signal "dos" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 277
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(319): used explicit default value for signal "tres" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 319
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(361): used explicit default value for signal "cuatro" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 361
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(403): used explicit default value for signal "cinco" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 403
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(445): used explicit default value for signal "seis" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 445
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(487): used explicit default value for signal "siete" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 487
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(529): used explicit default value for signal "ocho" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 529
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(571): used explicit default value for signal "nueve" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 571
+Warning (10540): VHDL Signal Declaration warning at CONTROLADOR_VGA.vhd(630): used explicit default value for signal "notas" because signal was never assigned a value File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 630
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(794): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 794
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(794): signal "cont1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 794
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(795): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 795
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(795): signal "cont4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 795
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(796): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 796
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(796): signal "cont2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 796
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(797): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 797
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(797): signal "cont5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 797
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(798): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 798
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(798): signal "cont3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 798
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(799): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 799
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(799): signal "cont" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 799
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(800): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 800
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(800): signal "cont6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 800
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(801): signal "columActiv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 801
+Warning (10492): VHDL Process Statement warning at CONTROLADOR_VGA.vhd(801): signal "cont7" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 801
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:btn_debounce" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 638
+Info (12128): Elaborating entity "ov7670_capture" for hierarchy "ov7670_capture:capture" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 643
+Info (12128): Elaborating entity "ov7670_controller" for hierarchy "ov7670_controller:controller" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 653
+Info (12128): Elaborating entity "i2c_sender" for hierarchy "ov7670_controller:controller|i2c_sender:Inst_i2c_sender" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 58
+Info (12128): Elaborating entity "ov7670_registers" for hierarchy "ov7670_controller:controller|ov7670_registers:Inst_ov7670_registers" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ov7670_controller.vhd Line: 73
+Info (12128): Elaborating entity "ColumActivo" for hierarchy "ColumActivo:act" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 664
 Warning (12125): Using design file ram_cam.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
-    Info (12022): Found design unit 1: ram_cam-SYN File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 56
-    Info (12023): Found entity 1: RAM_CAM File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 42
-Info (12128): Elaborating entity "RAM_CAM" for hierarchy "RAM_CAM:inst_ram" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 671
-Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 63
-Info (12130): Elaborated megafunction instantiation "RAM_CAM:inst_ram|altsyncram:altsyncram_component" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 63
-Info (12133): Instantiated megafunction "RAM_CAM:inst_ram|altsyncram:altsyncram_component" with the following parameter: File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 63
+    Info (12022): Found design unit 1: ram_cam-SYN File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 56
+    Info (12023): Found entity 1: RAM_CAM File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 42
+Info (12128): Elaborating entity "RAM_CAM" for hierarchy "RAM_CAM:inst_ram" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 671
+Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 63
+Info (12130): Elaborated megafunction instantiation "RAM_CAM:inst_ram|altsyncram:altsyncram_component" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 63
+Info (12133): Instantiated megafunction "RAM_CAM:inst_ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/ram_cam.vhd Line: 63
     Info (12134): Parameter "address_aclr_a" = "UNUSED"
     Info (12134): Parameter "address_aclr_b" = "NONE"
     Info (12134): Parameter "address_reg_b" = "CLOCK1"
@@ -731,86 +703,50 @@ Info (12133): Instantiated megafunction "RAM_CAM:inst_ram|altsyncram:altsyncram_
     Info (12134): Parameter "lpm_hint" = "UNUSED"
     Info (12134): Parameter "lpm_type" = "altsyncram"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_u3o3.tdf
-    Info (12023): Found entity 1: altsyncram_u3o3 File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 33
-Info (12128): Elaborating entity "altsyncram_u3o3" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated" File: z:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+    Info (12023): Found entity 1: altsyncram_u3o3 File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_u3o3" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_c7a.tdf
-    Info (12023): Found entity 1: decode_c7a File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/decode_c7a.tdf Line: 22
-Info (12128): Elaborating entity "decode_c7a" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|decode_c7a:decode2" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 46
+    Info (12023): Found entity 1: decode_c7a File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/decode_c7a.tdf Line: 22
+Info (12128): Elaborating entity "decode_c7a" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|decode_c7a:decode2" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_5j9.tdf
-    Info (12023): Found entity 1: decode_5j9 File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/decode_5j9.tdf Line: 22
-Info (12128): Elaborating entity "decode_5j9" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|decode_5j9:rden_decode_b" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 47
+    Info (12023): Found entity 1: decode_5j9 File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/decode_5j9.tdf Line: 22
+Info (12128): Elaborating entity "decode_5j9" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|decode_5j9:rden_decode_b" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_s1b.tdf
-    Info (12023): Found entity 1: mux_s1b File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/mux_s1b.tdf Line: 22
-Info (12128): Elaborating entity "mux_s1b" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|mux_s1b:mux3" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 49
-Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 692
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a0" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 50
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a1" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 83
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a2" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 116
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a3" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 149
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a4" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 182
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a5" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 215
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a6" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 248
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a7" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 281
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a8" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 314
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a9" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 347
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a10" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 380
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a11" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 413
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a12" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 446
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a13" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 479
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a14" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 512
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a15" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 545
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a16" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 578
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a17" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 611
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a18" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 644
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a19" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 677
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a20" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 710
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a21" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 743
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a22" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 776
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a23" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 809
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a24" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 842
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a25" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 875
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a26" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 908
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a27" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 941
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a28" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 974
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a29" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 1007
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a30" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 1040
-        Warning (14320): Synthesized away node "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|ram_block1a31" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 1073
+    Info (12023): Found entity 1: mux_s1b File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/mux_s1b.tdf Line: 22
+Info (12128): Elaborating entity "mux_s1b" for hierarchy "RAM_CAM:inst_ram|altsyncram:altsyncram_component|altsyncram_u3o3:auto_generated|mux_s1b:mux3" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/db/altsyncram_u3o3.tdf Line: 49
+Info (12128): Elaborating entity "SINC_VGA" for hierarchy "SINC_VGA:sincronizador" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 692
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "buzzer" and its non-tri-state driver. File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
+    Warning (13035): Inserted always-enabled tri-state buffer between "buzzer" and its non-tri-state driver. File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "buzzer~synth" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
+    Warning (13010): Node "buzzer~synth" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 23
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "OV7670_RESET" is stuck at VCC File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 10
-    Warning (13410): Pin "OV7670_PWDN" is stuck at GND File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 11
+    Warning (13410): Pin "OV7670_RESET" is stuck at VCC File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 10
+    Warning (13410): Pin "OV7670_PWDN" is stuck at GND File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 11
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 65 registers lost all their fanouts during netlist optimizations.
+Info (17049): 24 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 13 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "OV7670_VSYNC" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 12
-    Warning (15610): No output dependent on input pin "OV7670_HREF" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 13
-    Warning (15610): No output dependent on input pin "OV7670_PCLK" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 14
-    Warning (15610): No output dependent on input pin "OV7670_D[0]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "OV7670_D[1]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "OV7670_D[2]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "OV7670_D[3]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "OV7670_D[4]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "OV7670_D[5]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "OV7670_D[6]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "OV7670_D[7]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 16
-    Warning (15610): No output dependent on input pin "KEY[0]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 19
-    Warning (15610): No output dependent on input pin "KEY[1]" File: Z:/Istanolion/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 19
-Info (21057): Implemented 1479 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 19
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 19
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/akuma/Documents/GitHub/VLSI/ProyectoFinal/CONTROLADOR_VGA.vhd Line: 21
+Info (21057): Implemented 1703 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 22 input pins
     Info (21059): Implemented 18 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1437 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 94 warnings
-    Info: Peak virtual memory: 4818 megabytes
-    Info: Processing ended: Thu Nov 28 10:38:18 2019
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:33
+    Info (21061): Implemented 1629 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 55 warnings
+    Info: Peak virtual memory: 4846 megabytes
+    Info: Processing ended: Thu Nov 28 14:17:32 2019
+    Info: Elapsed time: 00:01:21
+    Info: Total CPU time (on all processors): 00:01:15
 
 

@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("Z:/Istanolion/Documents/GitHub/VLSI/VLSI_7/output_files/") File("VHDL_CAM.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/akuma/Documents/GitHub/VLSI/VLSI_7/output_files/") File("VHDL_CAM.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

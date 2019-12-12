@@ -1,5 +1,5 @@
 Flow report for ProyectoFinal
-Thu Nov 28 10:38:36 2019
+Thu Nov 28 14:18:43 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,20 +40,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Nov 28 10:38:36 2019       ;
+; Flow Status                        ; Successful - Thu Nov 28 14:18:43 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ProyectoFinal                               ;
 ; Top-level Entity Name              ; CONTROLADOR_VGA                             ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C6GES                            ;
 ; Timing Models                      ; Preliminary                                 ;
-; Total logic elements               ; 1,394 / 49,760 ( 3 % )                      ;
-;     Total combinational functions  ; 1,383 / 49,760 ( 3 % )                      ;
-;     Dedicated logic registers      ; 425 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 425                                         ;
+; Total logic elements               ; 1,590 / 49,760 ( 3 % )                      ;
+;     Total combinational functions  ; 1,548 / 49,760 ( 3 % )                      ;
+;     Dedicated logic registers      ; 508 / 49,760 ( 1 % )                        ;
+; Total registers                    ; 508                                         ;
 ; Total pins                         ; 42 / 360 ( 12 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
+; Total memory bits                  ; 262,144 / 1,677,312 ( 16 % )                ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/28/2019 10:37:54 ;
+; Start date & time ; 11/28/2019 14:16:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ProyectoFinal       ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name     ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 247207020255681.157495907406264        ; --            ; --              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 18129493736102.157497217507636         ; --            ; --              ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --              ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --              ; --         ;
 ; MISC_FILE                           ; ram.cmp                                ; --            ; --              ; --         ;
@@ -96,10 +96,10 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 4818 MB             ; 00:00:33                           ;
-; Fitter               ; 00:00:13     ; 1.2                     ; 5583 MB             ; 00:00:20                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4690 MB             ; 00:00:03                           ;
-; Total                ; 00:00:41     ; --                      ; --                  ; 00:00:56                           ;
+; Analysis & Synthesis ; 00:01:19     ; 1.0                     ; 4846 MB             ; 00:01:14                           ;
+; Fitter               ; 00:00:58     ; 1.1                     ; 5510 MB             ; 00:01:01                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4708 MB             ; 00:00:06                           ;
+; Total                ; 00:02:24     ; --                      ; --                  ; 00:02:21                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -108,9 +108,9 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-3SSVIJH  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-3SSVIJH  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-3SSVIJH  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-F90U608  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-F90U608  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-F90U608  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
